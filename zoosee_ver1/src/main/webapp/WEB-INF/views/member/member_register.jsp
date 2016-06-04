@@ -2,8 +2,6 @@
 	pageEncoding="UTF-8"%>
 <script type="text/javascript">
 	$(document).ready(function() {
-		alert("시작!!!!");
-		
 		$("#id").keyup(function() {
 			$("#idView").empty();
 			if ($("#id").val().length < 4 || $("#id").val().length > 11) {
