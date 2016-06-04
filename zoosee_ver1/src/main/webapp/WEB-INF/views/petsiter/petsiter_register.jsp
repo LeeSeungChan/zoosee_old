@@ -3,7 +3,7 @@
 
 
 <h3>돌보미 신청양식</h3>
-<form action="petsiter_registerPetsitter.do" method="post" enctype="multipart/form-data">
+<form action="petsiter_registerPetsiter.do" method="post" enctype="multipart/form-data">
 원하는 가격(1박) : <input type="text" name="price"><br><br>
 가능한 펫 종류 : 
 <input type="checkbox" name="petType" value="멍뭉이">멍뭉이
@@ -20,7 +20,7 @@
 
 집 사진 : <input type="file" name="uploadeHouseImg"><br><br>
 
-돌보미사진 : <input type="file" name="uploadePetsitterImg"><br><br>
+돌보미사진 : <input type="file" name="uploadePetsiterImg"><br><br>
 
 <input type="submit" value="신청하기">
 
