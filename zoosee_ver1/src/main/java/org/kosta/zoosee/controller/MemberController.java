@@ -9,6 +9,7 @@ import org.kosta.zoosee.model.vo.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MemberController {
@@ -34,5 +35,10 @@ public class MemberController {
 			session.setAttribute("mvo", vo);
 		}
 		return "home";
+	}
+	@RequestMapping(value="memberIdCheck.do",method=RequestMethod.POST)
+	@ResponseBody
+	public int memberIdCheck(String id){
+		return memberService.memberIdCheck(id);
 	}
 }

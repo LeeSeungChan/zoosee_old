@@ -14,4 +14,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select id,name,address,gender,email,password,tel,job,rank from Pet_MEMBER
 		where id=#{id} and password=#{password}
 	</select>
+	
+	<select id="memberIdCheck" resultType="int">
+		select count(*) from pet_member where id=#{value}
+	</select>
 </mapper>

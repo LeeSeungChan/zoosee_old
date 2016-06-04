@@ -3,11 +3,24 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#id").keyup(function() {
+			var id=$("#id").val();
 			$("#idView").empty();
-			if ($("#id").val().length < 4 || $("#id").val().length > 11) {
-				$("#idView").html("아이디는 4자 이상 11자 이하 가능");
+			if (id.length < 4 || id.length > 11) {
+				$("#idView").html("아이디는 4자 이상 11자 이하만 가능").css("background","pink");
 			} else {
 				$("#idView").html("사용가능");
+				$.ajax({
+					type : "post",
+					url : "memberIdCheck.do",
+					data : "id="+id,
+					success : function(jsonData) {
+						if(jsonData=="1"){
+							$("#idView").html("중복된 아이디로 사용불가").css("background","red");
+						}else {
+							$("#idView").html("사용가능").css("background","yellow");
+						}
+					}
+				});
 			}
 		});
 		$("#password").keyup(function(){
@@ -78,19 +91,19 @@
 	});
 </script>
 
-	<form action="registerMember.do" method="post" id="memberRegisterForm">
-		아이디 <input type="text" name="id" id="id">
-		<span id="idView"></span><br>
-		비밀번호 <input type="password" name="password" id="password">
-		<span id="passView"></span> <br>
-		비밀번호 확인 <input type="password" name="passwordCheck" id="passwordCheck">
-		<span id="passCheckView"></span>
-		<br> 이름 <input type="text" name="name" id="name"><br>
-		주소 <input type="text" name="address" id="address"><br> 
-		성별<input type="radio" name="gender" value="man" >남성 
-		<input type="radio" name="gender" value="woman" >여성<br>
-		이메일 <input type="email" name="email" id="email"> <br> 
-		연락처 <input type="text" name="tel" id="tel"><br> 
-		직업 <input type="text" name="job" id="job"><br>
-		<input type="submit" value="등록">
-	</form>
+<form action="registerMember.do" method="post" id="memberRegisterForm">
+	아이디 <input type="text" name="id" id="id">
+	<span id="idView"></span><br>
+	비밀번호 <input type="password" name="password" id="password">
+	<span id="passView"></span> <br>
+	비밀번호 확인 <input type="password" name="passwordCheck" id="passwordCheck">
+	<span id="passCheckView"></span>
+	<br> 이름 <input type="text" name="name" id="name"><br>
+	주소 <input type="text" name="address" id="address"><br> 
+	성별<input type="radio" name="gender" value="man" >남성 
+	<input type="radio" name="gender" value="woman" >여성<br>
+	이메일 <input type="email" name="email" id="email"> <br> 
+	연락처 <input type="text" name="tel" id="tel"><br> 
+	직업 <input type="text" name="job" id="job"><br>
+	 <input type="submit" value="등록">
+</form>

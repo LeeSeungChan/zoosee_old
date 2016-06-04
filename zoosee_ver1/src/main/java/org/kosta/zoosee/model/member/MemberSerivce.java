@@ -8,4 +8,6 @@ public interface MemberSerivce {
 
 	public abstract MemberVO loginMember(MemberVO mvo);
 
+	public abstract int memberIdCheck(String id);
+
 }

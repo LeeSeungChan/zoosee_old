@@ -8,4 +8,6 @@ public interface MemberDAO {
 
 	public abstract MemberVO loginMember(MemberVO mvo);
 
+	public abstract int memberIdCheck(String id);
+
 }
