@@ -12,6 +12,7 @@
 	<c:otherwise>
 		${sessionScope.mvo.name}님 환영
 		<a href="${initParam.root}logout.do">로그아웃</a>
+		<a href="${initParam.root}pet_register.do">펫등록</a>
 	</c:otherwise>
 </c:choose>
 
