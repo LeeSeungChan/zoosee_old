@@ -6,4 +6,6 @@ public interface MemberSerivce {
 
 	public abstract void registerMember(MemberVO mvo);
 
+	public abstract MemberVO loginMember(MemberVO mvo);
+
 }

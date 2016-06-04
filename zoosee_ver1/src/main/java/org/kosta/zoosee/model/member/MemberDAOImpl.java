@@ -15,4 +15,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public void registerMember(MemberVO mvo){
 		template.insert("member.registerMember", mvo);
 	}
+
+	@Override
+	public MemberVO loginMember(MemberVO mvo) {
+		MemberVO m = template.selectOne("member.loginMember", mvo);
+		return m;
+	}
 }

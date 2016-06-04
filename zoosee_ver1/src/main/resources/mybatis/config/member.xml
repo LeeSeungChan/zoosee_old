@@ -9,5 +9,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into Pet_MEMBER(id,name,address,gender,email,password,tel,job,rank)
 		values(#{id},#{name},#{address},#{gender},#{email},#{password},#{tel},#{job},#{rank})
 	</insert>
-	
+
+	<select id="loginMember" resultType="memberVO" parameterType="memberVO">
+		select id,name,address,gender,email,password,tel,job,rank from Pet_MEMBER
+		where id=#{id} and password=#{password}
+	</select>
 </mapper>

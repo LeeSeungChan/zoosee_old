@@ -78,19 +78,19 @@
 	});
 </script>
 
-<form action="registerMember.do" method="post" id="memberRegisterForm">
-	아이디 <input type="text" name="id" id="id">
-	<span id="idView"></span><br>
-	비밀번호 <input type="password" name="password" id="password">
-	<span id="passView"></span> <br>
-	비밀번호 확인 <input type="password" name="passwordCheck" id="passwordCheck">
-	<span id="passCheckView"></span>
-	<br> 이름 <input type="text" name="name" id="name"><br>
-	주소 <input type="text" name="address" id="address"><br> 
-	성별<input type="radio" name="gender" value="man" >남성 
-	<input type="radio" name="gender" value="woman" >여성<br>
-	이메일 <input type="email" name="email" id="email"> <br> 
-	연락처 <input type="text" name="tel" id="tel"><br> 
-	직업 <input type="text" name="job" id="job"><br>
-	 <input type="submit" value="등록">
-</form>
+	<form action="registerMember.do" method="post" id="memberRegisterForm">
+		아이디 <input type="text" name="id" id="id">
+		<span id="idView"></span><br>
+		비밀번호 <input type="password" name="password" id="password">
+		<span id="passView"></span> <br>
+		비밀번호 확인 <input type="password" name="passwordCheck" id="passwordCheck">
+		<span id="passCheckView"></span>
+		<br> 이름 <input type="text" name="name" id="name"><br>
+		주소 <input type="text" name="address" id="address"><br> 
+		성별<input type="radio" name="gender" value="man" >남성 
+		<input type="radio" name="gender" value="woman" >여성<br>
+		이메일 <input type="email" name="email" id="email"> <br> 
+		연락처 <input type="text" name="tel" id="tel"><br> 
+		직업 <input type="text" name="job" id="job"><br>
+		<input type="submit" value="등록">
+	</form>

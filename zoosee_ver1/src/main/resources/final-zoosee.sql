@@ -32,6 +32,8 @@ select * from reserve
 select * from tradeinfo
 
 -- 회원 테이블
+select id,name,address,gender,email,password,tel,job,rank from PET_MEMBER
+where id='java' and password='1234'
 CREATE TABLE PET_MEMBER(
 	-- 아이디
 	id varchar2(100) primary key,
