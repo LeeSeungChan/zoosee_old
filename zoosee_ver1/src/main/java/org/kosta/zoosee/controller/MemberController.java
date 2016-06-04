@@ -16,24 +16,16 @@ public class MemberController {
 	
 	@RequestMapping("registerMember.do")
 	public String registerMember(MemberVO mvo, HttpServletRequest request){
-	/* [ 회원가입 메서드 ]
- 	 * session 체크 부분은 추후 interceptor로 바꾼다. */
+		System.out.println("registerMember 메서드 실행!!");
 		HttpSession session = request.getSession();
-		memberService.registerMember(mvo); // mvo를 DB에 저장 // 위치 확인
+		
+		memberService.registerMember(mvo);
 		
 		if(session != null){
 			session.setAttribute("mvo", mvo);
+			System.out.println(mvo.toString());
 		}
 		
 		return "home";
 	}
-	
-	@RequestMapping("loginMember.do")
-	public String loginMember(String id, String password){
-		
-		//memberService.loginMember()
-		
-		return "home";
-	}
-	
 }
