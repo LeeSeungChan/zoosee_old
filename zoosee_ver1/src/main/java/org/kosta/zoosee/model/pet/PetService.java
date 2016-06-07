@@ -6,4 +6,6 @@ public interface PetService {
 
 	public abstract void registerPet(PetVO pvo);
 
+	public abstract PetVO petDetail(int petNo);
+
 }

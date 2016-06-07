@@ -2,7 +2,6 @@ package org.kosta.zoosee.model.pet;
 
 import javax.annotation.Resource;
 
-import org.kosta.zoosee.model.pet.PetDAO;
 import org.kosta.zoosee.model.vo.PetVO;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +13,10 @@ public class PetServiceImpl implements PetService {
 	@Override
 	public void registerPet(PetVO pvo){
 		petDAO.registerPet(pvo);
+	}
+
+	@Override
+	public PetVO petDetail(int petNo) {
+		return petDAO.petDetail(petNo);
 	}
 }

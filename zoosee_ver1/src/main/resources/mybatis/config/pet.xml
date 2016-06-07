@@ -6,13 +6,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="pet">
 
 	<insert id="registerPet" parameterType="petVO">
-		<selectKey keyProperty="no" resultType="int" order="BEFORE">
-			select pet_seq.nextval from dual
+		<selectKey keyProperty="petNo" resultType="int" order="BEFORE">
+			select petNo_seq.nextval from dual
 		</selectKey>
-		insert into pet(petNo,petName,petAge,petType,petGender,petNeutral,pet_img,pet_size,clob,id)
-		values(#{petNo},#{petName},#{petAge},#{petType},#{petGender},#{petNeutral},#{petImg},#{petSize},#{clob},#{memberVO.id})
+		insert into 
+		pet(petNo,petName,petAge,petType,petGender,petNeutral,petImg,petSize,etc,id)
+		values(#{petNo},#{petName},#{petAge},#{petType},#{petGender},#{petNeutral},#{petImg},#{petSize},#{etc},#{memberVO.id})
 	</insert>
-	
+	<select id="detail" resultType="petVO">
+		select petNo,petName,petAge,petType,petGender,petNeutral,petImg,petSize,etc,id from pet
+		where petNo=#{value}
+	</select>
 	<!-- <resultMap type="petVO" id="petRM">
 		<result property="memberVO.id" column="id" />	
 	</resultMap> -->

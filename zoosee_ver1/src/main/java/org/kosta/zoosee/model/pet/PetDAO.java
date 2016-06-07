@@ -4,6 +4,8 @@ import org.kosta.zoosee.model.vo.PetVO;
 
 public interface PetDAO {
 
-	public abstract void registerPet(PetVO vo);
+	public abstract void registerPet(PetVO pvo);
+
+	public abstract PetVO petDetail(int petNo);
 
 }
