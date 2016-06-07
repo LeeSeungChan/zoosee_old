@@ -1,7 +1,9 @@
 package org.kosta.zoosee.controller;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.kosta.zoosee.model.pet.PetService;
@@ -9,7 +11,7 @@ import org.kosta.zoosee.model.vo.MemberVO;
 import org.kosta.zoosee.model.vo.PetVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,32 +19,40 @@ import org.springframework.web.servlet.ModelAndView;
 public class PetController {
 	@Resource
 	private PetService petService;
+	@Resource(name="petUploadPath")
+	private String petUploadPath;
 	
-	@RequestMapping("registerPet.do")
-	public ModelAndView write(@RequestParam("petImg")MultipartFile img, PetVO vo,HttpSession session, HttpServletRequest request) {
-		if(session==null||session.getAttribute("mvo")==null){
-			return new ModelAndView("redirect:index.jsp");
-		}
-		String petName = request.getParameter("petName");
-		int petAge = Integer.parseInt(request.getParameter("petAge"));
-		String petType = request.getParameter("petType");
-		String petGender = request.getParameter("petGender");
-		String petNeutral = request.getParameter("petNeutral");
-		MultipartFile petImg = img;
-		String petSize = request.getParameter("petSize");
-		String clob = request.getParameter("clob");
-		PetVO pvo=new PetVO();
-		pvo.setPetName(petName);
-		pvo.setPetAge(petAge);
-		pvo.setPetType(petType);
-		pvo.setPetGender(petGender);
-		pvo.setPetNeutral(petNeutral);
-		pvo.setPetImg(petImg);
-		pvo.setPetSize(petSize);
-		pvo.setClob(clob);
-		pvo.setMemberVO((MemberVO)session.getAttribute("mvo"));	
-		petService.registerPet(pvo);
+	@RequestMapping(value="registerPet.do", method=RequestMethod.POST)
+	public ModelAndView write(PetVO pvo, MultipartFile petImg2, HttpSession session) {
+		System.out.println("매핑"+pvo);
 		
-		return new ModelAndView("redirect:index.jsp");
+		if(session==null||session.getAttribute("mvo")==null){
+			return new ModelAndView("redirect:home.do");
+		}
+		pvo.setMemberVO((MemberVO)session.getAttribute("mvo"));
+		
+		String path = petUploadPath+petImg2.getOriginalFilename();
+		if(petImg2.isEmpty()==false){	
+			//System.out.println(petImg);
+			//System.out.println(petImg.isEmpty());//업로드할 파일이 있는지 확인
+			File uploadFile=new File(path);
+			try {
+				petImg2.transferTo(uploadFile);
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+		}
+		path = path.substring(path.indexOf("upload\\"));
+		pvo.setPetImg(path);
+		petService.registerPet(pvo);
+		System.out.println("path:"+path);
+		System.out.println(pvo.getPetNo());
+		return new ModelAndView("redirect:pet_detail.do?petNo="+pvo.getPetNo());
 	}
+	@RequestMapping("pet_detail.do")
+		public ModelAndView petDetail(int petNo){
+			PetVO pvo=petService.petDetail(petNo);
+			return new ModelAndView("pet_detail","pvo",pvo);
+	}
+	
 }
