@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MemberController {
@@ -22,7 +23,7 @@ public class MemberController {
 	 */
 		memberService.registerMember(mvo);
 
-		return "home";
+		return "member_register_result";
 	}
 	
 	@RequestMapping(value="loginMember.do", method=RequestMethod.POST)
@@ -40,5 +41,18 @@ public class MemberController {
 	@ResponseBody
 	public int memberIdCheck(String id){
 		return memberService.memberIdCheck(id);
+	}
+	@RequestMapping("member_update_result.do")
+	public ModelAndView updateMember(MemberVO vo,HttpServletRequest request){
+		String message=memberService.updateMember(vo);
+		ModelAndView mv=new ModelAndView();
+		if(message=="fail"){
+			mv.setViewName("member_update_fail");
+		}else{
+			HttpSession session=request.getSession(false);
+			session.setAttribute("mvo", vo);
+			mv.setViewName("member_detail");
+		}
+		return mv;
 	}
 }

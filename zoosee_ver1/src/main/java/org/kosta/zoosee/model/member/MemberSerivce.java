@@ -10,4 +10,6 @@ public interface MemberSerivce {
 
 	public abstract int memberIdCheck(String id);
 
+	public abstract String updateMember(MemberVO vo);
+
 }

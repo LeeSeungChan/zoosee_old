@@ -99,7 +99,14 @@
 	비밀번호 확인 <input type="password" name="passwordCheck" id="passwordCheck">
 	<span id="passCheckView"></span>
 	<br> 이름 <input type="text" name="name" id="name"><br>
-	주소 <input type="text" name="address" id="address"><br> 
+	주소 
+	<select name="address" id="address">
+		<option value="">-선택-</option>
+		<option value="서울"> 서울 </option>
+		<option value="경기"> 경기 </option>
+		<option value="서울"> 서울 </option>
+	</select><!-- <input type="text" name="address2" id="address2"> -->
+	<br> 
 	성별<input type="radio" name="gender" value="man" >남성 
 	<input type="radio" name="gender" value="woman" >여성<br>
 	이메일 <input type="email" name="email" id="email"> <br> 

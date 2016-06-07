@@ -10,4 +10,6 @@ public interface MemberDAO {
 
 	public abstract int memberIdCheck(String id);
 
+	public abstract int updateMember(MemberVO vo);
+
 }

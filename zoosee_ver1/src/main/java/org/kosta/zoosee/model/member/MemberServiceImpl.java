@@ -27,4 +27,13 @@ public class MemberServiceImpl implements MemberSerivce {
 	public int memberIdCheck(String id) {
 		return memberDAO.memberIdCheck(id);
 	}
+	@Override
+	public String updateMember(MemberVO vo) {
+		int i=memberDAO.updateMember(vo);
+		String message="ok";
+		if(i==0){
+			message="fail";
+		}
+		return message;
+	}
 }
