@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sql Mapper -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="petsitter">
+
+	<resultMap type="petsitterVO" id="petsitterRM">
+		<result property="memberVO.id" column="id" />	
+	</resultMap>
+
+	<select id="registerPetsitter" resultType="petsitterVO" parameterType="petsitterVO">
+ 		insert into petsitter
+ 		(petsitterNo,petNumber,service,price,petSize,petType,houseImg,petsitterImg,adminRecog,id)
+		values
+		(petsitterNo_seq.nextval,#{petNumber},#{service},#{price},#{petSize},#{petType},'houseImg','petsitterImg','false',#{memberVO.id})
+ 	</select>
+ 	
+</mapper>
