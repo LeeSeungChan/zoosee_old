@@ -17,7 +17,7 @@ public class PetsitterController {
 	private PetsitterService petsitterService;
 	
 	@RequestMapping("petsiter_registerPetsitter.do")
-	public ModelAndView registerPetsitter(HttpServletRequest request,PetsitterVO petsitterVO){
+	public ModelAndView registerPetsitter(HttpServletRequest request, PetsitterVO petsitterVO){
 		//세션에 있는 mvo 정보를 가져옴
 		MemberVO mvo = (MemberVO) request.getSession().getAttribute("mvo");
 		petsitterVO.setMemberVO(mvo);

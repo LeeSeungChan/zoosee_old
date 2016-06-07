@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class PetController {
 	@Resource
 	private PetService petService;
+	
 	@RequestMapping("registerPet.do")
 	public ModelAndView write(@RequestParam("petImg")MultipartFile img, PetVO vo,HttpSession session, HttpServletRequest request) {
 		if(session==null||session.getAttribute("mvo")==null){
@@ -41,6 +42,7 @@ public class PetController {
 		pvo.setClob(clob);
 		pvo.setMemberVO((MemberVO)session.getAttribute("mvo"));	
 		petService.registerPet(pvo);
+		
 		return new ModelAndView("redirect:index.jsp");
 	}
 }
