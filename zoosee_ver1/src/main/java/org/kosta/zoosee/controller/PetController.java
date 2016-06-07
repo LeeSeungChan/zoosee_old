@@ -52,6 +52,7 @@ public class PetController {
 	@RequestMapping("pet_detail.do")
 		public ModelAndView petDetail(int petNo){
 			PetVO pvo=petService.petDetail(petNo);
+			
 			return new ModelAndView("pet_detail","pvo",pvo);
 	}
 	
