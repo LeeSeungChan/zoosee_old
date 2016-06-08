@@ -44,5 +44,7 @@
 <bean id="petUploadPath" class="java.lang.String">
 	<constructor-arg value="C:\\Users\\kosta\\git\\ZooSee\\zoosee_ver1\\src\\main\\webapp\\upload\\pet\\"/>
 </bean>
-
+<bean id="petsitterUploadPath" class="java.lang.String">
+	<constructor-arg value="C:\\Users\\kosta\\git\\ZooSee\\zoosee_ver1\\src\\main\\webapp\\upload\\petsitter\\"/>
+</bean>
 </beans>

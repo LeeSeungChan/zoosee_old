@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
-	$(document).ready(function(){
+ 	$(document).ready(function(){
 		$("#registerPetsitterForm").submit(function(){
 			var name = $("#name").val();
 			var gender = $("input[name=gender]:checked").val();
@@ -10,9 +10,10 @@
 			var service = $("input[name=service]:checked").val();
 			var petType = $("input[name=petType]:checked").val();
 			var petSize = $("input[name=petSize]:checked").val();
-			
-			alert(petNumber);
-			
+			var house_img = $("#house_img").val();
+			var petsitter_img = $("#petsitter_img").val();
+			var checkedAll = $("input[name=checkedAll]:checked").val();
+
 			if(name==""){
 				alert("이름을 입력해 주세요!");
 				return false;
@@ -25,9 +26,6 @@
 			}else if(isNaN(price)){
 				alert("가격을 숫자로 입력해주세요!");
 				return false;
-			}else if(petNumber==undefined){
-				alert("돌봄 가능한 팻을 선택해주세요!");
-				return false;
 			}else if(service==undefined){
 				alert("제공 가능한 서비스를 선택해주세요!")
 				return false;
@@ -37,10 +35,16 @@
 			}else if(petSize==undefined){
 				alet("팻 사이즈를 선택해주세요!");
 				return false;
+			}else if(house_img==""){
+				alert("집 사진을 등록해주세요!");
+				return false;
+			}else if(petsitter_img==""){
+				alert("본인 사진을 등록해주세요!");
+				return false;
+			}else if(checkedAll==undefined){
+				alert("필수사항에 체크해주세요!");
+				return false;
 			}
-			
-			//섭밋취소용
-			return false;
 		});//submit
 	});
 
@@ -95,13 +99,13 @@ ZOOSEE 는 그 어떤 스킬이나 역량보다 "동물에 대한 진심과 사�
 <input type="checkbox" name="service" value="픽업">픽업<br><br>
 
 집 사진* <br>
- <input type="file" name="uploadeHouseImg"><br><br>
+ <input type="file" name="file[0]" id="house_img"><br><br>
 
 돌보미사진* <br>
-<input type="file" name="uploadePetsiterImg"><br><br>
+<input type="file" name="file[1]" id="petsitter_img"><br><br>
 
 돌보미는 지원자 '본인에 한해서만' 활동 가능합니다. 확인하셨나요? *<br>
-<input type="radio" name="checkAll" value="true">네 확인했습니다! <br><br>
+<input type="radio" name="checkedAll" >네 확인했습니다! <br><br>
 <input type="submit" value="신청하기">
 
 </form>

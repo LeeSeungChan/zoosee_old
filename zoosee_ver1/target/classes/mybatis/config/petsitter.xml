@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  		insert into petsitter
  		(petsitterNo,petNumber,service,price,petSize,petType,houseImg,petsitterImg,adminRecog,id)
 		values
-		(petsitterNo_seq.nextval,#{petNumber},#{service},#{price},#{petSize},#{petType},'houseImg','petsitterImg','false',#{memberVO.id})
+		(petsitterNo_seq.nextval,#{petNumber},#{service},#{price},#{petSize},#{petType},#{houseImg},#{petsitterImg},'nonRecog',#{memberVO.id})
  	</select>
  	
 </mapper>
