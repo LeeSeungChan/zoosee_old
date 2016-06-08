@@ -68,11 +68,11 @@ public class PetsitterController {
 	//펫시터 리스트를 보여준다.
 		@RequestMapping("petsitter_petsitterList.do")
 		public ModelAndView petsitterList(String value){
-			List<PetsitterVO> list=null;
+			List<PetsitterVO> list=petsitterService.petsitterList(value);
 			if(value.equals("recog")){//value -> recog 이면 펫시터 리스트 
-				return new ModelAndView("petsitter_petsitterlist","list",petsitterService.petsitterList(value));
+				return new ModelAndView("petsitter_petsitterlist","list",list);
 			}else{//value -> nonrecog 이면 펫시터 대기자 리스트 
-				return new ModelAndView("petsitter_petsitterwaitinglist","list",petsitterService.petsitterList(value));
+				return new ModelAndView("petsitter_petsitterwaitinglist","list",list);
 			}
 		}
 		

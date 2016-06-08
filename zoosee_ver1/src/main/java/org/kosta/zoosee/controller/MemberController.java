@@ -1,14 +1,11 @@
 package org.kosta.zoosee.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.kosta.zoosee.model.member.MemberSerivce;
 import org.kosta.zoosee.model.vo.MemberVO;
-import org.kosta.zoosee.model.vo.PetsitterVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,15 +17,14 @@ public class MemberController {
 	@Resource
 	private MemberSerivce memberService;
 	
+	/* Member 회원가입하는 메서드 */
 	@RequestMapping(value="registerMember.do", method=RequestMethod.POST)
 	public String registerMember(MemberVO mvo){
-	/* Member 회원가입하는 메서드
-	 */
 		memberService.registerMember(mvo);
 
-		return "member_register_result";
+		return "redirect:member_register_result.do";
 	}
-	
+	/* Member 로그인 메서드 */
 	@RequestMapping(value="loginMember.do", method=RequestMethod.POST)
 	public String loginMember(MemberVO mvo, HttpServletRequest request){
 		System.out.println(mvo.toString());
@@ -40,25 +36,26 @@ public class MemberController {
 		}
 		return "home";
 	}
+	/* Member 회원가입시 아이디 중복확인 메서드 */
 	@RequestMapping(value="memberIdCheck.do",method=RequestMethod.POST)
 	@ResponseBody
 	public int memberIdCheck(String id){
 		return memberService.memberIdCheck(id);
 	}
-	@RequestMapping("member_update_result.do")
+	/* Member 정보수정 메서드 */
+	@RequestMapping(value="member_update_result.do",method=RequestMethod.POST)
 	public ModelAndView updateMember(MemberVO vo,HttpServletRequest request){
 		String message=memberService.updateMember(vo);
 		ModelAndView mv=new ModelAndView();
 		if(message=="fail"){
-			mv.setViewName("member_update_fail");
+			mv.setViewName("redirect:member_update_fail.do");
 		}else{
 			HttpSession session=request.getSession(false);
 			session.setAttribute("mvo", vo);
-			mv.setViewName("member_detail");
+			mv.setViewName("redirect:member_detail.do");
 		}
 		return mv;
 	}
-	
 	//멤버 리스트를 보여준다.
 	@RequestMapping("member_memberlist.do")
 	public ModelAndView memberList(String rank){
