@@ -104,7 +104,7 @@
 		<option value="">-선택-</option>
 		<option value="서울"> 서울 </option>
 		<option value="경기"> 경기 </option>
-		<option value="서울"> 서울 </option>
+		<option value="인천"> 인천 </option>
 	</select><!-- <input type="text" name="address2" id="address2"> -->
 	<br> 
 	성별<input type="radio" name="gender" value="man" >남성 
