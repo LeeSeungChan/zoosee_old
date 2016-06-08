@@ -25,6 +25,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update pet set petName=#{petName},petAge=#{petAge},petType=#{petType},petGender=#{petGender},petNeutral=#{petNeutral},petImg=#{petImg},petSize=#{petSize},etc=#{etc}
 		where petNo=#{petNo}
 	</update>
+	<update id="updatePetNoImg" parameterType="petVO">
+		update pet set petName=#{petName},petAge=#{petAge},petType=#{petType},petGender=#{petGender},petNeutral=#{petNeutral},petSize=#{petSize},etc=#{etc}
+		where petNo=#{petNo}
+	</update>
 	<!-- <resultMap type="petVO" id="petRM">
 		<result property="memberVO.id" column="id" />	
 	</resultMap> -->

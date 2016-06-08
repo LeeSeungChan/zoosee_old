@@ -33,6 +33,10 @@ public class PetDAOImpl implements PetDAO {
 		System.out.println("dao임플");
 		template.update("pet.update", vo);
 	}
+	@Override
+	public void updatePetNoImg(PetVO pvo) {
+		template.update("pet.updatePetNoImg",pvo);
+	}
 
 	
 }

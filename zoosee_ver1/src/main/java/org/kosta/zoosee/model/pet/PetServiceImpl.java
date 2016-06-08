@@ -32,4 +32,9 @@ public class PetServiceImpl implements PetService {
 		System.out.println("서비스임플");
 		petDAO.petUpdateResult(vo);
 	}
+
+	@Override
+	public void updatePetNoImg(PetVO pvo) {
+		petDAO.updatePetNoImg(pvo);
+	}
 }
