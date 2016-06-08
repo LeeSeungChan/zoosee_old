@@ -78,17 +78,19 @@ public class PetController {
 				//System.out.println(petImg);
 				//System.out.println(petImg.isEmpty());//�뾽濡쒕뱶�븷 �뙆�씪�씠 �엳�뒗吏� �솗�씤
 				File uploadFile=new File(path);
+				path = path.substring(path.indexOf("upload\\"));
+				vo.setPetImg(path);
+				petService.petUpdateResult(vo);
+				System.out.println("수정"+path);
 				try {
 					petImg3.transferTo(uploadFile);
 				} catch (IllegalStateException | IOException e) {
 					e.printStackTrace();
 				}
+			}else{
+				petService.updatePetNoImg(vo);
 			}
-			path = path.substring(path.indexOf("upload\\"));
-			vo.setPetImg(path);
-			petService.petUpdateResult(vo);
 			System.out.println(vo);
-			System.out.println("수정"+path);
 			return "redirect:pet_detail.do?petNo="+vo.getPetNo();
 		}else{
 			return "redirect:home.do";

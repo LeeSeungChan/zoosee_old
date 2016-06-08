@@ -14,5 +14,7 @@ public interface PetDAO {
 
 	public abstract void petUpdateResult(PetVO vo);
 
+	public abstract void updatePetNoImg(PetVO pvo);
+
 
 }
