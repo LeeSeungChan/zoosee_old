@@ -17,6 +17,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select petNo,petName,petAge,petType,petGender,petNeutral,petImg,petSize,etc,id from pet
 		where petNo=#{value}
 	</select>
+	<select id="getList" resultType="petVO">
+		select petNo,petName,petImg from pet 
+		where id=#{value}
+	</select>
+	<update id="update" parameterType="petVO">
+		update pet set petName=#{petName},petAge=#{petAge},petType=#{petType},petGender=#{petGender},petNeutral=#{petNeutral},petImg=#{petImg},petSize=#{petSize},etc=#{etc}
+		where petNo=#{petNo}
+	</update>
 	<!-- <resultMap type="petVO" id="petRM">
 		<result property="memberVO.id" column="id" />	
 	</resultMap> -->

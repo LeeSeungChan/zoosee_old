@@ -56,5 +56,5 @@
 	<input type="radio" name="petSize" value="m" >중
 	<input type="radio" name="petSize" value="l" >대<br>
 	특이사항 <input type="text" name="etc" id="petEtc"><br>
-	<input type="submit" value="등록하기">
+	<input type="submit" value="등록">
 </form>

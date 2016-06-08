@@ -1,5 +1,7 @@
 package org.kosta.zoosee.model.pet;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.kosta.zoosee.model.vo.PetVO;
@@ -18,5 +20,16 @@ public class PetServiceImpl implements PetService {
 	@Override
 	public PetVO petDetail(int petNo) {
 		return petDAO.petDetail(petNo);
+	}
+
+	@Override
+	public List<PetVO> petList(String id) {
+		return petDAO.petList(id);
+	}
+
+	@Override
+	public void petUpdateResult(PetVO vo) {
+		System.out.println("서비스임플");
+		petDAO.petUpdateResult(vo);
 	}
 }
