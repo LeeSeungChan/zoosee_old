@@ -30,7 +30,10 @@
 			}
 		});
 		$("#updateForm").submit(function(){
-			if($("#password").val()==""){
+			if($("#name").val()==""){
+				alert("이름를 입력하세요.");
+				return false;
+			}else if($("#password").val()==""){
 				alert("비밀번호를 입력하세요.");
 				return false;
 			}else if($("#passwordCheck").val()==""){
@@ -83,7 +86,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>이름 </td><td><input type="text" name="name" value="${mvo.name}" readonly="readonly"></td>
+			<td>이름 </td><td><input type="text" name="name" value="${mvo.name}" id="name" ></td>
 		</tr>
 		<tr>
 			<td>주소 </td><td><input type="text" name="address" value="${mvo.address}" id="address"></td>
