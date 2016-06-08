@@ -1,8 +1,9 @@
 package org.kosta.zoosee.model.member;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
-import org.kosta.zoosee.model.member.MemberDAO;
 import org.kosta.zoosee.model.vo.MemberVO;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +36,15 @@ public class MemberServiceImpl implements MemberSerivce {
 			message="fail";
 		}
 		return message;
+	}
+
+	@Override
+	public List<MemberVO> memberList(String rank) {
+		return memberDAO.memberList(rank);
+	}
+
+	@Override
+	public MemberVO getMemberVO(String id) {
+		return memberDAO.getMemberVO(id);
 	}
 }

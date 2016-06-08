@@ -9,7 +9,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>	
 	<!-- 사용할 클래스에 대한 별칭을 명시한다.  -->
 	<typeAliases>	
-		<package name="org.kosta.zoosee.model.vo"/>
+		<typeAlias type="org.kosta.zoosee.model.vo.PetsitterVO" alias="petsitterVO"/>
+		<typeAlias type="org.kosta.zoosee.model.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="org.kosta.zoosee.model.vo.PetVO" alias="petVO"/>
+		<!-- <typeAlias type="org.kosta.zoosee.model.vo"/> -->
 	</typeAliases>	
 	<!-- mapper.xml 을 명시한다  -->
 	<mappers>	

@@ -14,7 +14,8 @@
 		<a href="${initParam.root}logout.do">로그아웃</a>
 		<a href="${initParam.root}pet_register.do">펫등록</a>
 		<a href="${initParam.root}member_detail.do">회원정보</a>
+		<a href="${initParam.root}petsitter_petsitterList.do?value=recog">회원관리</a>
 	</c:otherwise>
 </c:choose>
 
-<a href="${initParam.root}petsiter_register.do">돌보미신청(변경)</a>
+<a href="${initParam.root}petsitter_register.do">돌보미신청(변경)</a>

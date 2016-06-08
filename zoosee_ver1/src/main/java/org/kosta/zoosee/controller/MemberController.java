@@ -1,11 +1,14 @@
 package org.kosta.zoosee.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.kosta.zoosee.model.member.MemberSerivce;
 import org.kosta.zoosee.model.vo.MemberVO;
+import org.kosta.zoosee.model.vo.PetsitterVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,4 +58,18 @@ public class MemberController {
 		}
 		return mv;
 	}
+	
+	//멤버 리스트를 보여준다.
+	@RequestMapping("member_memberlist.do")
+	public ModelAndView memberList(String rank){
+		return new ModelAndView("member_memberlist","list",memberService.memberList(rank));
+		
+	}
+	
+	//멤버정보보기
+	@RequestMapping("member.getMemberVO.do")
+	public ModelAndView getMemberVO(String id){
+		return new ModelAndView("member_memberInfo","mvo",memberService.getMemberVO(id));
+	}
+	
 }

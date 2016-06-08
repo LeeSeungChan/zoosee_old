@@ -23,4 +23,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update Pet_MEMBER set password=#{password},address=#{address},email=#{email},tel=#{tel},job=#{job}
 		where id=#{id}
 	</update>
+	
+	<select id="memberList" resultType="memberVO" parameterType="string">
+		select id,name ,address, gender, email, tel, job, rank
+		from pet_member
+		where rank=#{value}
+	
+	</select>
+	
+	<select id="getMemberVO" resultType="memberVO" >
+		select id,name ,address, gender, email, tel, job, rank
+		from pet_member
+		where id=#{value}
+	</select>
+	
+	
 </mapper>

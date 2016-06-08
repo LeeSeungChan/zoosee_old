@@ -65,7 +65,7 @@ ZOOSEE 는 그 어떤 스킬이나 역량보다 "동물에 대한 진심과 사�
 *이런 분들은 지원이 어려워요<br>
 1. 미성년자 / 2. 임산부 /  3. 열살미만의 아동과 함께 거주하시는 분 / 4. 한달 20일 이상 활동이 불가능한 경우<br><br>
 
-<form action="petsiter_registerPetsitter.do" method="post" enctype="multipart/form-data" id="registerPetsitterForm">
+<form action="petsitter_registerPetsitter.do" method="post" enctype="multipart/form-data" id="registerPetsitterForm">
 지원자 성명 *<br>
 주민등록상의 실명을 기재해주세요.<br>
 <input type="text" name="name" id="name" size=5><br><br>

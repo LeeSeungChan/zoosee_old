@@ -1,5 +1,7 @@
 package org.kosta.zoosee.model.member;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.kosta.zoosee.model.vo.MemberVO;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
+	
 	@Resource
 	private SqlSessionTemplate template;
 	
@@ -27,5 +30,13 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public int updateMember(MemberVO vo) {
 		return template.update("member.updateMember",vo);
+	}
+	@Override
+	public List<MemberVO> memberList(String rank) {
+		return template.selectList("member.memberList",rank);
+	}
+	@Override
+	public MemberVO getMemberVO(String id) {
+		return template.selectOne("member.getMemberVO",id);
 	}
 }
