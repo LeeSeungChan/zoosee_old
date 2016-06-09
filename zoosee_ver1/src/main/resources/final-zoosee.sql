@@ -3,17 +3,13 @@
 create sequence petNo_seq;
 drop sequence petNo_seq;
 
--- 돌보미의 고유 번호(시퀀스)
+-- 게시물 번호(시퀀스)
 create sequence petsitterboard_no_seq;
 drop sequence petsitterboard_no_seq;
 
--- 게시물 번호(시퀀스)
+-- 돌보미의 고유 번호(시퀀스)
 create sequence petsitterNo_seq;
 drop sequence petsitterNo_seq;
-
-
-create sequence petNo_seq;
-drop sequence petNo_seq;
 
  -- 게시물 번호(시퀀스)
 create sequence petbook_no_seq;
@@ -39,8 +35,6 @@ drop table pet_calendar
 drop table reserve
 drop table tradeinfo
 -- 회원 테이블
-select id,name,address,gender,email,password,tel,job,rank from PET_MEMBER
-where id='java' and password='1234'
 CREATE TABLE PET_MEMBER(
 	-- 아이디
 	id varchar2(100) primary key,
