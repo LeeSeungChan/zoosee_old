@@ -18,4 +18,6 @@ public interface MemberDAO {
 
 	public abstract MemberVO getMemberVO(String id);
 
+	public abstract int deleteMember(String id);
+
 }

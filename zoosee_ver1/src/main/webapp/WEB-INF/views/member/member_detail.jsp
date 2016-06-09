@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <script type="text/javascript">
-$(document).ready(function(){
-	$("#update").click(function(){
-		location.href="${initParam.root}member_update.do";
+	$(document).ready(function() {
+		$("#update").click(function() {
+			location.replace("${initParam.root}member_update.do");
+		});
+		$("#delete").click(function() {
+			if (confirm("탈퇴하시겠습니까?")) {
+				location.replace("${initParam.root}member_delete.do");
+			}
+		});
 	});
-});
 </script>
 아이디
 <input type="text" name="id" value="${mvo.id }" readonly="readonly">
@@ -28,3 +33,4 @@ $(document).ready(function(){
 <input type="text" name="job" value="${mvo.job }" readonly="readonly">
 <br>
 <input type="button" value="수정" id="update">
+<input type="button" value="탈퇴" id="delete">

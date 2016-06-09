@@ -15,7 +15,7 @@ public class MemberServiceImpl implements MemberSerivce {
 	@Override
 	public void registerMember(MemberVO mvo){
 		// 메서드를 이용해서 등급 체크 및 업데이트
-		mvo.setRank("nomal");
+		mvo.setRank("일반");
 		
 		memberDAO.registerMember(mvo);
 	}
@@ -46,5 +46,15 @@ public class MemberServiceImpl implements MemberSerivce {
 	@Override
 	public MemberVO getMemberVO(String id) {
 		return memberDAO.getMemberVO(id);
+	}
+
+	@Override
+	public String deleteMember(String id) {
+		int i=memberDAO.deleteMember(id);
+		String result="ok";
+		if(i==0){
+			result="fail";
+		}
+		return result;
 	}
 }

@@ -39,4 +39,8 @@ public class MemberDAOImpl implements MemberDAO {
 	public MemberVO getMemberVO(String id) {
 		return template.selectOne("member.getMemberVO",id);
 	}
+	@Override
+	public int deleteMember(String id) {
+		return template.delete("member.deleteMember",id);
+	}
 }
