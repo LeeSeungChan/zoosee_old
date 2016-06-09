@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="updateMember" parameterType="memberVO">
-		update Pet_MEMBER set name=#{name},password=#{password},address=#{address},email=#{email},tel=#{tel},job=#{job}
+		update Pet_MEMBER set password=#{password},address=#{address},email=#{email},tel=#{tel},job=#{job}
 		where id=#{id}
 	</update>
 	

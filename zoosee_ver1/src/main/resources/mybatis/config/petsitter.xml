@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="petsitterList" resultType="petsitterVO" resultMap="petsitterRM" parameterType="string">
 			select p.petsitterNo,p.petNumber,p.service,p.price,p.petSize,p.petType,p.houseImg,p.petsitterImg,p.adminRecog,pm.id,pm.name 
 			from petsitter p ,pet_member pm
-		    where adminRecog=#{value}
+		    where p.id=pm.id and  adminRecog=#{value}
 	</select>
 	
 	<update id="recognitionPetsitter" parameterType="int">
@@ -50,7 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<update id="updateRank">
-       update PET_MEMBER set RANK='팻시터' where id=#{id }
+       update PET_MEMBER set RANK='petsitter' where id=#{id }
     </update>
  	
 </mapper>

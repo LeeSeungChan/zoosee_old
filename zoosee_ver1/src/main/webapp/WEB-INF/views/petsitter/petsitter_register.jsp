@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
  	$(document).ready(function(){
+ 	      var rank="${sessionScope.mvo.rank}";
+ 	       if(rank=="petsitter"){
+ 	          alert("이미 승인된 회원입니다!");
+ 	          $(location).attr('href',"home.do");
+ 	       }
+ 		
 		$("#registerPetsitterForm").submit(function(){
 			var name = $("#name").val();
 			var gender = $("input[name=gender]:checked").val();

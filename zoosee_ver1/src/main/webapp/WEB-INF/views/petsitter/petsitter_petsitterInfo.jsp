@@ -4,19 +4,23 @@
  <script>
 	 $(document).ready(function(){;
 		 $("#petsitterInfoForm :input[name=backBtn]").click(function(){
-			location.href="${initParam.root}petsitter_petsitterList.do";
+			location.href="${initParam.root}petsitter_petsitterList.do?value=${param.value}";
 			 
 		 });
 		
 	});
  </script>
  
- <h3>${requestScope.pvo.memberVO.name }님의 회원정보</h3>
  <form id="petsitterInfoForm">
-	<table border=1 cellpadding=5 id="petsitterInfoTable">
+	 <h3>${requestScope.pvo.memberVO.name }님의 펫시터 신청서</h3>
+	 <table border=1 cellpadding=5 id="petsitterTable">
 		<tr>
-			<td colspan="1">사진</td> 
+			<td colspan="1">집사진</td> 
 			<td colspan="3"><img src="${initParam.root }${requestScope.pvo.houseImg}"/></td> 
+		</tr>
+	 	<tr>
+			<td colspan="1">회원사진</td> 
+			<td colspan="3"><img src="${initParam.root }${requestScope.pvo.petsitterImg}"/></td> 
 		</tr>
 		<tr >
 			<td >아이디</td> 
@@ -38,11 +42,6 @@
 			<td colspan="1">주소</td> 
 			<td colspan="3">${requestScope.pvo.memberVO.address }</td>
 		</tr>
-	</table>
-	 
-	 
-	 <h3>${requestScope.pvo.memberVO.name }님의 펫시터 신청서</h3>
-	 <table border=1 cellpadding=5 id="petsitterTable">
 		<tr>
 			<td>돌봄 가능 마리수</td> 
 			<td colspan="3" align="center">${requestScope.pvo.petNumber }</td> 

@@ -36,7 +36,7 @@
 				<td>아이디:</td> 
 				<td>${l.memberVO.id}</td> 
 				<td>이름:</td> 
-				<td><a href="petsitter.getPetsitterVO.do?petsitterNo=${l.petsitterNo}">${l.memberVO.name}</a></td> 
+				<td><a href="petsitter.getPetsitterVO.do?petsitterNo=${l.petsitterNo}&value=nonrecog">${l.memberVO.name}</a></td> 
 				<td><input type="button"  name="recogBtn" value="승인"></td> 
 			 </tr>
 		</c:forEach>

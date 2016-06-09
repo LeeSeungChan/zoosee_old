@@ -28,7 +28,7 @@ public class PetsitterController {
 	@Resource(name="petsitterUploadPath")
 	private String uploadPath;
 	
-	@RequestMapping("petsiter_registerPetsitter.do")
+	@RequestMapping("petsitter_registerPetsitter.do")
 	   public ModelAndView registerPetsitter(HttpServletRequest request,
 	         PetsitterVO petsitterVO,FileVO fileVO){
 	      List<MultipartFile>list = fileVO.getFile();
@@ -68,11 +68,11 @@ public class PetsitterController {
 	//펫시터 리스트를 보여준다.
 		@RequestMapping("petsitter_petsitterList.do")
 		public ModelAndView petsitterList(String value){
-			List<PetsitterVO> list=petsitterService.petsitterList(value);
+			List<PetsitterVO> list=null;
 			if(value.equals("recog")){//value -> recog 이면 펫시터 리스트 
-				return new ModelAndView("petsitter_petsitterlist","list",list);
+				return new ModelAndView("petsitter_petsitterlist","list",petsitterService.petsitterList(value));
 			}else{//value -> nonrecog 이면 펫시터 대기자 리스트 
-				return new ModelAndView("petsitter_petsitterwaitinglist","list",list);
+				return new ModelAndView("petsitter_petsitterwaitinglist","list",petsitterService.petsitterList(value));
 			}
 		}
 		
@@ -93,10 +93,13 @@ public class PetsitterController {
 		
 		//펫시터정보보기
 		@RequestMapping("petsitter.getPetsitterVO.do")
-		public ModelAndView getPetsitterVO(int petsitterNo){
+		public ModelAndView getPetsitterVO(int petsitterNo , String value){
 			PetsitterVO pvo=petsitterService.getPetsitterVO(petsitterNo);
+			ModelAndView mv=new ModelAndView("petsitter_petsitterInfo");
+			mv.addObject("pvo", pvo);
+			mv.addObject("value", value);
 			System.out.println(pvo);
-			return new ModelAndView("petsitter_petsitterInfo","pvo",pvo);
+			return mv;
 		}
 	
 
