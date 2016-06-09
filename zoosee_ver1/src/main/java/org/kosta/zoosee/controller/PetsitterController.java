@@ -68,7 +68,6 @@ public class PetsitterController {
 	//펫시터 리스트를 보여준다.
 		@RequestMapping("petsitter_petsitterList.do")
 		public ModelAndView petsitterList(String value){
-			List<PetsitterVO> list=null;
 			if(value.equals("recog")){//value -> recog 이면 펫시터 리스트 
 				return new ModelAndView("petsitter_petsitterlist","list",petsitterService.petsitterList(value));
 			}else{//value -> nonrecog 이면 펫시터 대기자 리스트 

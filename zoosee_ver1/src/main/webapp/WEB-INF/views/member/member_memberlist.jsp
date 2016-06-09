@@ -26,7 +26,7 @@
 
 <h3>일반회원 리스트</h3>
  <form id="memberlistForm">
-	<table border=1 cellpadding=5 id="memberlistTable">
+	<table border=1  id="memberlistTable">
 		<c:forEach items="${requestScope.list }" var="l">
 			<tr>
 				<td>아이디:</td> 

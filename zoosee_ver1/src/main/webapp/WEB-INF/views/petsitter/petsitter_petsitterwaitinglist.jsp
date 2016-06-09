@@ -28,7 +28,7 @@
 
  <h3>펫시터 신청자 리스트</h3>
  <form id="recogForm">
-	<table border=1 cellpadding=5 id="recogTable">
+	<table border=1  id="recogTable">
 		<c:forEach items="${requestScope.list }" var="l">
 			<tr>
 				<td>펫시터넘버:</td> 

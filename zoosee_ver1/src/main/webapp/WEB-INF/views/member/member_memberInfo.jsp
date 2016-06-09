@@ -13,7 +13,7 @@
  
  <h3>${requestScope.mvo.name }님의 회원정보</h3>
  <form id="memberInfoForm">
-	<table border=1 cellpadding=5 id="memberInfoTable">
+	<table border=1  id="memberInfoTable">
 		<tr >
 			<td >아이디</td> 
 			<td>${requestScope.mvo.id }</td>

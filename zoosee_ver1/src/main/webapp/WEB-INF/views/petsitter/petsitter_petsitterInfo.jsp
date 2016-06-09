@@ -13,7 +13,7 @@
  
  <form id="petsitterInfoForm">
 	 <h3>${requestScope.pvo.memberVO.name }님의 펫시터 신청서</h3>
-	 <table border=1 cellpadding=5 id="petsitterTable">
+	 <table border=1  id="petsitterTable">
 		<tr>
 			<td colspan="1">집사진</td> 
 			<td colspan="3"><img src="${initParam.root }${requestScope.pvo.houseImg}"/></td> 

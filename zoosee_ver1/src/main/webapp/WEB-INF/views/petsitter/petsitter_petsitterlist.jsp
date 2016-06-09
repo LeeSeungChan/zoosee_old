@@ -26,7 +26,7 @@
 
 <h3>펫시터 리스트</h3>
  <form id="petsitterlistForm">
-	<table border=1 cellpadding=5 id="petsitterlistTable">
+	<table border=1  id="petsitterlistTable">
 		<c:forEach items="${requestScope.list }" var="l">
 			<tr>
 				<td>펫시터넘버:</td> 
