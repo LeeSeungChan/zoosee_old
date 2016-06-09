@@ -30,7 +30,6 @@ public class PetDAOImpl implements PetDAO {
 
 	@Override
 	public void petUpdateResult(PetVO vo) {
-		System.out.println("dao임플");
 		template.update("pet.update", vo);
 	}
 	@Override
@@ -38,5 +37,8 @@ public class PetDAOImpl implements PetDAO {
 		template.update("pet.updatePetNoImg",pvo);
 	}
 
-	
+	@Override
+	public void deletePet(int petNo) {
+		template.delete("pet.delete", petNo);
+	}
 }

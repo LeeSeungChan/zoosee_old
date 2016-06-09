@@ -37,4 +37,9 @@ public class PetServiceImpl implements PetService {
 	public void updatePetNoImg(PetVO pvo) {
 		petDAO.updatePetNoImg(pvo);
 	}
+	
+	@Override
+	public void deletePet(int petNo) {
+		petDAO.deletePet(petNo);
+	}
 }

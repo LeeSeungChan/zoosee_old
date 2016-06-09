@@ -96,4 +96,11 @@ public class PetController {
 			return "redirect:home.do";
 		}
 	}
+	@RequestMapping("pet_delete.do")
+	public ModelAndView deletePet(HttpServletRequest request,int petNo) {
+		HttpSession session=request.getSession(false);
+		String id=((MemberVO)session.getAttribute("mvo")).getId();
+		petService.deletePet(petNo);		
+		return new ModelAndView("pet_list","list",petService.petList(id));
+	}
 }
