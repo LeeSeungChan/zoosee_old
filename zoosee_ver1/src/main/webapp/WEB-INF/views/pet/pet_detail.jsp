@@ -26,5 +26,6 @@
 	<input type="submit" value="수정">
 </form>
 <form action="pet_delete.do">
+<input type="hidden" name="petNo" value="${pvo.petNo}">
 <input type="submit" value="삭제">
 </form>

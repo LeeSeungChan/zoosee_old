@@ -47,4 +47,14 @@ public class MemberServiceImpl implements MemberSerivce {
 	public MemberVO getMemberVO(String id) {
 		return memberDAO.getMemberVO(id);
 	}
+
+	@Override
+	public String deleteMember(String id) {
+		int i=memberDAO.deleteMember(id);
+		String result="ok";
+		if(i==0){
+			result="fail";
+		}
+		return result;
+	}
 }

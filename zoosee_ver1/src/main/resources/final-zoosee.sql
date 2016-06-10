@@ -3,17 +3,13 @@
 create sequence petNo_seq;
 drop sequence petNo_seq;
 
--- 돌보미의 고유 번호(시퀀스)
+-- 게시물 번호(시퀀스)
 create sequence petsitterboard_no_seq;
 drop sequence petsitterboard_no_seq;
 
--- 게시물 번호(시퀀스)
+-- 돌보미의 고유 번호(시퀀스)
 create sequence petsitterNo_seq;
 drop sequence petsitterNo_seq;
-
-
-create sequence petNo_seq;
-drop sequence petNo_seq;
 
  -- 게시물 번호(시퀀스)
 create sequence petbook_no_seq;
@@ -31,9 +27,14 @@ select * from pet_calendar
 select * from reserve
 select * from tradeinfo
 
+drop table pet_member
+drop table pet
+drop table petsitter
+drop table petsitterboard
+drop table pet_calendar
+drop table reserve
+drop table tradeinfo
 -- 회원 테이블
-select id,name,address,gender,email,password,tel,job,rank from PET_MEMBER
-where id='java' and password='1234'
 CREATE TABLE PET_MEMBER(
 	-- 아이디
 	id varchar2(100) primary key,
@@ -84,7 +85,7 @@ CREATE TABLE PET
     -- 회원의 아이디
    id varchar2(100) not null,
    --회원의 아이디를받아 foreign key로 설정
-   constraint fk_pet_id foreign key(id) references PET_MEMBER(id)
+   constraint fk_pet_id foreign key(id) references PET_MEMBER(id) on delete cascade
 )
 
 -- 회원에서 petsitter(돌보미) 로 등록 시 돌보미테이블
@@ -111,7 +112,7 @@ create table petsitter
    -- 회원의 아이디
    id varchar2(100) not null,
    -- 회원의 아이디를 가져와 foreign key 로 설정
-   constraint fk_member_id foreign key(id) references PET_MEMBER(id)
+   constraint fk_member_id foreign key(id) references PET_MEMBER(id) on delete cascade
 )
 -- 돌보미들이 업로드하는  게시글 테이블
 create table petsitterboard
@@ -119,7 +120,7 @@ create table petsitterboard
    -- 게시물 번호(시퀀스)
    petsitterboard_no number primary key,
    -- 게시물 제목( 간략하게 자신 어필 )
-   pesitterboard_title varchar2(100) not null,
+   petsitterboard_title varchar2(100) not null,
    -- 게시물 내용
    petsitterboard_contents varchar2(100) not null,
    -- 게시글에 올라온 1박당 가격
@@ -131,7 +132,7 @@ create table petsitterboard
    -- 게시글을 올린 돌보미의 번호(foreign key)
    petsitterNo number not null,
    -- 돌보미의 primary key 인 no 를 foreign key 로 설정
-   constraint fk_petsitterNo foreign key(petsitterNo) references petsitter(petsitterNo)
+   constraint fk_petsitterNo foreign key(petsitterNo) references petsitter(petsitterNo) on delete cascade
 )
 
 -- 예약테이블
@@ -155,7 +156,7 @@ CREATE TABLE reserve
 	-- 펫 테이블의 고유 번호를 foreign key 로 설정
 	constraint fk_petNo foreign key(petNo) references pet(petNo),
 	-- 게시글의 번호를 foreign key 로 설정
-	constraint fk_petsitterboard_no foreign key(petsitterboard_no) references petsitterboard(petsitterboard_no)
+	constraint fk_petsitterboard_no foreign key(petsitterboard_no) references petsitterboard(petsitterboard_no) on delete cascade
 )
 
 -- 펫시터가 예약 가능한 기간을 설정 하는 테이블
@@ -173,8 +174,8 @@ create table pet_calendar
 	petsitterboard_no number not null,
 	-- 예약번호
 	reserve_no number not null,
-	constraint fk_petsitterboard2_no foreign key(petsitterboard_no) references petsitterboard(petsitterboard_no),
-	constraint fk_pet_reserveNo foreign key(reserve_no) references reserve(reserve_no)
+	constraint fk_petsitterboard2_no foreign key(petsitterboard_no) references petsitterboard(petsitterboard_no) on delete cascade,
+	constraint fk_pet_reserveNo foreign key(reserve_no) references reserve(reserve_no) on delete cascade
 )
 
 -- 거래내역 테이블
@@ -192,6 +193,6 @@ create table tradeinfo
 	id varchar2(100) not null,
 	-- 돌보미 번호
 	pesitterNo number not null,
-	constraint fk_pet2_id foreign key(id) references PET_MEMBER(id),
-	constraint fk_pesitterNo foreign key(pesitterNo) references petsitter(petsitterNo)
+	constraint fk_pet2_id foreign key(id) references PET_MEMBER(id) on delete cascade,
+	constraint fk_pesitterNo foreign key(pesitterNo) references petsitter(petsitterNo) on delete cascade
 )

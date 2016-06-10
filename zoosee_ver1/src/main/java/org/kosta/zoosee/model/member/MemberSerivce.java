@@ -18,4 +18,6 @@ public interface MemberSerivce {
 
 	public abstract MemberVO getMemberVO(String id);
 
+	public abstract String deleteMember(String id);
+
 }
