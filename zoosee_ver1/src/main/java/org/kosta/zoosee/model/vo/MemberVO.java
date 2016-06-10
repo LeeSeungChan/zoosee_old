@@ -10,11 +10,13 @@ public class MemberVO {
 	private String tel;
 	private String job;
 	private String rank;
+	private String existence;
 	
 	public MemberVO() {
  	}
 	public MemberVO(String id, String name, String address, String gender,
-			String email, String password, String tel, String job, String rank) {
+			String email, String password, String tel, String job, String rank,
+			String existence) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -25,8 +27,8 @@ public class MemberVO {
 		this.tel = tel;
 		this.job = job;
 		this.rank = rank;
+		this.existence = existence;
 	}
-	
 	public String getId() {
 		return id;
 	}
@@ -81,12 +83,18 @@ public class MemberVO {
 	public void setRank(String rank) {
 		this.rank = rank;
 	}
+	public String getExistence() {
+		return existence;
+	}
+	public void setExistence(String existence) {
+		this.existence = existence;
+	}
 	
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", name=" + name + ", address=" + address
 				+ ", gender=" + gender + ", email=" + email + ", password="
 				+ password + ", tel=" + tel + ", job=" + job + ", rank=" + rank
-				+ "]";
+				+ ", existence=" + existence + "]";
 	}
 }

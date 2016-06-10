@@ -56,7 +56,8 @@ CREATE TABLE PET_MEMBER(
 	-- ex) 일반회원 ( 신상정보만 입력한회원 ) , 구매자( 펫정보를 입력한 회원 )
 	-- 		판매자( 돌보미인 회원 ), 관리자(관리자)
 	--  판매자는 펫정보를 입력 안해도 되는경우가 있음
-	rank varchar2(100) not null
+	rank varchar2(100) not null,
+	existence varchar2(100) not null
 )
 
 -- 회원이 입력하는 pet 정보 테이블
