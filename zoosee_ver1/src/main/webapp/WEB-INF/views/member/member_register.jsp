@@ -86,6 +86,9 @@
 			}else if($("#passCheckView").html()!="비밀번호 일치"){
 				alert("비밀번호를 일치하세요.");
 				return false;
+			}else if($("input:radio[name=existence]:checked").length==0){
+				alert("펫 양육 경험을 선택하세요.");
+				return false;
 			}
 		});
 	});
@@ -112,5 +115,9 @@
 	이메일 <input type="email" name="email" id="email"> <br> 
 	연락처 <input type="text" name="tel" id="tel"><br> 
 	직업 <input type="text" name="job" id="job"><br>
+	펫 양육 경험 <br>
+	<input type="radio" name="existence" value="A" > 키워본 경험이 없다<br>
+	<input type="radio" name="existence" value="B" > 키워본 경험이 있다<br>
+	<input type="radio" name="existence" value="C" > 현재 키우고 있다<br>
 	 <input type="submit" value="등록">
 </form>

@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
 	$(document).ready(function(){
+		$("input:radio[name=existence][value=" + '<c:out value="${ mvo.existence }"/>' + "]").attr("checked","checked");
 		$("#password").keyup(function(){
 			$("#passCheckView").empty();
 			$("#passView").empty();
@@ -57,6 +58,9 @@
 			}else if($("#passCheckView").html()!="비밀번호 일치"){
 				alert("비밀번호를 일치하세요.");
 				return false;
+			}else if($("input:radio[name=existence]:checked").length==0){
+				alert("펫 양육 경험을 선택하세요.");
+				return false;
 			}
 		});
 		$("#cancle").click(function(){
@@ -99,6 +103,14 @@
 		</tr>
 		<tr>
 			<td>직업 </td><td><input type="text" name="job" value="${mvo.job}" id="job"></td>
+		</tr>
+		<tr>
+			<td> 펫 양육 경험 </td>
+			<td>
+			<input type="radio" name="existence" value="A" id="existence"> 키워본 경험이 없다<br>
+			<input type="radio" name="existence" value="B" id="existence"> 키워본 경험이 있다<br>
+			<input type="radio" name="existence" value="C" id="existence"> 현재 키우고 있다<br>
+			</td>
 		</tr>
 	</table>
 	<input type="submit" value="수정" > <input type="button" value="취소" id="cancle">
