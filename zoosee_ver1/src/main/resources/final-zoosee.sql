@@ -1,6 +1,8 @@
 alter table petsitterboard drop column petsitterboard_price;
 alter table petsitterboard drop column petsitterboard_petsize;
 alter table petsitterboard drop column petsitterboard_pettype;
+
+
 -- 펫 고유 번호(시퀀스)
 create sequence petNo_seq;
 drop sequence petNo_seq;

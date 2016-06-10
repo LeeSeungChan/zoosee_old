@@ -40,7 +40,6 @@ public class PetsitterController {
 	         if(!fileName.equals("")){
 	            try {
 	               list.get(i).transferTo(new File(filePath));
-	               System.out.println(fileName+" 업로드 완료");
 	               nameList.add(fileName);
 	            } catch (IllegalStateException | IOException e) {
 	               e.printStackTrace();
@@ -100,6 +99,46 @@ public class PetsitterController {
 			System.out.println(pvo);
 			return mv;
 		}
+		
+		//팻시터 정보 수정폼
+		@RequestMapping("petsitter_updateform.do")
+		public ModelAndView petsitter_updateForm(String id){
+			PetsitterVO petsitterVO=petsitterService.findPetsitterById(id);
+			return new ModelAndView("petsitter_updateform","petsitterVO",petsitterVO);
+		}
+		
+		//팻시터 정보 수정
+		@RequestMapping("petsitter_update.do")
+		public ModelAndView petsitter_update(PetsitterVO	petsitterVO,FileVO fileVO){
+			  List<MultipartFile>list = fileVO.getFile();
+		      ArrayList<String> nameList=new ArrayList<String>();
+		      for(int i=0; i<list.size(); i++){
+		         String fileName=list.get(i).getOriginalFilename();
+		         String fileType=list.get(i).getName();
+		         String filePath=uploadPath+fileName;
+		         if(!fileName.equals("")){
+		            try {
+		               list.get(i).transferTo(new File(filePath));
+		               nameList.add(fileName);
+		            } catch (IllegalStateException | IOException e) {
+		               e.printStackTrace();
+		            }
+		         }
+		         //house_img
+		         if(fileType.equals("file[0]")){
+		            filePath = filePath.substring(filePath.indexOf("upload\\"));
+		            petsitterVO.setHouseImg(filePath);
+		         }
+		         //petsitter_img
+		         if(fileType.equals("file[1]")){
+		            filePath = filePath.substring(filePath.indexOf("upload\\"));
+		            petsitterVO.setPetsitterImg(filePath);
+		         }
+		      }
+		    petsitterService.update(petsitterVO);
+			return new ModelAndView("redirect:home.do");
+		}
+		
 	
 
 }

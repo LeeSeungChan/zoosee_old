@@ -16,7 +16,7 @@
 		<a href="${initParam.root}pet_list.do">펫목록</a>
 		<a href="${initParam.root}member_detail.do">회원정보</a>
 		<a href="${initParam.root}petsitter_petsitterList.do?value=recog">회원관리</a>
+		<a href="${initParam.root}petsitter_register.do">돌보미신청</a>
+		<a href="${initParam.root}petsitter_updateform.do?id=${sessionScope.mvo.id}">돌보미정보수정</a>
 	</c:otherwise>
 </c:choose>
-
-<a href="${initParam.root}petsitter_register.do">돌보미신청(변경)</a>

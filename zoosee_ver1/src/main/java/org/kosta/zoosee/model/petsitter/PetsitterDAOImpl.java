@@ -46,4 +46,14 @@ public class PetsitterDAOImpl implements PetsitterDAO {
 		
 	}
 
+	@Override
+	public PetsitterVO findPetsitterById(String id) {
+		return template.selectOne("petsitter.findPetsitterById",id);
+	}
+
+	@Override
+	public void update(PetsitterVO petsitterVO) {
+		template.update("petsitter.update",petsitterVO);
+	}
+
 }

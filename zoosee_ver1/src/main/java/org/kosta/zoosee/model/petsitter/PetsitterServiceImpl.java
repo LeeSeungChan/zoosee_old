@@ -46,4 +46,15 @@ public class PetsitterServiceImpl implements PetsitterService {
 		
 	}
 
+	@Override
+	public PetsitterVO findPetsitterById(String id) {
+		return petsitterDAO.findPetsitterById(id);
+	}
+
+	@Override
+	public void update(PetsitterVO petsitterVO) {
+		petsitterVO.setAdminRecog("nonrecog");
+		petsitterDAO.update(petsitterVO);
+	}
+
 }

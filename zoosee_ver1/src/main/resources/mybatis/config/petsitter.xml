@@ -14,6 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="tel" property="memberVO.tel"/>
 		<result column="job" property="memberVO.job"/>
 		<result column="rank" property="memberVO.rank"/>
+		<result column="existence" property="memberVO.existence"/>
 	</resultMap>
 	
 	<insert id="registerPetsitter"  parameterType="petsitterVO">
@@ -22,8 +23,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values
 		(petsitterNo_seq.nextval,#{petNumber},#{service},#{price},#{petSize},#{petType},#{houseImg},#{petsitterImg},'nonrecog',#{memberVO.id})
  	</insert>
- 	
- 	
  	
  	
 	<select id="petsitterList" resultType="petsitterVO" resultMap="petsitterRM" parameterType="string">
@@ -44,13 +43,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where p.id=pm.id and petsitterNo=#{value}
 	</select>
 	
+	<select id="findPetsitterById" resultType="petsitterVO" resultMap="petsitterRM">
+		select p.petsitterNo,p.petNumber,p.service,p.price,p.petSize,p.petType,p.houseImg,p.petsitterImg,p.adminRecog,
+		         pm.id,pm.name ,pm.address, pm.gender, pm.email, pm.tel, pm.job,pm.existence
+			from petsitter p ,pet_member pm
+		where p.id=pm.id and p.id=#{value}
+	</select>
+	
 	<delete id="deletePetsitter" >
 		delete from PETSITTER where petsitterNo=#{value}
 	</delete>
-	
 	
 	<update id="updateRank">
        update PET_MEMBER set RANK='petsitter' where id=#{id }
     </update>
  	
+ 	<update id="update" parameterType="petsitterVO">
+       update petsitter set price=#{price},petType=#{petType},petSize=#{petSize},petNumber=#{petNumber},service=#{service},houseImg=#{houseImg},petsitterImg=#{petsitterImg},adminRecog=#{adminRecog} where petsitterNo=#{petsitterNo}
+    </update>
+    
 </mapper>
