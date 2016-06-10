@@ -1,4 +1,6 @@
-
+alter table petsitterboard drop column petsitterboard_price;
+alter table petsitterboard drop column petsitterboard_petsize;
+alter table petsitterboard drop column petsitterboard_pettype;
 -- 펫 고유 번호(시퀀스)
 create sequence petNo_seq;
 drop sequence petNo_seq;
@@ -123,12 +125,6 @@ create table petsitterboard
    petsitterboard_title varchar2(100) not null,
    -- 게시물 내용
    petsitterboard_contents varchar2(100) not null,
-   -- 게시글에 올라온 1박당 가격
-   petsitterboard_price number default 0,
-   -- 게시글에 올라온 원하는 펫 사이즈
-   petsitterboard_petSize varchar2(100) not null,
-   -- 게시글에 올라온 원하는 펫 종류
-   petsitterboard_petType varchar2(100) not null,
    -- 게시글을 올린 돌보미의 번호(foreign key)
    petsitterNo number not null,
    -- 돌보미의 primary key 인 no 를 foreign key 로 설정
