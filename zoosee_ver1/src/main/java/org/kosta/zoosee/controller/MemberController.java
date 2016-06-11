@@ -22,13 +22,12 @@ public class MemberController {
 	@RequestMapping(value="registerMember.do", method=RequestMethod.POST)
 	public String registerMember(MemberVO mvo){
 		memberService.registerMember(mvo);
-
 		return "redirect:member_register_result.do";
 	}
 	/* Member 로그인 메서드 */
 	@RequestMapping(value="loginMember.do", method=RequestMethod.POST)
 	public String loginMember(MemberVO mvo, HttpServletRequest request){
-		System.out.println(mvo.toString());
+		//System.out.println(mvo.toString());
 		MemberVO vo = memberService.loginMember(mvo);
 		HttpSession session = request.getSession();
 		if(vo != null){

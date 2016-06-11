@@ -14,8 +14,8 @@ public class PetDAOImpl implements PetDAO {
 	private SqlSessionTemplate template;	
 	
 	@Override
-	public void registerPet(PetVO pvo) {
-		template.insert("pet.registerPet",pvo);			
+	public int registerPet(PetVO pvo) {
+		return template.insert("pet.registerPet",pvo);			
 	}
 
 	@Override

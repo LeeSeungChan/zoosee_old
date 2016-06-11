@@ -43,4 +43,16 @@ public class MemberDAOImpl implements MemberDAO {
 	public int deleteMember(String id) {
 		return template.delete("member.deleteMember",id);
 	}
+	@Override
+	public void registerPet(String id) {
+		template.update("member.registerPet",id);
+	}
+	@Override
+	public String findRank(String id) {
+		return template.selectOne("member.findRank",id);
+	}
+	@Override
+	public void registerPetMaster(String id) {
+		template.update("member.registerPetMaster",id);
+	}
 }

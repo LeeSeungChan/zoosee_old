@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.kosta.zoosee.model.member.MemberDAO;
 import org.kosta.zoosee.model.vo.PetVO;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +12,24 @@ import org.springframework.stereotype.Service;
 public class PetServiceImpl implements PetService {
 	@Resource
 	private PetDAO petDAO;
+	@Resource
+	private MemberDAO memberDAO;
 	
 	@Override
 	public void registerPet(PetVO pvo){
-		petDAO.registerPet(pvo);
+		int i=petDAO.registerPet(pvo);
+		if(i==1){
+			String id=pvo.getMemberVO().getId();
+			String rank=memberDAO.findRank(id);
+			//System.out.println("등급확인:"+rank);
+			if(rank.equals("nomal")){
+				//System.out.println("펫맘");
+				memberDAO.registerPet(id);
+			}else if(rank.equals("petsitter")){
+				//System.out.println("마스터");
+				memberDAO.registerPetMaster(id);
+			}
+		}
 	}
 
 	@Override
@@ -29,7 +44,7 @@ public class PetServiceImpl implements PetService {
 
 	@Override
 	public void petUpdateResult(PetVO vo) {
-		System.out.println("서비스임플");
+		//System.out.println("서비스임플");
 		petDAO.petUpdateResult(vo);
 	}
 

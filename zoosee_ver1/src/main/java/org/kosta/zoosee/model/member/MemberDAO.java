@@ -20,4 +20,10 @@ public interface MemberDAO {
 
 	public abstract int deleteMember(String id);
 
+	public abstract String findRank(String id);
+
+	public abstract void registerPet(String id);
+
+	public abstract void registerPetMaster(String id);
+
 }

@@ -39,5 +39,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteMember">
 		delete pet_member where id=#{id}
 	</delete>
-	
+	<select id="findRank" resultType="string">
+		select rank from pet_member where id=#{id}
+	</select>
+	<update id="registerPet">
+		update pet_member set rank='petmom' where id=#{id}
+	</update>
+	<update id="registerPetMaster">
+		update pet_member set rank='petmaster' where id=#{id}
+	</update>
 </mapper>
