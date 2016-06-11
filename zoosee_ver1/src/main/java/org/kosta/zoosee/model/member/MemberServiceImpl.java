@@ -15,7 +15,7 @@ public class MemberServiceImpl implements MemberSerivce {
 	@Override
 	public void registerMember(MemberVO mvo){
 		// 메서드를 이용해서 등급 체크 및 업데이트
-		mvo.setRank("nomal");
+		mvo.setRank("normal");
 		memberDAO.registerMember(mvo);
 	}
 

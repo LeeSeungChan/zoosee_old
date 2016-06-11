@@ -15,7 +15,6 @@ public class PetsitterDAOImpl implements PetsitterDAO {
 	
 	@Override
 	public void registerPetsitter(PetsitterVO petsitterVO){
-		System.out.println(petsitterVO);
 		template.insert("petsitter.registerPetsitter",petsitterVO);
 	}
 	

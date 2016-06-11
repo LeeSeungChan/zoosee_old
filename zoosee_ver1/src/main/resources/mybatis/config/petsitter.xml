@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="existence" property="memberVO.existence"/>
 	</resultMap>
 	
-	<insert id="registerPetsitter"  parameterType="petsitterVO">
+	<insert id="registerPetsitter"  parameterType="petsitterVO" >
  		insert into petsitter
  		(petsitterNo,petNumber,service,price,petSize,petType,houseImg,petsitterImg,adminrecog,id)
 		values

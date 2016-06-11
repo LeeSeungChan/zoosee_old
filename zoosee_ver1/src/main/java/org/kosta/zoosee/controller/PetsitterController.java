@@ -59,7 +59,6 @@ public class PetsitterController {
 	      MemberVO mvo = (MemberVO) request.getSession().getAttribute("mvo");
 	      petsitterVO.setMemberVO(mvo);
 	      petsitterService.registerPetsitter(petsitterVO);
-	      petsitterService.updateRank(petsitterVO.getMemberVO().getId());
 	      return new ModelAndView("redirect:home.do");
 	   }
 

@@ -22,7 +22,7 @@ public class PetServiceImpl implements PetService {
 			String id=pvo.getMemberVO().getId();
 			String rank=memberDAO.findRank(id);
 			//System.out.println("등급확인:"+rank);
-			if(rank.equals("nomal")){
+			if(rank.equals("normal")){
 				//System.out.println("펫맘");
 				memberDAO.registerPet(id);
 			}else if(rank.equals("petsitter")){

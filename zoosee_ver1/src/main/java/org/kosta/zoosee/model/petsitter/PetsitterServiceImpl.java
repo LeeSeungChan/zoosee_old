@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.kosta.zoosee.model.member.MemberDAO;
 import org.kosta.zoosee.model.vo.PetsitterVO;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,22 @@ public class PetsitterServiceImpl implements PetsitterService {
 	
 	@Resource
 	private PetsitterDAO petsitterDAO;
+	@Resource
+	private MemberDAO memberDAO;
 	
 	@Override
 	public void registerPetsitter(PetsitterVO petsitterVO){
+		String id = petsitterVO.getMemberVO().getId();
+		String rank = memberDAO.findRank(id);
+		if(rank.equals("normal")){
+			//멤버의 rank가 normal 이면 petsitter로 update
+			petsitterDAO.updateRank(id);
+		}
+			//멤버의 rank가 petmom이면 petmaster로 update
+		if(rank.equals("petmom")){
+			memberDAO.registerPetMaster(id);
+		}
+			//petsitter테이블에 insert
 		petsitterDAO.registerPetsitter(petsitterVO);
 	}
 	
