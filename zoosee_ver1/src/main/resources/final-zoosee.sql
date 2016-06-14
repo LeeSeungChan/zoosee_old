@@ -37,7 +37,7 @@ drop table petsitter
 drop table petsitterboard
 drop table pet_calendar
 drop table reserve
-drop table tradeinfo
+commit
 -- 회원 테이블
 CREATE TABLE PET_MEMBER(
 	-- 아이디
@@ -194,3 +194,20 @@ create table tradeinfo
 	constraint fk_pet2_id foreign key(id) references PET_MEMBER(id) on delete cascade,
 	constraint fk_pesitterNo foreign key(pesitterNo) references petsitter(petsitterNo) on delete cascade
 )
+-- qna게시판
+-- 질문게시판 시퀀스
+create sequence qnaboard_seq;
+drop sequence qnaboard_seq;
+drop table qnaboard;
+-- 질문게시판(1:1)
+create table QNABOARD
+(
+	qnaboard_no number primary key not null,
+	qnaboard_title varchar2(100) not null,
+	qnaboard_question clob not null,
+	time_posted date not null,
+	time_answered date,
+	qnaboard_answer varchar2(100),
+	id varchar2(100) not null,
+	constraint fk_qnaboard_id foreign key(id) references PET_MEMBER(id)
+)  
