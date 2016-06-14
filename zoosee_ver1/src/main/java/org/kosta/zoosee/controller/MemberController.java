@@ -64,7 +64,7 @@ public class MemberController {
 	}
 	
 	//멤버정보보기
-	@RequestMapping("member.getMemberVO.do")
+	@RequestMapping("member_getMemberVO.do")
 	public ModelAndView getMemberVO(String id){
 		return new ModelAndView("member_memberInfo","mvo",memberService.getMemberVO(id));
 	}

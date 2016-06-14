@@ -32,7 +32,7 @@
 				<td>아이디:</td> 
 				<td>${l.id}</td> 
 				<td>이름:</td> 
-				<td><a href="member.getMemberVO.do?id=${l.id}">${l.name}</a></td> 
+				<td><a href="member_getMemberVO.do?id=${l.id}">${l.name}</a></td> 
 				<!-- <td><input type="button"  name="deleteBtn" value="탈퇴"></td>  -->
 			 </tr>
 		</c:forEach>

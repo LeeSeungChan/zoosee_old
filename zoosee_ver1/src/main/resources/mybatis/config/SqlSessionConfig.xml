@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="org.kosta.zoosee.model.vo.PetsitterVO" alias="petsitterVO"/>
 		<typeAlias type="org.kosta.zoosee.model.vo.MemberVO" alias="memberVO"/>
 		<typeAlias type="org.kosta.zoosee.model.vo.PetVO" alias="petVO"/>
+		<typeAlias type="org.kosta.zoosee.model.vo.QNABoardVO" alias="qnaboardVO"/>
 		<!-- <typeAlias type="org.kosta.zoosee.model.vo"/> -->
 	</typeAliases>	
 	<!-- mapper.xml 을 명시한다  -->
@@ -19,6 +20,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/config/member.xml"/>	
 		<mapper resource="mybatis/config/pet.xml"/>	
 		<mapper resource="mybatis/config/petsitter.xml"/>
+		<mapper resource="mybatis/config/qna.xml"/>
 	</mappers>
 </configuration>
 
