@@ -211,3 +211,19 @@ create table QNABOARD
 	id varchar2(100) not null,
 	constraint fk_qnaboard_id foreign key(id) references PET_MEMBER(id)
 )  
+
+-- 자유게시판 시퀀스
+create sequence freeboard_seq;
+drop sequence freeboard_seq;
+drop table freeboard;
+-- 자유게시판
+create table freeboard
+(
+   freeboard_no number primary key,
+   freeboard_title varchar2(100) not null,
+   freeboard_contents clob not null,
+   freeboard_hits number default 0 not null,
+   freeboard_timePosted date not null,
+   id varchar2(100) not null,
+   constraint fk_freeboard_id foreign key(id) references PET_MEMBER(id)
+)

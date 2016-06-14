@@ -22,7 +22,7 @@
 	});
  </script>
  
-<a href="${initParam.root}member_memberlist.do?rank=nomal">일반회원 리스트</a> | 펫시터 리스트 | <a href="${initParam.root}petsitter_petsitterList.do?value=nonrecog">펫시터 신청자 리스트</a>
+<a href="${initParam.root}member_memberlist.do?rank=normal">일반회원 리스트</a> | 펫시터 리스트 | <a href="${initParam.root}petsitter_petsitterList.do?value=nonrecog">펫시터 신청자 리스트</a>
 
 <h3>펫시터 리스트</h3>
  <form id="petsitterlistForm">
