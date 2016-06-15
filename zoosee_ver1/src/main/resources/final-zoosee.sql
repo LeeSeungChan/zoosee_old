@@ -64,7 +64,7 @@ CREATE TABLE PET_MEMBER(
 	rank varchar2(100) not null,
 	existence varchar2(100) not null
 )
-
+select *from pet
 -- 회원이 입력하는 pet 정보 테이블
 CREATE TABLE PET
 (

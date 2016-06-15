@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where petNo=#{petNo}
 	</update>
 	<update id="updatePetNoImg" parameterType="petVO">
-		update pet set petName=#{petName},petAge=#{petAge},petType=#{petType},petGender=#{petGender},petNeutral=#{petNeutral},petImg=#{petImg},petSize=#{petSize},etc=#{etc}
+		update pet set petName=#{petName},petAge=#{petAge},petType=#{petType},petGender=#{petGender},petNeutral=#{petNeutral},petSize=#{petSize},etc=#{etc}
 		where petNo=#{petNo}
 	</update>
 	<delete id="delete">
