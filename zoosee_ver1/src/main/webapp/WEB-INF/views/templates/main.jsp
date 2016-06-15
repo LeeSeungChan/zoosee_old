@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 
 <!-- method랑 action 추가 -->
-	<form>
-		<input type="text" name="search" />
+	<form action="findAllPetsitterList.do">
+		<input type="text" name="address" />
 		<input type="submit" value="검색" />
 	</form>
 

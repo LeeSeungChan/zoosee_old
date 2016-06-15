@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sql Mapper -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="petsitterboard">
+
+	<select id="getCount" resultType="int">
+		select count(*) from PETSITTERBOARD
+	</select>
+	
+	<select id="getBoardList" resultType="petsitterboardVO">
+		select page, petsitterboard_no, petsitterboard_title,petsitterboard_price,petsitterboard_petSize,petsitterboard_petType,address,petsitterImg,houseImg
+		from
+		(
+			select ceil(rownum/9) as page,petsitterboard_no,petsitterboard_title,petsitterboard_price,petsitterboard_petSize,petsitterboard_petType,petsitterNo,address,petsitterImg,houseImg
+			from
+			(
+				select pb.petsitterboard_no,pb.petsitterboard_title,pb.petsitterboard_price,pb.petsitterboard_petSize,pb.petsitterboard_petType,pb.petsitterNo,a.address,a.petsitterImg,a.houseImg
+				from 
+				(
+					select pt.petsitterNo,m.address,pt.petsitterImg,pt.houseImg 
+					from pet_member m, petsitter pt where m.id=pt.id and pt.service like '%'||#{service}||'%'
+					and pt.petType like '%'||#{petType}||'%' and pt.petSize like '%'||#{petSize}||'%'
+				) a, petsitterboard pb
+				where a.petsitterNo = pb.petsitterNo order by pb.petsitterboard_no desc
+			)
+		) where page=#{pageNo}
+	</select>
+	
+	<insert id="registerPetsitterboard" parameterType="petsitterboardVO">
+		<selectKey keyProperty="petsitterboard_no" resultType="int" order="BEFORE">
+			select petsitterboard_no_seq.nextval from dual
+		</selectKey>
+		insert into PETSITTERBOARD
+		values(#{petsitterboard_no},#{petsitterboard_title},#{petsitterboard_contents},#{petsitterVO.petsitterNo})
+	</insert>
+	
+	<update id="updatePetsitterVO" parameterType="petsitterVO">
+		UPDATE PETSITTER
+		set petNumber=#{petNumber},service=#{service},price=#{price},petSize=#{petSize},petType=#{petType}
+       	where petsitterNo=#{petsitterNo}
+	</update>
+	
+	<select id="getConditionList" resultType="petsitterboardVO">
+	select page, petsitterboard_no, petsitterboard_title,price,petSize,petType,address,petsitterImg,houseImg
+	from
+	(
+		select ceil(rownum/9) as page,petsitterboard_no,petsitterboard_title,price,petSize,petType,petsitterNo,address,petsitterImg,houseImg
+		from
+		(
+			select pb.petsitterboard_no,pb.petsitterboard_title,a.price,a.petSize,a.petType,pb.petsitterNo,a.address,a.petsitterImg,a.houseImg
+			from  
+			(
+				select pt.petsitterNo,m.address,pt.price,pt.petSize,pt.petType,pt.petsitterImg,pt.houseImg 
+				from pet_member m, petsitter pt where m.id=pt.id and pt.service like '%'||#{service}||'%'
+				and pt.petType like '%'||#{petType}||'%' and pt.petSize like '%'||#{petSize}||'%'
+			) a, petsitterboard pb
+			where a.petsitterNo = pb.petsitterNo order by pb.petsitterboard_no desc
+		)
+	) where page=#{pageNo}
+	</select>
+	
+	<select id="gettotalCount" resultType="int">
+		select count(*)
+		 from
+		 (
+		 	select pb.petsitterboard_no,pb.petsitterboard_title,a.price,a.petSize,a.petType,pb.petsitterNo,a.address,a.petsitterImg,a.houseImg
+			from  
+			(
+				select pt.petsitterNo,m.address,pt.price,pt.petSize,pt.petType,pt.petsitterImg,pt.houseImg 
+				from pet_member m, petsitter pt where m.id=pt.id and pt.service like '%'||#{service}||'%'
+				and pt.petType like '%'||#{petType}||'%' and pt.petSize like '%'||#{petSize}||'%'
+			) a, petsitterboard pb
+			where a.petsitterNo = pb.petsitterNo order by pb.petsitterboard_no desc
+		 )
+	</select>
+	
+</mapper>

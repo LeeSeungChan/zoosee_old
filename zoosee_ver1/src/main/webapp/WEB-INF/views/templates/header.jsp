@@ -22,5 +22,9 @@
 		<a href="${initParam.root}petsitter_petsitterList.do?value=recog">회원관리</a><!-- //관리자 페이지 -->
 		<a href="${initParam.root}admin_qna_list.do?when=all">관리자qna 목록</a><!-- //관리자 페이지 -->
 		<a href="${initParam.root}freeBoard_list.do?">자유게시판</a>
+		
+		<c:if test="${sessionScope.mvo.rank == 'petsitter' || sessionScope.mvo.rank == 'petmaster'}">
+			<a href="${initParam.root}petsitterboard_registerform.do?id=${sessionScope.mvo.id}">글 등록</a>
+		</c:if>
 	</c:otherwise>
 </c:choose>

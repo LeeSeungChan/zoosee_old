@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.kosta.zoosee.model.petsitter.PetsitterService;
 import org.kosta.zoosee.model.vo.FileVO;
@@ -83,9 +84,16 @@ public class PetsitterController {
 		//펫시터 인증
 		@RequestMapping(value="petsitter_recognitionPetsitter.do",method=RequestMethod.POST)
 		@ResponseBody
-		public void recognitionPetsitter(int petsitterNo){
+		public void recognitionPetsitter(int petsitterNo, HttpServletRequest request){
+			HttpSession session = request.getSession(false);
+			String id = null;
+			
+			if(session != null){
+				id = ((MemberVO)session.getAttribute("mvo")).getId();
+			}
+			
 			//System.out.println("petsitterNo:"+petsitterNo);
-			petsitterService.recognitionPetsitter(petsitterNo);
+			petsitterService.recognitionPetsitter(petsitterNo, id);
 		}
 		
 		//펫시터정보보기

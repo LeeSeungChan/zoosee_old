@@ -86,8 +86,8 @@ ZOOSEE 는 그 어떤 스킬이나 역량보다 "동물에 대한 진심과 사�
 
 
 가능한 펫 종류* <br>
-<input type="checkbox" name="petType" value="멍뭉이">멍뭉이
-<input type="checkbox" name="petType" value="야옹이">야옹이<br><br>
+<input type="radio" name="petType" value="dog">멍뭉이
+<input type="radio" name="petType" value="cat">야옹이<br><br>
 
 원하는 펫 크기* <br>
 <input type="radio" name="petSize" value="small"> 아기팻
@@ -100,9 +100,9 @@ ZOOSEE 는 그 어떤 스킬이나 역량보다 "동물에 대한 진심과 사�
 <input type="radio" name="petNumber" value="3">세마리<br><br>
 
 제공 가능한 서비스* <br>
-<input type="checkbox" name="service" value="목욕">목욕
-<input type="checkbox" name="service" value="산책">산책
-<input type="checkbox" name="service" value="픽업">픽업<br><br>
+<input type="radio" name="service" value="목욕">목욕
+<input type="radio" name="service" value="산책">산책
+<input type="radio" name="service" value="픽업">픽업<br><br>
 
 집 사진* <br>
  <input type="file" name="file[0]" id="house_img"><br><br>

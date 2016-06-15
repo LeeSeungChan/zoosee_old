@@ -10,7 +10,7 @@ public interface PetsitterService {
 		
 		public abstract List<PetsitterVO> petsitterList(String value);
 	
-		public abstract void recognitionPetsitter(int petsitterNo);
+		public abstract void recognitionPetsitter(int petsitterNo, String id);
 	
 		public abstract PetsitterVO getPetsitterVO(int petsitterNo);
 	

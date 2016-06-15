@@ -9,6 +9,16 @@
 	<title>ZOOSEE HOME VIEW SETTING</title>
 	<script type="text/javascript" src="${initParam.root}resources/js/jquery-1.12.4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="${initParam.root}resources/css/zoosee.css">
+	
+	<link rel="stylesheet" type="text/css" href="${initParam.root}resources/css/jquery-ui.css">
+	<%-- <link rel="stylesheet" type="text/css" href="${initParam.root}resources/css/jquery-ui.min.css"> --%>
+	<script type="text/javascript" src="${initParam.root}resources/js/jquery-ui.js"></script>
+	<%-- <script type="text/javascript" src="${initParam.root}resources/js/jquery-ui.min.js"></script> --%>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+		})
+	</script>
 </head>
 <body>
 <div id="container">

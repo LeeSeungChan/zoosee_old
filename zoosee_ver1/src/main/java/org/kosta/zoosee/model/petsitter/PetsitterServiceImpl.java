@@ -18,17 +18,7 @@ public class PetsitterServiceImpl implements PetsitterService {
 	
 	@Override
 	public void registerPetsitter(PetsitterVO petsitterVO){
-		String id = petsitterVO.getMemberVO().getId();
-		String rank = memberDAO.findRank(id);
-		if(rank.equals("normal")){
-			//멤버의 rank가 normal 이면 petsitter로 update
-			petsitterDAO.updateRank(id);
-		}
-			//멤버의 rank가 petmom이면 petmaster로 update
-		if(rank.equals("petmom")){
-			memberDAO.registerPetMaster(id);
-		}
-			//petsitter테이블에 insert
+		//petsitter테이블에 insert
 		petsitterDAO.registerPetsitter(petsitterVO);
 	}
 	
@@ -38,7 +28,17 @@ public class PetsitterServiceImpl implements PetsitterService {
 	}
 
 	@Override
-	public void recognitionPetsitter(int petsitterNo) {
+	public void recognitionPetsitter(int petsitterNo, String id) {
+		String rank = memberDAO.findRank(id);
+		if(rank.equals("normal")){
+			//멤버의 rank가 normal 이면 petsitter로 update
+			petsitterDAO.updateRank(id);
+		}
+			//멤버의 rank가 petmom이면 petmaster로 update
+		if(rank.equals("petmom")){
+			memberDAO.registerPetMaster(id);
+		}
+		
 		petsitterDAO.recognitionPetsitter(petsitterNo);
 		
 	}

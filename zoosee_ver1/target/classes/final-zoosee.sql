@@ -7,6 +7,9 @@ alter table petsitterboard drop column petsitterboard_pettype;
 create sequence petNo_seq;
 drop sequence petNo_seq;
 
+select count(*) from  petsitterboard pb, petsitter pt, pet_member m
+where pt.petsitterNo = pb.petsitterNo and pt.id=m.id and m.address like '서울'
+
 -- 게시물 번호(시퀀스)
 create sequence petsitterboard_no_seq;
 drop sequence petsitterboard_no_seq;
@@ -30,7 +33,7 @@ select * from petsitterboard
 select * from pet_calendar
 select * from reserve
 select * from tradeinfo
-
+delete from pet_member where id='eeee'
 drop table pet_member
 drop table pet
 drop table petsitter
