@@ -77,7 +77,7 @@ method="post" enctype="multipart/form-data" id="updateForm">
 
 원하시는 크기*<br>
 <input type="radio" name="petSize" value="small"> 아기팻
-<input type="radio" name="petSize" value="normal"> 보통
+<input type="radio" name="petSize" value="middle"> 보통
 <input type="radio" name="petSize" value="big"> 커더란 팻!<br> <br>
 
 돌봄 가능한 팻*<br>

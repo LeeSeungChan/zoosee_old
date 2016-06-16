@@ -77,8 +77,8 @@ ZOOSEE 는 그 어떤 스킬이나 역량보다 "동물에 대한 진심과 사�
 <input type="text" name="name" id="name" size=5><br><br>
 
 지원자 성별 *<br>
-<input type="radio" name="gender" value="male">섬세한 남성! <br>
-<input type="radio" name="gender" value="female">음...여성! <br><br>
+<input type="radio" name="gender" value="male">남성! <br>
+<input type="radio" name="gender" value="female">여성! <br><br>
 
 
 원하시는 가격(1박)* <br>
@@ -86,12 +86,12 @@ ZOOSEE 는 그 어떤 스킬이나 역량보다 "동물에 대한 진심과 사�
 
 
 가능한 펫 종류* <br>
-<input type="radio" name="petType" value="dog">멍뭉이
+<input type="radio" name="petType" value="dog">강아지
 <input type="radio" name="petType" value="cat">야옹이<br><br>
 
 원하는 펫 크기* <br>
 <input type="radio" name="petSize" value="small"> 아기팻
-<input type="radio" name="petSize" value="normal"> 보통
+<input type="radio" name="petSize" value="middle"> 보통
 <input type="radio" name="petSize" value="big"> 커더란 팻!<br> <br>
 
 돌봄 가능한 팻 * <br>
