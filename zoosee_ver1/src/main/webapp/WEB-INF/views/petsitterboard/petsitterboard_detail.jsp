@@ -5,7 +5,7 @@
 	<form>
 		<table>
 			<tr>
-				<td>aa</td>
+				<td>${petsitterboardVO}</td>
 			</tr>
 		</table>
 	</form>

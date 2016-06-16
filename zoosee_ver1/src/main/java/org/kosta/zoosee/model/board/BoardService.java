@@ -16,4 +16,6 @@ public interface BoardService {
 
 	int totalCount(String service, String petSize, String petType);
 
+	PetsitterboardVO getboardDetail(int petsitterboard_no);
+
 }

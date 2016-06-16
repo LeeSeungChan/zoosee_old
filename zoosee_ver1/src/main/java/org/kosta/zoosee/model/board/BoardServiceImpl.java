@@ -50,5 +50,10 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.totalCount(map);
 	}
 
+	@Override
+	public PetsitterboardVO getboardDetail(int petsitterNo) {
+ 		return boardDAO.getboardDetail(petsitterNo);
+	}
+
 	
 }

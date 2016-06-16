@@ -20,4 +20,6 @@ public interface BoardDAO {
 
 	int totalCount(HashMap<String, String> map);
 
+	PetsitterboardVO getboardDetail(int petsitterNo);
+
 }

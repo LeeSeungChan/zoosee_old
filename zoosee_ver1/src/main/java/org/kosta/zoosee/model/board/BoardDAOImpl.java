@@ -51,4 +51,9 @@ public class BoardDAOImpl implements BoardDAO{
 		int count = list.get(0);
 		return count;
 	}
+
+	@Override
+	public PetsitterboardVO getboardDetail(int petsitterNo) {
+ 		return template.selectOne("petsitterboard.getboardDetail", petsitterNo);
+	}
 }

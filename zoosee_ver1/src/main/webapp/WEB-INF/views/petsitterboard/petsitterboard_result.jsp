@@ -97,7 +97,7 @@
 	<table border="1">
 		<tr>
 			<c:forEach items="${lvo.map}" var="map" varStatus="i">
-				<td>${map.value}</td>
+				<td><a href="petsitterboardDetail.do?petsitterboard_no=${map.value.petsitterboard_no}">${map.value}</a></td>
 				<c:if test="${i.index%3 == 2 && i.index+1 != list.size()}">
 					</tr>
 					<tr>
