@@ -230,3 +230,41 @@ create table freeboard
    id varchar2(100) not null,
    constraint fk_freeboard_id foreign key(id) references PET_MEMBER(id)
 )
+
+
+--자유게시판 댓글 시퀀스
+create sequence freeboard_reply_seq;
+drop sequence freeboard_reply_seq;
+
+--자게 댓글테이블 드롭
+drop table freeboard_reply;
+
+--자유게시판 댓글
+create table freeboard_reply(
+   --댓글 번호
+   reply_no number primary key,
+   --댓글 내용
+   content clob not null,
+   --댓글 작성시간
+   time_posted date not null,
+   --댓글의 그룹
+   grp number default 0,
+   --댓글의 레벨
+   lvl number default 0,
+   --댓글의 상태(삭제)
+   con number default 0,
+   --작성자 아이디
+   id varchar2(100) not null,
+   --게시판 게시글 번호
+   ref number default 0,
+   constraint fk_pet2_id foreign key(id) references pet_member(id),
+   constraint fk_freeboard_reply_ref foreign key(ref) references freeboard(freeboard_no)
+)
+
+
+			select case when lvl=1 then reply_no
+			when lvl>1 then null end reply_no
+			,content,to_char(time_posted,'yyyy/mm/dd hh24:mi') as time_posted,grp,lvl,id,ref,con
+			from freeboard_reply
+			where ref=15
+			order by grp asc, lvl

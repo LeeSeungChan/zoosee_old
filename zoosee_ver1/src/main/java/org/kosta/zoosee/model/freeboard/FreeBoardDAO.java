@@ -2,6 +2,7 @@ package org.kosta.zoosee.model.freeboard;
 
 import java.util.List;
 
+import org.kosta.zoosee.model.vo.FreeBoardReplyVO;
 import org.kosta.zoosee.model.vo.FreeBoardVO;
 
 public interface FreeBoardDAO {
@@ -20,6 +21,20 @@ public interface FreeBoardDAO {
 
 	public int totalContents();
 
+	public void writeReply(FreeBoardReplyVO freeBoardReplyVO);
+
+	public int getFreeBoardReplyNo();
+
+	public List<FreeBoardReplyVO> getReplyList(int freeBoardNo);
+
+	public void updateRestep(FreeBoardReplyVO freeBoardReplyVO);
+
+	public void writeReply2(FreeBoardReplyVO freeBoardReplyVO);
+
+	public int findMaxLvl(int grp);
+
+	public void replaceReplyContet(FreeBoardReplyVO freeBoardReplyVO);
 	
+	public void deleteReply(FreeBoardReplyVO freeBoardReplyVO);
 
 }

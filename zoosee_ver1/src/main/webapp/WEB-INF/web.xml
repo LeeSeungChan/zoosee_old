@@ -39,4 +39,7 @@
     <filter-name>encodeFilter</filter-name>
     <url-pattern>*.do</url-pattern>
   </filter-mapping>
+      <session-config>
+        <session-timeout>10000</session-timeout>
+    </session-config>
 </web-app>

@@ -15,6 +15,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="org.kosta.zoosee.model.vo.QNABoardVO" alias="qnaboardVO"/>
 		<typeAlias type="org.kosta.zoosee.model.vo.FreeBoardVO" alias="freeBoardVO"/>
 		<typeAlias type="org.kosta.zoosee.model.vo.PetsitterboardVO" alias="petsitterboardVO"/>
+		<typeAlias type="org.kosta.zoosee.model.vo.FreeBoardReplyVO" alias="freeBoardReplyVO"/>
 		<!-- <typeAlias type="org.kosta.zoosee.model.vo"/> -->
 	</typeAliases>	
 	<!-- mapper.xml 을 명시한다  -->

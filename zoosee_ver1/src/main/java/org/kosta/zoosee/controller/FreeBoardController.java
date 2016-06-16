@@ -1,11 +1,14 @@
 package org.kosta.zoosee.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.kosta.zoosee.model.freeboard.FreeBoardService;
 import org.kosta.zoosee.model.freeboard.ListVO;
+import org.kosta.zoosee.model.vo.FreeBoardReplyVO;
 import org.kosta.zoosee.model.vo.FreeBoardVO;
 import org.kosta.zoosee.model.vo.MemberVO;
 import org.springframework.stereotype.Controller;
@@ -35,7 +38,17 @@ public class FreeBoardController {
 	//노히트 상세보기
 	@RequestMapping("freeBoard_showFreeBoardContentNoHit.do")
 	public ModelAndView showFreeBoardContentNoHit(int freeBoardNo){
-		return new ModelAndView("freeBoard_showcontent","freeBoardVO",freeBoardService.showFreeBoardContentNoHit(freeBoardNo));
+		
+		//게시글 VO
+		FreeBoardVO freeBoardVO = freeBoardService.showFreeBoardContentNoHit(freeBoardNo);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("freeBoard_showcontent");
+		mv.addObject("freeBoardVO", freeBoardVO);
+		
+		//댓글vo List
+		List<FreeBoardReplyVO> list = freeBoardService.getReplyList(freeBoardNo);
+		mv.addObject("replyList", list);
+		return  mv;
 	}
 	
 	//게시물 삭제하기
@@ -72,5 +85,25 @@ public class FreeBoardController {
 		return new ModelAndView("freeBoard_update","freeBoardVO",freeBoardService.showFreeBoardContentNoHit(freeBoardNo));
 	}
 	
+	//댓글 write
+	@RequestMapping("freeBoard_writeReply.do")
+	public ModelAndView writeReply(FreeBoardReplyVO freeBoardReplyVO){
+		freeBoardService.writeReply(freeBoardReplyVO);
+		return new ModelAndView("redirect:home.do");
+	}
+	
+	//대댓글 write
+	@RequestMapping("freeBoard_writeReply2.do")
+	public ModelAndView writeReply2(FreeBoardReplyVO freeBoardReplyVO){
+		freeBoardService.writeReply2(freeBoardReplyVO);
+		return new ModelAndView("redirect:home.do");
+	}
+	
+	//댓글 delete
+	@RequestMapping("freeBoard_deleteReply.do")
+	public ModelAndView deleteReply(FreeBoardReplyVO freeBoardReplyVO){
+		freeBoardService.deleteReply(freeBoardReplyVO);
+		return new ModelAndView("redirect:home.do");
+	}
 
 }

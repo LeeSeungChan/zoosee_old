@@ -17,8 +17,40 @@
 			}
  		});
  		
+ 		$("#replyForm").submit(function(){
+ 			var content = $("#content").val();
+ 			if(content==""){
+				alert("내용을 입력해주세요!")
+				return false;
+ 			}
+ 		})
+ 		
  	});
+ 	
+	function rereplyButton(index,grp,lvl,ref){
+		var rereplyform = "";
+		rereplyform+="<form action='freeBoard_writeReply2.do' id='rereplyForm'>"; 
+		rereplyform+="<textarea rows='7' cols='50' name='content' id='content'> </textarea>";
+		rereplyform+="<input type='hidden' name='grp' value="+grp+">";
+		rereplyform+="<input type='hidden' name='lvl' value="+lvl+"><br>";
+		rereplyform+="<input type='hidden' name='ref' value="+ref+">";
+		rereplyform+="<input type='hidden' name='id' value='${sessionScope.mvo.id }'>";
+		rereplyform+="<input type='submit' value='작성'>";
+		rereplyform+="<br>--------------------------------------------------------------";
+		rereplyform+="</form>";
+		$("#rereply"+index).html(rereplyform); 
+	};
 	
+	function del_reply(grp,lvl,ref){
+		if(confirm("댓글을 삭제하시겠습니까?")){
+			location.href="${initParam.root}freeBoard_deleteReply.do?grp="+grp+"&lvl="+lvl+"&ref="+ref;
+		}
+	};
+	
+	
+	
+	
+ 	
 </script>
 
 <form id="contentForm">
@@ -49,6 +81,49 @@
 		</c:otherwise>
 	</c:choose>
 	</tr>
-
 </table>
 </form>
+<%--댓글리스트 --%>
+<table>
+	<c:forEach items="${requestScope.replyList }" var="reply" varStatus="status">
+		<tr>
+			<td>
+			<c:if test="${reply.reply_no==0}">
+			>>
+			</c:if>
+			ID:${reply.id } 
+			</td>
+			<td>${reply.content }</td>
+			<td>${reply.time_posted }</td>
+			<td>
+			<c:if test="${reply.reply_no>0}">
+			<input type="button" value="댓글" onclick="rereplyButton(${status.index},${reply.grp },${reply.lvl},${reply.ref} )">
+			</c:if>
+			<c:if test="${reply.con==0}">
+			<input type="button" value="삭제" onclick="del_reply(${reply.grp },${reply.lvl},${reply.ref})">
+			</c:if>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">--------------------------------------------------------------</td>
+		</tr>
+		<tr>
+				<td colspan="4"><span id="rereply${status.index}"></span></td>
+		</tr>
+	</c:forEach>
+</table>
+<%--댓글작성란 --%>
+<hr>
+<form action="freeBoard_writeReply.do" id="replyForm">
+	<table>
+		<tr>
+			<td><textarea rows="7" cols="50" name="content" id="content"></textarea></td>
+		</tr>
+		<tr>
+			<td align="center"><input type="submit" value="댓글쓰기"></td>
+		</tr>
+	</table>
+	<input type="hidden" name="id" value="${sessionScope.mvo.id }">
+	<input type="hidden" name="ref" value="${requestScope.freeBoardVO.freeBoardNo }">
+</form>
+
