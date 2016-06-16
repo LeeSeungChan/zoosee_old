@@ -94,9 +94,7 @@ public class BoardController {
 	@RequestMapping("petsitterboardDetail.do")
 	public ModelAndView getboardDetail(int petsitterboard_no){
 		PetsitterboardVO petsitterboardVO = boardServie.getboardDetail(petsitterboard_no);
-		
 		System.out.println(petsitterboardVO.toString());
-		
 		return new ModelAndView("petsitterboard_detail", "petsitterboardVO", petsitterboardVO);
 	}
 }
