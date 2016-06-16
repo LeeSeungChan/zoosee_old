@@ -210,7 +210,7 @@ create table QNABOARD
 	qnaboard_question clob not null,
 	time_posted date not null,
 	time_answered date,
-	qnaboard_answer varchar2(100),
+	qnaboard_answer clob,
 	id varchar2(100) not null,
 	constraint fk_qnaboard_id foreign key(id) references PET_MEMBER(id)
 )  

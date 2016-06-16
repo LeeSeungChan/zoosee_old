@@ -25,6 +25,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/config/qna.xml"/>
 		<mapper resource="mybatis/config/petsitterboard.xml"/>
 		<mapper resource="mybatis/config/search.xml"/>
+		<mapper resource="mybatis/config/freeboard.xml"/>
 	</mappers>
 </configuration>
 
