@@ -1,19 +1,18 @@
 package org.kosta.zoosee.model.admin;
 
-import java.util.List;
-
+import org.kosta.zoosee.model.qnaboard.ListVO;
 import org.kosta.zoosee.model.vo.QNABoardVO;
 
 public interface AdminService {
 
-	List<QNABoardVO> getQuestionList();
+	ListVO getQuestionList(String pageNo);
 
 	QNABoardVO showQuestion(int boardNo);
 
 	void updateAnswer(QNABoardVO qnaBoardVO);
 
-	List<QNABoardVO> nonAnswerList();
+	ListVO nonAnswerList(String pageNo);
 
-	List<QNABoardVO> findByIdQNA(String id);
+	ListVO findByIdQnaList(String id, String pageNo);
 
 }

@@ -2,19 +2,13 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<a href="${initParam.root}admin_qna_list.do?when=all">모든 qna 목록</a>
-|
-<a href="${initParam.root}admin_qna_list.do?when=nonAnswer">답변 미등록
-	qna 목록</a>
-|
+<a href="${initParam.root}admin_qna_list.do?when=all">모든 qna 목록</a>|
+<a href="${initParam.root}admin_qna_list.do?when=nonAnswer">답변 미등록 qna 목록</a>|
 <a href="${initParam.root}admin_qna_findbyid.do">아이디로 Q&A 검색</a>
-
-
 <hr>
 아이디 ${param.id} (으)로 검색하신 정보 입니다.
-
 <c:choose>
-	<c:when test="${empty list}">
+	<c:when test="${empty listVO.list}">
 		<br>검색하신 이용자의 질문 내역이 없습니다.
 	</c:when>
 	<c:otherwise>
@@ -26,7 +20,7 @@
 				<th>작성시간</th>
 				<th>답변여부</th>
 			</tr>
-			<c:forEach items="${list }" var="Question">
+			<c:forEach items="${listVO.list }" var="Question">
 				<tr>
 					<td>${Question.boardNo }</td>
 					<td><a
@@ -43,3 +37,23 @@
 		</table>
 	</c:otherwise>
 </c:choose>
+<br>
+<br>
+<c:set var="pb" value="${listVO.pagingBean}"></c:set>
+<c:if test="${pb.previousPageGroup}">
+	<a href="${initParam.root}admin_qna_find_view.do?id=${param.id}&pageNo=${pb.startPageOfPageGroup-1}">◀</a>
+</c:if>
+<c:forEach var="i" begin="${pb.startPageOfPageGroup}"
+	end="${pb.endPageOfPageGroup}">
+	<c:choose>
+		<c:when test="${pb.nowPage!=i}">
+			<a href="${initParam.root}admin_qna_find_view.do?id=${param.id}&pageNo=${i}">${i}</a>
+		</c:when>
+		<c:otherwise>
+		${i}
+		</c:otherwise>
+	</c:choose>
+</c:forEach>
+<c:if test="${pb.nextPageGroup}">
+	<a href="${initParam.root}admin_qna_find_view.do?id=${param.id}&pageNo=${pb.endPageOfPageGroup+1}">▶</a>
+</c:if>

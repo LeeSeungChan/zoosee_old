@@ -1,5 +1,6 @@
 package org.kosta.zoosee.model.qnaboard;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.kosta.zoosee.model.vo.QNABoardVO;
@@ -8,7 +9,7 @@ public interface QNABoardDAO {
 
 	int registerQNA(QNABoardVO qnaboardVO);
 
-	List<QNABoardVO> getQNAList(String id);
+	List<QNABoardVO> findByIdQNA(HashMap<String, String> map);
 
 	QNABoardVO getContent(int boardNo);
 
@@ -16,12 +17,18 @@ public interface QNABoardDAO {
 
 	void deleteQNA(int boardNo);
 
-	List<QNABoardVO> getQuestionList();
+	List<QNABoardVO> getQuestionList(int pageNo);
 
 	void updateAnswer(QNABoardVO qnaBoardVO);
 
-	List<QNABoardVO> nonAnswerList();
+	List<QNABoardVO> nonAnswerList(int pageNo);
 
-	List<QNABoardVO> findByIdQNA(String id);
+	int getTotalQnaCountById(String id);
+
+	int getAllQuestionCount();
+
+	int getnonAnswerQuestionCount();
+
+	List<QNABoardVO> findByIdQnaList(HashMap<String, String> map);
 
 }

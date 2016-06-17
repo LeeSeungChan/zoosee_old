@@ -12,7 +12,7 @@
 		<th>작성시간</th>
 		<th>답변여부</th>
 	</tr>
-	<c:forEach items="${list }" var="Question">
+	<c:forEach items="${listVO.list }" var="Question">
 		<tr>
 			<td>${Question.boardNo }</td>
 			<td><a href="${initParam.root}admin_showQuestion.do?boardNo=${Question.boardNo}">${Question.title }</a></td>
@@ -27,3 +27,23 @@
 		</tr>
 	</c:forEach>
 </table>
+<br>
+<br>
+<c:set var="pb" value="${listVO.pagingBean}"></c:set>
+<c:if test="${pb.previousPageGroup}">
+	<a href="admin_qna_list.do?pageNo=${pb.startPageOfPageGroup-1}&when=${when}">◀</a>
+</c:if>
+<c:forEach var="i" begin="${pb.startPageOfPageGroup}"
+	end="${pb.endPageOfPageGroup}">
+	<c:choose>
+		<c:when test="${pb.nowPage!=i}">
+			<a href="admin_qna_list.do?pageNo=${i}&when=${when}">${i}</a>
+		</c:when>
+		<c:otherwise>
+		${i}
+		</c:otherwise>
+	</c:choose>
+</c:forEach>
+<c:if test="${pb.nextPageGroup}">
+	<a href="qna_list.do?pageNo=${pb.endPageOfPageGroup+1}&when=${when}">▶</a>
+</c:if>

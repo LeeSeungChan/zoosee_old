@@ -1,11 +1,10 @@
 package org.kosta.zoosee.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.kosta.zoosee.model.admin.AdminService;
+import org.kosta.zoosee.model.qnaboard.ListVO;
 import org.kosta.zoosee.model.vo.QNABoardVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,14 +17,20 @@ public class AdminController {
 	
 	/* 관리자 페이지 - 회원이 등록한 모든 Q&A게시물 보기 */
 	@RequestMapping("admin_qna_list.do")
-	public ModelAndView getQuestionList(String when){
-		List<QNABoardVO> list=new ArrayList<QNABoardVO>();
+	public ModelAndView getQuestionList(HttpServletRequest request){
+		ListVO list=new ListVO();
+		String when=request.getParameter("when");
+		String pageNo=request.getParameter("pageNo");
+		ModelAndView mv=new ModelAndView();
 		if(when.equals("all")){
-			list=adminService.getQuestionList();//모든 회원 qna 리스트
+			list=adminService.getQuestionList(pageNo);//모든 회원 qna 리스트
 		}else if(when.equals("nonAnswer")){
-			list=adminService.nonAnswerList();//답변이 없는 qna 리스트
+			list=adminService.nonAnswerList(pageNo);//답변이 없는 qna 리스트
 		}
-		return new ModelAndView("admin_qna_list","list",list);
+		mv.setViewName("admin_qna_list");
+		mv.addObject("when", when);
+		mv.addObject("listVO",list );
+		return mv;
 	}
 	/* 관리자 페이지 -  회원이 등록한 해당 Q&A게시물 상세보기*/
 	@RequestMapping("admin_showQuestion.do")
@@ -40,8 +45,10 @@ public class AdminController {
 	}
 	/*관리자 페이지 - 아이디로 Q&A 검색하기*/
 	@RequestMapping("admin_qna_find_view.do")
-	public ModelAndView findByIdQNA(String id){
-		List<QNABoardVO> list=adminService.findByIdQNA(id);
-		return new ModelAndView("admin_qna_find_view","list",list);
+	public ModelAndView findByIdQNA(HttpServletRequest request){
+		String pageNo=request.getParameter("pageNo");
+		String id=request.getParameter("id");
+		ListVO list=adminService.findByIdQnaList(id,pageNo);
+		return new ModelAndView("admin_qna_find_view","listVO",list);
 	}
 }

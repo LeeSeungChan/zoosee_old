@@ -1,5 +1,6 @@
 package org.kosta.zoosee.model.qnaboard;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -20,8 +21,17 @@ public class QNABoardServiceImpl implements QNABoardService {
 		return result;
 	}
 	@Override
-	public List<QNABoardVO> getQNAList(String id) {
-		 return qnaboardDAO.getQNAList(id);
+	public ListVO getQNAList(String id,String pageNo) {	
+		if(pageNo==null){
+			pageNo="1";
+		}
+		HashMap<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("pageNo",pageNo);
+		List<QNABoardVO> list=qnaboardDAO.findByIdQNA(map);
+		int totalContents=qnaboardDAO.getTotalQnaCountById(id);
+		PagingBean pagingBean =new PagingBean(totalContents, Integer.parseInt(pageNo));
+		 return  new ListVO(list, pagingBean);
 	}
 	@Override
 	public QNABoardVO getContent(int boardNo) {

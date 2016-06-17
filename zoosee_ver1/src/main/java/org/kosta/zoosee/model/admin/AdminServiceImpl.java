@@ -1,9 +1,12 @@
 package org.kosta.zoosee.model.admin;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.kosta.zoosee.model.qnaboard.ListVO;
+import org.kosta.zoosee.model.qnaboard.PagingBean;
 import org.kosta.zoosee.model.qnaboard.QNABoardDAO;
 import org.kosta.zoosee.model.vo.QNABoardVO;
 import org.springframework.stereotype.Service;
@@ -15,8 +18,14 @@ public class AdminServiceImpl implements AdminService {
 	private QNABoardDAO qnaBoardDAO;
 
 	@Override
-	public List<QNABoardVO> getQuestionList() {
-		return qnaBoardDAO.getQuestionList();
+	public ListVO getQuestionList(String pageNo) {
+		if(pageNo==null){
+			pageNo="1";
+		}
+		List<QNABoardVO> list=qnaBoardDAO.getQuestionList(Integer.parseInt(pageNo));
+		int totalContents=qnaBoardDAO.getAllQuestionCount();
+		PagingBean pagingBean=new PagingBean(totalContents, Integer.parseInt(pageNo));
+		return new ListVO(list, pagingBean);
 	}
 
 	@Override
@@ -30,13 +39,28 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<QNABoardVO> nonAnswerList() {
-		return qnaBoardDAO.nonAnswerList();
+	public ListVO nonAnswerList(String pageNo) {
+		if(pageNo==null){
+			pageNo="1";
+		}
+		List<QNABoardVO> list=qnaBoardDAO.nonAnswerList(Integer.parseInt(pageNo));
+		int totalContents=qnaBoardDAO.getnonAnswerQuestionCount();
+		PagingBean pagingBean=new PagingBean(totalContents, Integer.parseInt(pageNo));
+		return new ListVO(list, pagingBean);
 	}
 
 	@Override
-	public List<QNABoardVO> findByIdQNA(String id) {
-		return qnaBoardDAO.findByIdQNA(id);
+	public ListVO findByIdQnaList(String id,String pageNo) {
+		if(pageNo==null){
+			pageNo="1";
+		}
+		HashMap<String,String> map=new HashMap<String, String>();
+		map.put("id", id);
+		map.put("pageNo", pageNo);
+		List<QNABoardVO> list=qnaBoardDAO.findByIdQnaList(map);
+		int totalContents=qnaBoardDAO.getTotalQnaCountById(id);
+		PagingBean pagingBean=new PagingBean(totalContents, Integer.parseInt(pageNo));
+		return new ListVO(list, pagingBean);
 	}
 	
 }

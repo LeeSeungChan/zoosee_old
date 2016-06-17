@@ -1,5 +1,6 @@
 package org.kosta.zoosee.model.qnaboard;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -16,8 +17,8 @@ public class QNABoardDAOImpl implements QNABoardDAO {
 		return template.insert("qna.registerQuestion",qnaboardVO);
 	}
 	@Override
-	public List<QNABoardVO> getQNAList(String id) {
-		return template.selectList("qna.getQNAList",id);
+	public List<QNABoardVO> findByIdQNA(HashMap<String, String> map) {
+		return template.selectList("qna.findByIdQNA",map);
 	}
 	@Override
 	public QNABoardVO getContent(int boardNo) {
@@ -32,20 +33,32 @@ public class QNABoardDAOImpl implements QNABoardDAO {
 		template.delete("qna.deleteQNA",boardNo);
 	}
 	@Override
-	public List<QNABoardVO> getQuestionList() {
-		return template.selectList("qna.getQuestionList");
+	public List<QNABoardVO> getQuestionList(int pageNo) {
+		return template.selectList("qna.getQuestionList",pageNo);
 	}
 	@Override
 	public void updateAnswer(QNABoardVO qnaBoardVO) {
 		template.update("qna.updateAnswer",qnaBoardVO);
 	}
 	@Override
-	public List<QNABoardVO> nonAnswerList() {
-		return template.selectList("qna.nonAnswerList");
+	public List<QNABoardVO> nonAnswerList(int pageNo) {
+		return template.selectList("qna.nonAnswerList",pageNo);
 	}
 	@Override
-	public List<QNABoardVO> findByIdQNA(String id) {
-		return template.selectList("qna.findByIdQNA",id);
+	public int getTotalQnaCountById(String id) {
+		return template.selectOne("qna.getTotalQnaCountById",id);
+	}
+	@Override
+	public int getAllQuestionCount() {
+		return template.selectOne("qna.getAllQuestionCount");
+	}
+	@Override
+	public int getnonAnswerQuestionCount() {
+		return template.selectOne("qna.getnonAnswerQuestionCount");
+	}
+	@Override
+	public List<QNABoardVO> findByIdQnaList(HashMap<String, String> map) {
+		return template.selectList("qna.findByIdQnaList",map);
 	}
 
 }

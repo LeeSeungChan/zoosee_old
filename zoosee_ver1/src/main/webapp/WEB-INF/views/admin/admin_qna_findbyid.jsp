@@ -13,7 +13,7 @@
 </script>
 <a href="${initParam.root}admin_qna_list.do?when=all">모든 qna 목록</a>|
 <a href="${initParam.root}admin_qna_list.do?when=nonAnswer">답변 미등록 qna 목록</a>|
-아이디로 Q&A 검색
+<a href="${initParam.root}admin_qna_findbyid.do">아이디로 Q&A 검색</a>
 
 <form id="findForm" action="${initParam.root}admin_qna_find_view.do">
 	<input type="text" id="id" name="id">
