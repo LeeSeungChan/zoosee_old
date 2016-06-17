@@ -1,14 +1,12 @@
 package org.kosta.zoosee.model.petsitter;
 
-import java.util.List;
-
 import org.kosta.zoosee.model.vo.PetsitterVO;
 
 public interface PetsitterService {
 
 		public abstract void registerPetsitter(PetsitterVO petsitterVO);
-		
-		public abstract List<PetsitterVO> petsitterList(String value);
+
+		public abstract ListVO petsitterList(String value,String pageNo);
 	
 		public abstract void recognitionPetsitter(int petsitterNo, String id);
 	

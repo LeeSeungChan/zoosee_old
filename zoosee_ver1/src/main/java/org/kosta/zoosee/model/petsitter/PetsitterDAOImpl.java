@@ -1,5 +1,6 @@
 package org.kosta.zoosee.model.petsitter;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -19,8 +20,13 @@ public class PetsitterDAOImpl implements PetsitterDAO {
 	}
 	
 	@Override
-	public List<PetsitterVO> petsitterList(String value) {
-		return template.selectList("petsitter.petsitterList",value);
+	public int petsitterListCount(String value) {
+		return template.selectOne("petsitter.petsitterListCount",value);
+	}
+
+	@Override
+	public List<PetsitterVO> petsitterList(HashMap<String,String> map) {
+		return template.selectList("petsitter.petsitterList",map);
 	}
 
 	@Override

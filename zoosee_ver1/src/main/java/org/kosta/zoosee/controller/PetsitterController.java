@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.kosta.zoosee.model.petsitter.ListVO;
 import org.kosta.zoosee.model.petsitter.PetsitterService;
 import org.kosta.zoosee.model.vo.FileVO;
 import org.kosta.zoosee.model.vo.MemberVO;
@@ -65,14 +66,22 @@ public class PetsitterController {
 
 	
 	//펫시터 리스트를 보여준다.
-		@RequestMapping("petsitter_petsitterList.do")
-		public ModelAndView petsitterList(String value){
-			if(value.equals("recog")){//value -> recog 이면 펫시터 리스트 
-				return new ModelAndView("petsitter_petsitterlist","list",petsitterService.petsitterList(value));
-			}else{//value -> nonrecog 이면 펫시터 대기자 리스트 
-				return new ModelAndView("petsitter_petsitterwaitinglist","list",petsitterService.petsitterList(value));
-			}
+	@RequestMapping("petsitter_petsitterList.do")
+	public ModelAndView petsitterList(String value,HttpServletRequest request){
+		String pageNo=request.getParameter("pageNo");
+		ModelAndView mv=new ModelAndView();
+		ListVO list=new ListVO();
+		if(value.equals("recog")){//value -> recog 이면 펫시터 리스트 
+			list=petsitterService.petsitterList(value,pageNo);
+			mv.setViewName("petsitter_petsitterlist");
+		}else{//value -> nonrecog 이면 펫시터 대기자 리스트 
+			list=petsitterService.petsitterList(value,pageNo);
+			mv.setViewName("petsitter_petsitterwaitinglist");
 		}
+		mv.addObject("listVO",list);
+		return mv;
+	}
+	
 		
 		//펫시터 추방
 		@RequestMapping("petsitter_deletePetsitter.do")

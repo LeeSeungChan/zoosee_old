@@ -29,7 +29,7 @@
  <h3>펫시터 신청자 리스트</h3>
  <form id="recogForm">
 	<table border=1  id="recogTable">
-		<c:forEach items="${requestScope.list }" var="l">
+		<c:forEach items="${requestScope.listVO.list }" var="l">
 			<tr>
 				<td>펫시터넘버:</td> 
 				<td>${l.petsitterNo}</td> 
@@ -40,9 +40,28 @@
 				<td><input type="button"  name="recogBtn" value="승인"></td> 
 			 </tr>
 		</c:forEach>
-	</table>
-	 
+	</table> 
  </form>
+ <br>
+<br>
+<c:set var="pb" value="${listVO.pagingBean}"></c:set>
+<c:if test="${pb.previousPageGroup}">
+	<a href="petsitter_petsitterList.do?value=nonrecog&pageNo=${pb.startPageOfPageGroup-1}">◀</a>
+</c:if>
+<c:forEach var="i" begin="${pb.startPageOfPageGroup}"
+	end="${pb.endPageOfPageGroup}">
+	<c:choose>
+		<c:when test="${pb.nowPage!=i}">
+			<a href="petsitter_petsitterList.do?value=nonrecog&pageNo=${i}">${i}</a>
+		</c:when>
+		<c:otherwise>
+		${i}
+		</c:otherwise>
+	</c:choose>
+</c:forEach>
+<c:if test="${pb.nextPageGroup}">
+	<a href="petsitter_petsitterList.do?value=nonrecog&pageNo=${pb.endPageOfPageGroup+1}">▶</a>
+</c:if>
 
 
 

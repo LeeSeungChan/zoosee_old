@@ -1,10 +1,12 @@
 package org.kosta.zoosee.model.petsitter;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.kosta.zoosee.model.member.MemberDAO;
+import org.kosta.zoosee.model.qnaboard.PagingBean;
 import org.kosta.zoosee.model.vo.PetsitterVO;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +25,17 @@ public class PetsitterServiceImpl implements PetsitterService {
 	}
 	
 	@Override
-	public List<PetsitterVO> petsitterList(String value) {
-		return petsitterDAO.petsitterList(value);
+	public ListVO petsitterList(String value,String pageNo) {
+		if(pageNo==null){
+			pageNo="1";
+		}
+		int totalContents=petsitterDAO.petsitterListCount(value);
+		HashMap<String,String> map=new HashMap<String, String>();
+		map.put("value", value);
+		map.put("pageNo", pageNo);
+		List<PetsitterVO> list=petsitterDAO.petsitterList(map);
+		PagingBean pagingBean=new PagingBean(totalContents, Integer.parseInt(pageNo)); 
+		return new ListVO(list, pagingBean);
 	}
 
 	@Override

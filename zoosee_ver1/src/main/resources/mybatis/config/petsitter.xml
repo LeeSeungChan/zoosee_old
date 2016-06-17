@@ -24,11 +24,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(petsitterNo_seq.nextval,#{petNumber},#{service},#{price},#{petSize},#{petType},#{houseImg},#{petsitterImg},'nonrecog',#{memberVO.id})
  	</insert>
  	
+ 	<select id="petsitterListCount" resultType="int">
+ 		select count(*) from petsitter where adminRecog=#{value}
+ 	</select>
  	
 	<select id="petsitterList" resultType="petsitterVO" resultMap="petsitterRM" parameterType="string">
-			select p.petsitterNo,p.petNumber,p.service,p.price,p.petSize,p.petType,p.houseImg,p.petsitterImg,p.adminRecog,pm.id,pm.name 
-			from petsitter p ,pet_member pm
-		    where p.id=pm.id and  adminRecog=#{value}
+		select petsitterNo,petNumber,service,price,petSize,petType,houseImg,petsitterImg,adminRecog,id,name 
+		from (
+			select ceil(rownum/10) as page,petsitterNo,petNumber,service,price,petSize,petType,houseImg,petsitterImg,adminRecog,id,name 
+			from (
+				select p.petsitterNo,p.petNumber,p.service,p.price,p.petSize,p.petType,p.houseImg,p.petsitterImg,p.adminRecog,pm.id,pm.name 
+				from petsitter p ,pet_member pm
+			    where p.id=pm.id and  adminRecog=#{value}
+			)
+		)where page=#{pageNo}
 	</select>
 	
 	<update id="recognitionPetsitter" parameterType="int">
