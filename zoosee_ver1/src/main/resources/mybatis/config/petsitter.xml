@@ -62,10 +62,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deletePetsitter" >
 		delete from PETSITTER where petsitterNo=#{value}
 	</delete>
-	
-	<update id="updateRank">
-       update PET_MEMBER set RANK='petsitter' where id=#{id }
-    </update>
  	
  	<update id="update" parameterType="petsitterVO">
        update petsitter set price=#{price},petType=#{petType},petSize=#{petSize},petNumber=#{petNumber},service=#{service},houseImg=#{houseImg},petsitterImg=#{petsitterImg},adminRecog=#{adminRecog} where petsitterNo=#{petsitterNo}

@@ -1,5 +1,6 @@
 package org.kosta.zoosee.model.member;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -44,15 +45,11 @@ public class MemberDAOImpl implements MemberDAO {
 		return template.delete("member.deleteMember",id);
 	}
 	@Override
-	public void registerPet(String id) {
-		template.update("member.registerPet",id);
+	public void upgradeRank(HashMap<String,String> map) {
+		template.update("member.registerPet",map);
 	}
 	@Override
 	public String findRank(String id) {
 		return template.selectOne("member.findRank",id);
-	}
-	@Override
-	public void registerPetMaster(String id) {
-		template.update("member.registerPetMaster",id);
 	}
 }

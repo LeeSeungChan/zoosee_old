@@ -35,8 +35,8 @@
 <input type="text" name="job" value="${mvo.job }" readonly="readonly">
 <br>
 펫 양육 경험 <br>
-<input type="radio" name="existence" value="A" disabled="disabled" > 키워본 경험이 없다<br>
-<input type="radio" name="existence" value="B" disabled="disabled" > 키워본 경험이 있다<br>
-<input type="radio" name="existence" value="C" disabled="disabled"> 현재 키우고 있다<br>
+<input type="radio" name="existence" value="키워본 경험이 없다." disabled="disabled" > 키워본 경험이 없다<br>
+<input type="radio" name="existence" value="키워본 경험이 없다." disabled="disabled" > 키워본 경험이 있다<br>
+<input type="radio" name="existence" value="현재 키우고 있다." disabled="disabled"> 현재 키우고 있다<br>
 <input type="button" value="수정" id="update">
 <input type="button" value="탈퇴" id="delete">

@@ -33,8 +33,7 @@ select * from petsitterboard
 select * from pet_calendar
 select * from reserve
 select * from tradeinfo
-delete from pet_member where id='eeee'
-drop table pet_member
+drop table pet_member  cascade CONSTRAINTS; 
 drop table pet
 drop table petsitter
 drop table petsitterboard
@@ -48,7 +47,9 @@ CREATE TABLE PET_MEMBER(
 	-- 이름
 	name varchar2(100) not null,
 	-- 주소
+	addressCode varchar2(100) not null,
 	address varchar2(100) not null,
+	detailAddress varchar2(100) not null,
 	-- 성별
 	gender varchar2(100) not null,
 	-- 메일주소
@@ -61,8 +62,6 @@ CREATE TABLE PET_MEMBER(
 	job varchar2(100) not null,
 	-- 회원등급 ( 0 : 일반 회원 , 1 : 펫정보를 입력한 회원)
 	-- varchar2(50) 으로 할 시 스트링으로 임의의 값을 입력함
-	-- ex) 일반회원 ( 신상정보만 입력한회원 ) , 구매자( 펫정보를 입력한 회원 )
-	-- 		판매자( 돌보미인 회원 ), 관리자(관리자)
 	--  판매자는 펫정보를 입력 안해도 되는경우가 있음
 	rank varchar2(100) not null,
 	existence varchar2(100) not null

@@ -15,8 +15,8 @@ public class PetsitterDAOImpl implements PetsitterDAO {
 	private SqlSessionTemplate template;
 	
 	@Override
-	public void registerPetsitter(PetsitterVO petsitterVO){
-		template.insert("petsitter.registerPetsitter",petsitterVO);
+	public int registerPetsitter(PetsitterVO petsitterVO){
+		return template.insert("petsitter.registerPetsitter",petsitterVO);
 	}
 	
 	@Override
@@ -30,8 +30,8 @@ public class PetsitterDAOImpl implements PetsitterDAO {
 	}
 
 	@Override
-	public void recognitionPetsitter(int petsitterNo) {
-		template.update("petsitter.recognitionPetsitter",petsitterNo);
+	public int recognitionPetsitter(int petsitterNo) {
+		return template.update("petsitter.recognitionPetsitter",petsitterNo);
 		
 	}
 
@@ -43,12 +43,6 @@ public class PetsitterDAOImpl implements PetsitterDAO {
 	@Override
 	public void deletePetsitter(int petsitterNo) {
 		template.selectOne("petsitter.deletePetsitter",petsitterNo);
-	}
-
-	@Override
-	public void updateRank(String id) {
-		template.update("petsitter.updateRank", id);
-		
 	}
 
 	@Override

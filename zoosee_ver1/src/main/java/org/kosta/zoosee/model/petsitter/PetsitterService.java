@@ -14,8 +14,6 @@ public interface PetsitterService {
 	
 		public abstract void deletePetsitter(int petsitterNo);
 
-		public abstract void updateRank(String id);
-
 		public abstract PetsitterVO findPetsitterById(String id);
 
 		public abstract void update(PetsitterVO petsitterVO);

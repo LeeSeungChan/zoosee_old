@@ -12,46 +12,60 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PetsitterServiceImpl implements PetsitterService {
-	
+
 	@Resource
 	private PetsitterDAO petsitterDAO;
 	@Resource
 	private MemberDAO memberDAO;
-	
+
 	@Override
-	public void registerPetsitter(PetsitterVO petsitterVO){
-		//petsitter테이블에 insert
-		petsitterDAO.registerPetsitter(petsitterVO);
-	}
-	
-	@Override
-	public ListVO petsitterList(String value,String pageNo) {
-		if(pageNo==null){
-			pageNo="1";
+	public void registerPetsitter(PetsitterVO petsitterVO) {
+		String id = petsitterVO.getMemberVO().getId();
+		int i = petsitterDAO.registerPetsitter(petsitterVO);
+		if (i == 1) {//petsitter신청이 완료되었을때
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("id", id);
+			String rank = memberDAO.findRank(id);
+			String inputRank = "rank";
+			if (rank.equals("nomal")) {
+				inputRank = "pre_petsitter";
+			} else if (rank.equals("petmom")) {
+				inputRank = "pre_petmaster";
+			}
+			map.put("rank", inputRank);
+			memberDAO.upgradeRank(map);
 		}
-		int totalContents=petsitterDAO.petsitterListCount(value);
-		HashMap<String,String> map=new HashMap<String, String>();
+	}
+
+	@Override
+	public ListVO petsitterList(String value, String pageNo) {
+		if (pageNo == null) {
+			pageNo = "1";
+		}
+		int totalContents = petsitterDAO.petsitterListCount(value);
+		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("value", value);
 		map.put("pageNo", pageNo);
-		List<PetsitterVO> list=petsitterDAO.petsitterList(map);
-		PagingBean pagingBean=new PagingBean(totalContents, Integer.parseInt(pageNo)); 
+		List<PetsitterVO> list = petsitterDAO.petsitterList(map);
+		PagingBean pagingBean = new PagingBean(totalContents,
+				Integer.parseInt(pageNo));
 		return new ListVO(list, pagingBean);
 	}
 
 	@Override
 	public void recognitionPetsitter(int petsitterNo, String id) {
+		int i=petsitterDAO.recognitionPetsitter(petsitterNo);
 		String rank = memberDAO.findRank(id);
-		if(rank.equals("normal")){
-			//멤버의 rank가 normal 이면 petsitter로 update
-			petsitterDAO.updateRank(id);
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		String inputRank = "rank";
+		if (rank.equals("pre_petsitter")) {// 멤버의 rank가 prepetsitter 이면 petsitter로 update
+			inputRank="petsitter";
+		}else if (rank.equals("pre_petmaster")) {// 멤버의 rank가 petmom이면 petmaster로 update
+			inputRank="petmaster";
 		}
-			//멤버의 rank가 petmom이면 petmaster로 update
-		if(rank.equals("petmom")){
-			memberDAO.registerPetMaster(id);
-		}
-		
-		petsitterDAO.recognitionPetsitter(petsitterNo);
-		
+		map.put("rank", inputRank);
+		memberDAO.upgradeRank(map);
 	}
 
 	@Override
@@ -61,14 +75,7 @@ public class PetsitterServiceImpl implements PetsitterService {
 
 	@Override
 	public void deletePetsitter(int petsitterNo) {
-		 petsitterDAO.deletePetsitter(petsitterNo);
-		
-	}
-
-	@Override
-	public void updateRank(String id) {
-		petsitterDAO.updateRank(id);
-		
+		petsitterDAO.deletePetsitter(petsitterNo);
 	}
 
 	@Override

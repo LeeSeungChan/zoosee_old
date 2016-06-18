@@ -3,7 +3,9 @@ package org.kosta.zoosee.model.vo;
 public class MemberVO {
 	private String id;
 	private String name;
+	private String addressCode;
 	private String address;
+	private String detailAddress;
 	private String gender;
 	private String email;
 	private String password;
@@ -14,13 +16,16 @@ public class MemberVO {
 	
 	public MemberVO() {
  	}
-	public MemberVO(String id, String name, String address, String gender,
-			String email, String password, String tel, String job, String rank,
-			String existence) {
+	
+	public MemberVO(String id, String name, String addressCode, String address,
+			String detailAddress, String gender, String email, String password,
+			String tel, String job, String rank, String existence) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.addressCode = addressCode;
 		this.address = address;
+		this.detailAddress = detailAddress;
 		this.gender = gender;
 		this.email = email;
 		this.password = password;
@@ -29,6 +34,23 @@ public class MemberVO {
 		this.rank = rank;
 		this.existence = existence;
 	}
+
+	public String getAddressCode() {
+		return addressCode;
+	}
+
+	public void setAddressCode(String addressCode) {
+		this.addressCode = addressCode;
+	}
+
+	public String getDetailAddress() {
+		return detailAddress;
+	}
+
+	public void setDetailAddress(String detailAddress) {
+		this.detailAddress = detailAddress;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -89,12 +111,15 @@ public class MemberVO {
 	public void setExistence(String existence) {
 		this.existence = existence;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", name=" + name + ", address=" + address
-				+ ", gender=" + gender + ", email=" + email + ", password="
-				+ password + ", tel=" + tel + ", job=" + job + ", rank=" + rank
-				+ ", existence=" + existence + "]";
+		return "MemberVO [id=" + id + ", name=" + name + ", addressCode="
+				+ addressCode + ", address=" + address + ", detailAddress="
+				+ detailAddress + ", gender=" + gender + ", email=" + email
+				+ ", password=" + password + ", tel=" + tel + ", job=" + job
+				+ ", rank=" + rank + ", existence=" + existence + "]";
 	}
+	
+	
 }

@@ -1,5 +1,6 @@
 package org.kosta.zoosee.model.member;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.kosta.zoosee.model.vo.MemberVO;
@@ -22,8 +23,6 @@ public interface MemberDAO {
 
 	public abstract String findRank(String id);
 
-	public abstract void registerPet(String id);
-
-	public abstract void registerPetMaster(String id);
+	public abstract void upgradeRank(HashMap<String, String> map);
 
 }

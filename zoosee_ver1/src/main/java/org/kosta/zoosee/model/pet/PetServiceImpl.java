@@ -1,5 +1,6 @@
 package org.kosta.zoosee.model.pet;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -21,14 +22,18 @@ public class PetServiceImpl implements PetService {
 		if(i==1){
 			String id=pvo.getMemberVO().getId();
 			String rank=memberDAO.findRank(id);
-			//System.out.println("등급확인:"+rank);
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("id", id);
+			String inputRank="rank";
 			if(rank.equals("normal")){
-				//System.out.println("펫맘");
-				memberDAO.registerPet(id);
+				inputRank="petmom";
 			}else if(rank.equals("petsitter")){
-				//System.out.println("마스터");
-				memberDAO.registerPetMaster(id);
+				inputRank="petmaster";
+			}else if(rank.equals("pre_petsitter")){
+				inputRank="pre_petmaster";
 			}
+			map.put("rank", inputRank);
+			memberDAO.upgradeRank(map);
 		}
 	}
 
