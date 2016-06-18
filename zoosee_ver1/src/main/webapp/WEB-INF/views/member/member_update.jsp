@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
-   $(document).ready(function(){
+	$(document).ready(function(){
+		$("#existence option[value="+"'${mvo.existence}'"+"]").attr('selected', 'selected');
       $("input:radio[name=gender][value=" + '<c:out value="${ mvo.gender }"/>' + "]").attr("checked","checked");
       $("#password").keyup(function(){
          $("#passCheckView").empty();
@@ -153,7 +154,7 @@
                <div class="WJform-group">
                 <label>Existence</label>
                 <select class="WJform-control"  id="existence" name="existence" >
-                      <option value="">선택하세요.</option>
+                      <option value="" selected>선택하세요.</option>
                     <option value="키워본 경험이 없다.">키워본 경험이 없다.</option>
                <option value="키워본 경험이 없다.">키워본 경험이 없다.</option>
                <option value="현재 키우고 있다.">현재 키우고 있다.</option>

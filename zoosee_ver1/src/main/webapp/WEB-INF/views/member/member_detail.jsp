@@ -3,6 +3,7 @@
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
 	$(document).ready(function() {
+		$("#existence option[value="+"'${mvo.existence}'"+"]").attr('selected', 'selected');
 		$("#update").click(function() {
 			location.replace("${initParam.root}interceptor_member_update.do");
 		});
@@ -11,7 +12,6 @@
 				location.replace("${initParam.root}interceptor_member_delete.do");
 			}
 		});
-    	$("input:radio[name=existence][value=" + '<c:out value="${ mvo.existence }"/>' + "]").attr("checked","checked");
 	});
 </script>
 아이디
@@ -35,8 +35,14 @@
 <input type="text" name="job" value="${mvo.job }" readonly="readonly">
 <br>
 펫 양육 경험 <br>
-<input type="radio" name="existence" value="키워본 경험이 없다." disabled="disabled" > 키워본 경험이 없다<br>
+<select name="existence" id="existence" disabled="disabled">
+	<option value="" selected>-Select-</option>
+	<option value="키워본 경험이 없다.">키워본 경험이 없다.</option>
+	<option value="키워본 경험이 있다.">키워본 경험이 있다.</option>
+	<option value="현재 키우고 있다.">현재 키우고 있다. </option>
+</select>
+<!-- <input type="radio" name="existence" value="키워본 경험이 없다." disabled="disabled" > 키워본 경험이 없다<br>
 <input type="radio" name="existence" value="키워본 경험이 없다." disabled="disabled" > 키워본 경험이 있다<br>
-<input type="radio" name="existence" value="현재 키우고 있다." disabled="disabled"> 현재 키우고 있다<br>
+<input type="radio" name="existence" value="현재 키우고 있다." disabled="disabled"> 현재 키우고 있다<br> -->
 <input type="button" value="수정" id="update">
 <input type="button" value="탈퇴" id="delete">

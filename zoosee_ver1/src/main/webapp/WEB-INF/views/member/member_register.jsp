@@ -185,7 +185,7 @@
         <div class="WJform-group">
           <label>Existence</label>
              <select class="WJform-control"  id="existence" name="existence">
-                      <option value="">-Select-</option>
+                      <option value="" selected>-Select-</option>
                     <option value="키워본 경험이 없다.">키워본 경험이 없다.</option>
                <option value="키워본 경험이 있다.">키워본 경험이 있다.</option>
                <option value="현재 키우고 있다.">현재 키우고 있다. </option>
