@@ -16,7 +16,7 @@ public class AdminController {
 	private AdminService adminService;
 	
 	/* 관리자 페이지 - 회원이 등록한 모든 Q&A게시물 보기 */
-	@RequestMapping("admin_qna_list.do")
+	@RequestMapping("interceptor_admin_qna_list.do")
 	public ModelAndView getQuestionList(HttpServletRequest request){
 		ListVO list=new ListVO();
 		String when=request.getParameter("when");
@@ -33,18 +33,18 @@ public class AdminController {
 		return mv;
 	}
 	/* 관리자 페이지 -  회원이 등록한 해당 Q&A게시물 상세보기*/
-	@RequestMapping("admin_showQuestion.do")
+	@RequestMapping("interceptor_admin_showQuestion.do")
 	public ModelAndView showQuestion(int boardNo){
 		return new ModelAndView("admin_showQuestion","qnaBoardVO",adminService.showQuestion(boardNo));
 	}
 	/* 관리자 페이지 -	답변등록하기 */
-	@RequestMapping("admin_update_answer.do")
+	@RequestMapping("interceptor_admin_update_answer.do")
 	public ModelAndView updateAnswer(QNABoardVO qnaBoardVO){
 		adminService.updateAnswer(qnaBoardVO);
 		return new ModelAndView("redirect:admin_showQuestion.do?boardNo="+qnaBoardVO.getBoardNo());
 	}
 	/*관리자 페이지 - 아이디로 Q&A 검색하기*/
-	@RequestMapping("admin_qna_find_view.do")
+	@RequestMapping("interceptor_admin_qna_find_view.do")
 	public ModelAndView findByIdQNA(HttpServletRequest request){
 		String pageNo=request.getParameter("pageNo");
 		String id=request.getParameter("id");
