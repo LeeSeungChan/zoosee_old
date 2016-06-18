@@ -32,7 +32,7 @@ public class BoardController {
 		return new ModelAndView("petsitterboard_registerForm", "petsitterVO", petsitterVO);
 	}
 	
-	@RequestMapping(value="petsitterboardRegister.do", method=RequestMethod.POST)
+	@RequestMapping(value="interceptor_petsitterboardRegister.do", method=RequestMethod.POST)
 	// PETSITTERBOARD 등록하는 @RequestMapping
 	public ModelAndView registerPetsitterboard(@ModelAttribute PetsitterboardVO petsitterboardVO, PetsitterVO petsitterVO){
 		boardServie.registerPetsitterboard(petsitterboardVO, petsitterVO);
