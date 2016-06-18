@@ -11,7 +11,7 @@ ${mvo.name }님이 작성하신 질문
 	<c:forEach items="${listVO.list}" var="qnaBoard">
 		<tr>
 			<td><a
-				href="${initParam.root}qna_content.do?boardNo=${qnaBoard.boardNo}">${qnaBoard.title}</a></td>
+				href="${initParam.root}interceptor_qna_content.do?boardNo=${qnaBoard.boardNo}">${qnaBoard.title}</a></td>
 			<td><c:choose>
 					<c:when test="${empty qnaBoard.answer}">X</c:when>
 					<c:otherwise>O</c:otherwise>
@@ -24,13 +24,13 @@ ${mvo.name }님이 작성하신 질문
 <br>
 <c:set var="pb" value="${listVO.pagingBean}"></c:set>
 <c:if test="${pb.previousPageGroup}">
-	<a href="qna_list.do?pageNo=${pb.startPageOfPageGroup-1}">◀</a>
+	<a href="interceptor_qna_list.do?pageNo=${pb.startPageOfPageGroup-1}">◀</a>
 </c:if>
 <c:forEach var="i" begin="${pb.startPageOfPageGroup}"
 	end="${pb.endPageOfPageGroup}">
 	<c:choose>
 		<c:when test="${pb.nowPage!=i}">
-			<a href="qna_list.do?pageNo=${i}">${i}</a>
+			<a href="interceptor_qna_list.do?pageNo=${i}">${i}</a>
 		</c:when>
 		<c:otherwise>
 		${i}
@@ -38,5 +38,5 @@ ${mvo.name }님이 작성하신 질문
 	</c:choose>
 </c:forEach>
 <c:if test="${pb.nextPageGroup}">
-	<a href="qna_list.do?pageNo=${pb.endPageOfPageGroup+1}">▶</a>
+	<a href="interceptor_qna_list.do?pageNo=${pb.endPageOfPageGroup+1}">▶</a>
 </c:if>

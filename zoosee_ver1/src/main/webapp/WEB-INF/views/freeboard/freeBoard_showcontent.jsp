@@ -4,16 +4,16 @@
  <script type="text/javascript">
  	$(document).ready(function(){
  		$("#contentForm :input[name=list]").click(function(){
- 			location.href="${initParam.root} freeBoard_list.do";
+ 			location.href="${initParam.root}interceptor_freeBoard_list.do";
  		});
  		$("#contentForm :input[name=delete]").click(function(){
  			if(confirm("삭제하시겠습니까??")){
-				location.href="${initParam.root}freeBoard_contentDelete.do?freeBoardNo=${param.freeBoardNo }";
+				location.href="${initParam.root}interceptor_freeBoard_contentDelete.do?freeBoardNo=${param.freeBoardNo }";
 			}
  		});
  		$("#contentForm :input[name=update]").click(function(){
  			if(confirm("수정하시겠습니까??")){
-				location.href="${initParam.root}freeBoard_updateView.do?freeBoardNo=${requestScope.freeBoardVO.freeBoardNo }";
+				location.href="${initParam.root}interceptor_freeBoard_updateView.do?freeBoardNo=${requestScope.freeBoardVO.freeBoardNo }";
 			}
  		});
  		
@@ -43,7 +43,7 @@
 	
 	function del_reply(grp,lvl,ref){
 		if(confirm("댓글을 삭제하시겠습니까?")){
-			location.href="${initParam.root}freeBoard_deleteReply.do?grp="+grp+"&lvl="+lvl+"&ref="+ref;
+			location.href="${initParam.root}interceptor_freeBoard_deleteReply.do?grp="+grp+"&lvl="+lvl+"&ref="+ref;
 		}
 	};
 	

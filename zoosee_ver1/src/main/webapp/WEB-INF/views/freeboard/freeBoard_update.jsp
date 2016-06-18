@@ -16,11 +16,11 @@
     	});
     	
     	$("#cancelBtn").click(function(){
-    		location.href="${initParam.root}freeBoard_list.do";
+    		location.href="${initParam.root}interceptor_freeBoard_list.do";
     	});
     });	
 </script>
-<form method="post" id="updateForm" action="${initParam.root}freeBoard_updateFreeBoard.do">
+<form method="post" id="updateForm" action="${initParam.root}interceptor_freeBoard_updateFreeBoard.do">
 	<table border="1">
 	<tr>
 		<td>

@@ -48,7 +48,7 @@
 
 </script>
 
-<form name="updateForm" action="petsitter_update.do" style="text-align: center;"
+<form name="updateForm" action="interceptor_petsitter_update.do" style="text-align: center;"
 method="post" enctype="multipart/form-data" id="updateForm">
 <h3>ZOOSEE 돌보미 정보 수정</h3>
 <br>

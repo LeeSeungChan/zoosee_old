@@ -17,12 +17,12 @@
 	});
 	
 	$("#cancelBtn").click(function(){
-		location.href="${initParam.root}freeBoard_list.do";
+		location.href="${initParam.root}interceptor_freeBoard_list.do";
 	});
 });
 </script>
 <h3>글쓰기</h3>
-<form method="post" action="${initParam.root}freeBoard_contentWrite.do" id="wirteForm">
+<form method="post" action="${initParam.root}interceptor_freeBoard_contentWrite.do" id="wirteForm">
 	<table >
 	<tr>
 		<td>제목</td><td><input type="text" name="freeBoardTitle" size="48" ></td>

@@ -42,7 +42,7 @@ public class MemberController {
 		return memberService.memberIdCheck(id);
 	}
 	/* Member 정보수정 메서드 */
-	@RequestMapping(value="member_update_result.do",method=RequestMethod.POST)
+	@RequestMapping(value="interceptor_member_update_result.do",method=RequestMethod.POST)
 	public ModelAndView updateMember(MemberVO vo,HttpServletRequest request){
 		String message=memberService.updateMember(vo);
 		ModelAndView mv=new ModelAndView();
@@ -57,19 +57,18 @@ public class MemberController {
 	}
 	
 	//멤버 리스트를 보여준다.
-	@RequestMapping("member_memberlist.do")
+	@RequestMapping("interceptor_member_memberlist.do")
 	public ModelAndView memberList(String rank){
-		return new ModelAndView("member_memberlist","list",memberService.memberList(rank));
-		
+		return new ModelAndView("member_memberlist","list",memberService.memberList(rank));	
 	}
 	
 	//멤버정보보기
-	@RequestMapping("member_getMemberVO.do")
+	@RequestMapping("interceptor_member_getMemberVO.do")
 	public ModelAndView getMemberVO(String id){
 		return new ModelAndView("member_memberInfo","mvo",memberService.getMemberVO(id));
 	}
 	//멤버 회원 탈퇴
-	@RequestMapping("member_delete.do")
+	@RequestMapping("interceptor_member_delete.do")
 	public ModelAndView deleteMember(HttpServletRequest request){
 		HttpSession session=request.getSession(false);
 		String id=((MemberVO)session.getAttribute("mvo")).getId();
@@ -78,5 +77,10 @@ public class MemberController {
 			session.invalidate();
 		}
 		return new ModelAndView("member_delete_result","result",result);
+	}
+	@RequestMapping("interceptor_member_detail.do")
+	public ModelAndView memberDetail()
+	{
+		return new ModelAndView("member_detail");
 	}
 }

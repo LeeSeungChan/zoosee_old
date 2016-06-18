@@ -8,12 +8,12 @@
     	$("input:radio[name=petSize][value=" + '<c:out value="${ petVO.petSize }"/>' + "]").attr("checked","checked");
     	$("#update").click(function(){
     		if(confirm("수정하시겠습니까?")){
-    			location.replace("pet_update.do?petNo=${petVO.petNo}");
+    			location.replace("interceptor_pet_update.do?petNo=${petVO.petNo}");
     		}
     	});
     	$("#delete").click(function(){
     		if(confirm("삭제하겠습니까?")){
-    			location.replace("pet_delete.do?petNo=${petVO.petNo}");
+    			location.replace("interceptor_pet_delete.do?petNo=${petVO.petNo}");
     		}
     	});
     });

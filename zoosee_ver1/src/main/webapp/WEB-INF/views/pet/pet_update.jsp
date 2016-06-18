@@ -8,7 +8,7 @@
     	$("input:radio[name=petSize][value=" + '<c:out value="${ pvo.petSize }"/>' + "]").attr("checked","checked");
     });
     </script>
-<form action="pet_update_result.do" enctype="multipart/form-data" method="post">
+<form action="interceptor_pet_update_result.do" enctype="multipart/form-data" method="post">
 	<input type="hidden" name="petNo" value="${pvo.petNo}">
 	${mvo.name} 님의 가축<br/> 
 	펫이름 <input type="text" name="petName" id="petName" value="${pvo.petName}" ><br>

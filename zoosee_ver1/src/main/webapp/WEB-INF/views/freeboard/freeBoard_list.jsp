@@ -4,7 +4,7 @@
 <script>
 	$(document).ready(function(){
 		$("#listForm :input[name=writeBtn]").click(function(){
-			location.href="${initParam.root}freeBoard_write.do";
+			location.href="${initParam.root}interceptor_freeBoard_write.do";
 		});
 	});
 </script>
@@ -27,7 +27,7 @@
 				<td>
 				<c:choose>
 				<c:when test="${sessionScope.mvo!=null}">
-				<a href="${initParam.root}freeBoard_showFreeBoardContent.do?freeBoardNo=${freeBoardList.freeBoardNo }">
+				<a href="${initParam.root}interceptor_freeBoard_showFreeBoardContent.do?freeBoardNo=${freeBoardList.freeBoardNo }">
 				${freeBoardList.freeBoardTitle}</a>
 				</c:when>
 				<c:otherwise>
@@ -51,13 +51,13 @@
 				<c:set var="pb" value="${requestScope.listVO.pagingBean}"></c:set>
 			    
 				<c:if test="${pb.previousPageGroup}">
-					<a href="${initParam.root}freeBoard_list.do?pageNo=${pb.startPageOfPageGroup-1}">◀&nbsp; </a>	
+					<a href="${initParam.root}interceptor_freeBoard_list.do?pageNo=${pb.startPageOfPageGroup-1}">◀&nbsp; </a>	
 				</c:if>
 				
 				<c:forEach var="i" begin="${pb.startPageOfPageGroup}" end="${pb.endPageOfPageGroup}">
 					<c:choose>
 						<c:when test="${pb.nowPage!=i}">
-							<a href="${initParam.root}freeBoard_list.do?pageNo=${i}">${i}</a> 
+							<a href="${initParam.root}interceptor_freeBoard_list.do?pageNo=${i}">${i}</a> 
 						</c:when>
 						<c:otherwise>
 							${i}
@@ -67,7 +67,7 @@
 				</c:forEach>	 
 				
 				<c:if test="${pb.nextPageGroup}">
-					<a href="${initParam.root}freeBoard_list.do?pageNo=${pb.endPageOfPageGroup+1}">▶</a>
+					<a href="${initParam.root}interceptor_freeBoard_list.do?pageNo=${pb.endPageOfPageGroup+1}">▶</a>
 				</c:if>
 			</td>
 		</tr>

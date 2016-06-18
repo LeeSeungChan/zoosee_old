@@ -4,7 +4,7 @@
  <script>
 	 $(document).ready(function(){;
 		 $("#memberInfoForm :input[name=backBtn]").click(function(){
-			location.href="${initParam.root}member_memberlist.do?rank=normal";
+			location.href="${initParam.root}interceptor_member_memberlist.do?rank=normal";
 			 
 		 });
 		

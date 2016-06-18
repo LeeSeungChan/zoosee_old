@@ -70,7 +70,7 @@
 		});
 	});
 </script>
-<form action="member_update_result.do" method="post" id="updateForm">
+<form action="interceptor_member_update_result.do" method="post" id="updateForm">
 	<table border="1">
 		<tr>
 			<td>아이디 </td><td><input type="text" name="id" value="${mvo.id}" readonly="readonly"></td>

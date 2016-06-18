@@ -16,7 +16,7 @@ $(document).ready(function(){
 	});
 });
 </script>
-<form id="registerQNAForm" action="registerQNA.do">
+<form id="interceptor_registerQNAForm" action="registerQNA.do">
  제목 <input type="text" id="title" name="title" >
 질문 <input type="text" id="question" name="question" >
 <input type="submit" value="질문 등록">

@@ -24,7 +24,7 @@ public class PetController {
 	@Resource(name="petUploadPath")
 	private String petUploadPath;
 	
-	@RequestMapping(value="registerPet.do", method=RequestMethod.POST)
+	@RequestMapping(value="interceptor_registerPet.do", method=RequestMethod.POST)
 	public ModelAndView write(PetVO pvo, MultipartFile petImg2, HttpSession session) {
 		if(session==null||session.getAttribute("mvo")==null){
 			return new ModelAndView("redirect:home.do");
@@ -44,23 +44,23 @@ public class PetController {
 		petService.registerPet(pvo);
 		return new ModelAndView("redirect:pet_detail.do?petNo="+pvo.getPetNo());
 	}
-	@RequestMapping("pet_detail.do")
+	@RequestMapping("interceptor_pet_detail.do")
 		public ModelAndView petDetail(int petNo){
 			PetVO pvo=petService.petDetail(petNo);
 			return new ModelAndView("pet_detail","petVO",pvo);
 	}
-	@RequestMapping("pet_list.do")
+	@RequestMapping("interceptor_pet_list.do")
 	public ModelAndView petList(HttpServletRequest request){
 		HttpSession session=request.getSession(false);
 		String id=((MemberVO)session.getAttribute("mvo")).getId();
 		List<PetVO> list=petService.petList(id);
 		return new ModelAndView("pet_list","list",list);
 	}
-	@RequestMapping("pet_update.do")
+	@RequestMapping("interceptor_pet_update.do")
 	public ModelAndView petUpdate(int petNo){
 		return new ModelAndView("pet_update","pvo",petService.petDetail(petNo));
 	}
-	@RequestMapping(value="pet_update_result.do", method=RequestMethod.POST)
+	@RequestMapping(value="interceptor_pet_update_result.do", method=RequestMethod.POST)
 	public String petUpadteResult(HttpServletRequest request,PetVO vo, MultipartFile petImg3){
 		HttpSession session = request.getSession(false);
 		if (session != null && session.getAttribute("mvo")!=null) {
@@ -83,7 +83,7 @@ public class PetController {
 			return "redirect:home.do";
 		}
 	}
-	@RequestMapping("pet_delete.do")
+	@RequestMapping("interceptor_pet_delete.do")
 	public ModelAndView deletePet(HttpServletRequest request,int petNo) {
 		HttpSession session=request.getSession(false);
 		String id=((MemberVO)session.getAttribute("mvo")).getId();

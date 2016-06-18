@@ -72,7 +72,7 @@
 	</script>
 
 	글 등록<br/>
-	<form method="post" action="petsitterboardRegister.do" id="petsitterboardregForm">
+	<form method="post" action="interceptor_petsitterboardRegister.do" id="petsitterboardregForm">
 		<input type="hidden" name="petsitterNo" value="${petsitterVO.petsitterNo}" />
 		
 		<div>

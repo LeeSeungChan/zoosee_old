@@ -4,7 +4,7 @@
 <table border="1">
 	<c:forEach items="${list }" var="L">
 		<tr>
-			<td><a href="${initParam.root}pet_detail.do?petNo=${L.petNo}">${L.petName }</a></td>
+			<td><a href="${initParam.root}interceptor_pet_detail.do?petNo=${L.petNo}">${L.petName }</a></td>
 			<td><img src="${L.petImg}" width="175" height="250"></td>
 		</tr>
 	</c:forEach>

@@ -5,12 +5,12 @@
 $(document).ready(function(){
 	$("#update").click(function(){
 		if(confirm("수정하시겠습니까?")){
-			location.replace("qna_update.do?boardNo=${qnaBoardVO.boardNo}");
+			location.replace("interceptor_qna_update.do?boardNo=${qnaBoardVO.boardNo}");
 		}
 	});
 	$("#delete").click(function(){
 		if(confirm("삭제하겠습니까?")){
-			location.replace("qna_delete.do?boardNo=${qnaBoardVO.boardNo}");
+			location.replace("interceptor_qna_delete.do?boardNo=${qnaBoardVO.boardNo}");
 		}
 	});
 });

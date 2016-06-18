@@ -26,5 +26,10 @@ public class ZooseeController {
 		
 		return "home";
 	}
-
+	
+	@RequestMapping("interceptSession.do")
+	public String interceptorSession()
+	{
+		return "interceptor/interceptSession";
+	}
 }

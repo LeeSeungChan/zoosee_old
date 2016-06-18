@@ -4,7 +4,7 @@
  <script>
 	 $(document).ready(function(){;
 		 $("#petsitterInfoForm :input[name=backBtn]").click(function(){
-			location.href="${initParam.root}petsitter_petsitterList.do?value=${param.value}";
+			location.href="${initParam.root}interceptor_petsitter_petsitterList.do?value=${param.value}";
 			 
 		 });
 		

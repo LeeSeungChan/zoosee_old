@@ -30,7 +30,7 @@ public class PetsitterController {
 	@Resource(name="petsitterUploadPath")
 	private String uploadPath;
 	
-	@RequestMapping("petsitter_registerPetsitter.do")
+	@RequestMapping("interceptor_petsitter_registerPetsitter.do")
 	   public ModelAndView registerPetsitter(HttpServletRequest request,
 	         PetsitterVO petsitterVO,FileVO fileVO){
 	      List<MultipartFile>list = fileVO.getFile();
@@ -66,7 +66,7 @@ public class PetsitterController {
 
 	
 	//펫시터 리스트를 보여준다.
-	@RequestMapping("petsitter_petsitterList.do")
+	@RequestMapping("interceptor_petsitter_petsitterList.do")
 	public ModelAndView petsitterList(String value,HttpServletRequest request){
 		String pageNo=request.getParameter("pageNo");
 		ModelAndView mv=new ModelAndView();
@@ -84,14 +84,14 @@ public class PetsitterController {
 	
 		
 		//펫시터 추방
-		@RequestMapping("petsitter_deletePetsitter.do")
+		@RequestMapping("interceptor_petsitter_deletePetsitter.do")
 		@ResponseBody
 		public void deletePetsitter(int petsitterNo){
 			petsitterService.deletePetsitter(petsitterNo);
 		}	
 			
 		//펫시터 인증
-		@RequestMapping(value="petsitter_recognitionPetsitter.do",method=RequestMethod.POST)
+		@RequestMapping(value="interceptor_petsitter_recognitionPetsitter.do",method=RequestMethod.POST)
 		@ResponseBody
 		public void recognitionPetsitter(int petsitterNo, HttpServletRequest request){
 			HttpSession session = request.getSession(false);
@@ -106,7 +106,7 @@ public class PetsitterController {
 		}
 		
 		//펫시터정보보기
-		@RequestMapping("petsitter.getPetsitterVO.do")
+		@RequestMapping("interceptor_petsitter.getPetsitterVO.do")
 		public ModelAndView getPetsitterVO(int petsitterNo , String value){
 			PetsitterVO pvo=petsitterService.getPetsitterVO(petsitterNo);
 			ModelAndView mv=new ModelAndView("petsitter_petsitterInfo");
@@ -117,14 +117,14 @@ public class PetsitterController {
 		}
 		
 		//팻시터 정보 수정폼
-		@RequestMapping("petsitter_updateform.do")
+		@RequestMapping("interceptor_petsitter_updateform.do")
 		public ModelAndView petsitter_updateForm(String id){
 			PetsitterVO petsitterVO=petsitterService.findPetsitterById(id);
 			return new ModelAndView("petsitter_updateform","petsitterVO",petsitterVO);
 		}
 		
 		//팻시터 정보 수정
-		@RequestMapping("petsitter_update.do")
+		@RequestMapping("interceptor_petsitter_update.do")
 		public ModelAndView petsitter_update(PetsitterVO	petsitterVO,FileVO fileVO){
 			  List<MultipartFile>list = fileVO.getFile();
 		      ArrayList<String> nameList=new ArrayList<String>();

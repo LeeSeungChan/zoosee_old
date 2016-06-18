@@ -4,11 +4,11 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#update").click(function() {
-			location.replace("${initParam.root}member_update.do");
+			location.replace("${initParam.root}interceptor_member_update.do");
 		});
 		$("#delete").click(function() {
 			if (confirm("탈퇴하시겠습니까?")) {
-				location.replace("${initParam.root}member_delete.do");
+				location.replace("${initParam.root}interceptor_member_delete.do");
 			}
 		});
     	$("input:radio[name=existence][value=" + '<c:out value="${ mvo.existence }"/>' + "]").attr("checked","checked");

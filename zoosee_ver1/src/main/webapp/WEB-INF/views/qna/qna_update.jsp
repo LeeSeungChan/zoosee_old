@@ -18,7 +18,7 @@ $(document).ready(function(){
 </script>
 <c:choose>
 <c:when test="${empty qnaBoardVO.answer}">
-<form id="updateForm" action="qna_update_result.do">
+<form id="updateForm" action="interceptor_qna_update_result.do">
 <input type="hidden" name="boardNo" value="${qnaBoardVO.boardNo}"> 
 <table border="1">
 	<tr>

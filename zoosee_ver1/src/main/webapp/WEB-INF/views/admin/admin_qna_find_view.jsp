@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<a href="${initParam.root}admin_qna_list.do?when=all">모든 qna 목록</a>|
-<a href="${initParam.root}admin_qna_list.do?when=nonAnswer">답변 미등록 qna 목록</a>|
-<a href="${initParam.root}admin_qna_findbyid.do">아이디로 Q&A 검색</a>
+<a href="${initParam.root}interceptor_admin_qna_list.do?when=all">모든 qna 목록</a>|
+<a href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer">답변 미등록 qna 목록</a>|
+<a href="${initParam.root}interceptor_admin_qna_findbyid.do">아이디로 Q&A 검색</a>
 <hr>
 아이디 ${param.id} (으)로 검색하신 정보 입니다.
 <c:choose>
@@ -24,9 +24,9 @@
 				<tr>
 					<td>${Question.boardNo }</td>
 					<td><a
-						href="${initParam.root}admin_showQuestion.do?boardNo=${Question.boardNo}">${Question.title }</a></td>
+						href="${initParam.root}interceptor_admin_showQuestion.do?boardNo=${Question.boardNo}">${Question.title }</a></td>
 					<td><a
-						href="${initParam.root}member_getMemberVO.do?id=${Question.memberVO.id}">${Question.memberVO.name}(${Question.memberVO.id})</a></td>
+						href="${initParam.root}interceptor_member_getMemberVO.do?id=${Question.memberVO.id}">${Question.memberVO.name}(${Question.memberVO.id})</a></td>
 					<td>${Question.timePosted }</td>
 					<td><c:choose>
 							<c:when test="${empty Question.answer}">X</c:when>
@@ -41,13 +41,13 @@
 <br>
 <c:set var="pb" value="${listVO.pagingBean}"></c:set>
 <c:if test="${pb.previousPageGroup}">
-	<a href="${initParam.root}admin_qna_find_view.do?id=${param.id}&pageNo=${pb.startPageOfPageGroup-1}">◀</a>
+	<a href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${pb.startPageOfPageGroup-1}">◀</a>
 </c:if>
 <c:forEach var="i" begin="${pb.startPageOfPageGroup}"
 	end="${pb.endPageOfPageGroup}">
 	<c:choose>
 		<c:when test="${pb.nowPage!=i}">
-			<a href="${initParam.root}admin_qna_find_view.do?id=${param.id}&pageNo=${i}">${i}</a>
+			<a href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${i}">${i}</a>
 		</c:when>
 		<c:otherwise>
 		${i}
@@ -55,5 +55,5 @@
 	</c:choose>
 </c:forEach>
 <c:if test="${pb.nextPageGroup}">
-	<a href="${initParam.root}admin_qna_find_view.do?id=${param.id}&pageNo=${pb.endPageOfPageGroup+1}">▶</a>
+	<a href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${pb.endPageOfPageGroup+1}">▶</a>
 </c:if>

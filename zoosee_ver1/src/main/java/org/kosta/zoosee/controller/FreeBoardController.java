@@ -22,21 +22,21 @@ public class FreeBoardController {
 	private FreeBoardService freeBoardService;
 	
 	//자유게시판 리스트 가져오기
-	@RequestMapping("freeBoard_list.do")
+	@RequestMapping("interceptor_freeBoard_list.do")
 	public ModelAndView getFreeBoardList(String pageNo){
 		ListVO listVO=freeBoardService.getFreeBoardList(pageNo);
 		return new ModelAndView("freeBoard_list","listVO",listVO);
 	}
 	
 	//상세보기 조회수 업데이트
-	@RequestMapping("freeBoard_showFreeBoardContent.do")
+	@RequestMapping("interceptor_freeBoard_showFreeBoardContent.do")
 	public ModelAndView showFreeBoardContent(int freeBoardNo) {		
 		freeBoardService.updateCount(freeBoardNo);	
 		return new ModelAndView("redirect:freeBoard_showFreeBoardContentNoHit.do?freeBoardNo="+freeBoardNo);
 	}
 	
 	//노히트 상세보기
-	@RequestMapping("freeBoard_showFreeBoardContentNoHit.do")
+	@RequestMapping("interceptor_freeBoard_showFreeBoardContentNoHit.do")
 	public ModelAndView showFreeBoardContentNoHit(int freeBoardNo){
 		
 		//게시글 VO
@@ -52,14 +52,14 @@ public class FreeBoardController {
 	}
 	
 	//게시물 삭제하기
-	@RequestMapping("freeBoard_contentDelete.do")
+	@RequestMapping("interceptor_freeBoard_contentDelete.do")
 	public String FreeBoardContentDelete(int freeBoardNo){
 		freeBoardService.FreeBoardContentDelete(freeBoardNo);
 		return "redirect:freeBoard_list.do";
 	}
 	
 	//글 등록
-	@RequestMapping(value="freeBoard_contentWrite.do",method=RequestMethod.POST)
+	@RequestMapping(value="interceptor_freeBoard_contentWrite.do",method=RequestMethod.POST)
 	public ModelAndView FreeBoardWriteContent(HttpServletRequest request, FreeBoardVO freeBoardVO){
 		HttpSession session=request.getSession(false);
 		if(session!=null){
@@ -73,34 +73,34 @@ public class FreeBoardController {
 	}
 	
 	//게시물 업데이트
-	@RequestMapping("freeBoard_updateFreeBoard.do")
+	@RequestMapping("interceptor_freeBoard_updateFreeBoard.do")
 	public ModelAndView updateFreeBoard(FreeBoardVO freeBoardVO) {
 		freeBoardService.updateFreeBoard(freeBoardVO);
 		return new ModelAndView("freeBoard_showcontent","freeBoardVO",freeBoardService.showFreeBoardContentNoHit(freeBoardVO.getFreeBoardNo()));
 	}
 	
 	//게시물 view
-	@RequestMapping("freeBoard_updateView.do")
+	@RequestMapping("interceptor_freeBoard_updateView.do")
 	public ModelAndView updateView(int freeBoardNo) {
 		return new ModelAndView("freeBoard_update","freeBoardVO",freeBoardService.showFreeBoardContentNoHit(freeBoardNo));
 	}
 	
 	//댓글 write
-	@RequestMapping("freeBoard_writeReply.do")
+	@RequestMapping("interceptor_freeBoard_writeReply.do")
 	public ModelAndView writeReply(FreeBoardReplyVO freeBoardReplyVO){
 		freeBoardService.writeReply(freeBoardReplyVO);
 		return new ModelAndView("redirect:home.do");
 	}
 	
 	//대댓글 write
-	@RequestMapping("freeBoard_writeReply2.do")
+	@RequestMapping("interceptor_freeBoard_writeReply2.do")
 	public ModelAndView writeReply2(FreeBoardReplyVO freeBoardReplyVO){
 		freeBoardService.writeReply2(freeBoardReplyVO);
 		return new ModelAndView("redirect:home.do");
 	}
 	
 	//댓글 delete
-	@RequestMapping("freeBoard_deleteReply.do")
+	@RequestMapping("interceptor_freeBoard_deleteReply.do")
 	public ModelAndView deleteReply(FreeBoardReplyVO freeBoardReplyVO){
 		freeBoardService.deleteReply(freeBoardReplyVO);
 		return new ModelAndView("redirect:home.do");

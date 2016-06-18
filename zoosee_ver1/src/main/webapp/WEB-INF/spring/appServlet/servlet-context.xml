@@ -47,4 +47,15 @@
 <bean id="petsitterUploadPath" class="java.lang.String">
 	<constructor-arg value="C:\\Users\\kosta\\git\\ZooSee\\zoosee_ver1\\src\\main\\webapp\\upload\\petsitter\\"/>
 </bean>
+
+<!-- Handler interceptor 를 이용한 인증확인 -->
+<!-- 
+ -->
+<mvc:interceptors>
+	<mvc:interceptor>
+		<mvc:mapping path="/interceptor_*.do"/>
+		<bean class="org.kosta.zoosee.interceptor.LoginInterceptor"/>
+	</mvc:interceptor>
+</mvc:interceptors>	
+
 </beans>

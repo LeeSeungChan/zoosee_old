@@ -42,7 +42,7 @@
     	}); */
     });	
 </script>
-<form method="post" action="registerPet.do" id="regForm" enctype="multipart/form-data">
+<form method="post" action="interceptor_registerPet.do" id="regForm" enctype="multipart/form-data">
 	${sessionScope.mvo.name}님 <br/>
 	펫이름 <input type="text" name="petName" id="petName"><br>
 	펫나이 <input type="text" name="petAge" id="petAge"><br>
