@@ -114,7 +114,7 @@
 </table>
 <%--댓글작성란 --%>
 <hr>
-<form action="freeBoard_writeReply.do" id="replyForm">
+<form action="interceptor_freeBoard_writeReply.do" id="replyForm">
 	<table>
 		<tr>
 			<td><textarea rows="7" cols="50" name="content" id="content"></textarea></td>

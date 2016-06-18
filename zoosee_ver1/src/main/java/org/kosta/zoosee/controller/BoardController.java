@@ -22,7 +22,7 @@ public class BoardController {
 	@Resource
 	private BoardService boardServie;
 	
-	@RequestMapping("petsitterboard_registerform.do")
+	@RequestMapping("interceptor_petsitterboard_registerform.do")
 	// header에서 registerform.jsp로 이동하는 RequestMapping
 	public ModelAndView registerBoard(String id){
 		PetsitterVO petsitterVO = boardServie.findPetsitterById(id);

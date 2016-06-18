@@ -58,6 +58,6 @@ public class QNABoardController {
 	@RequestMapping("interceptor_qna_delete.do")
 	public ModelAndView deleteQNA(int boardNo){
 		qnaBoardService.deleteQNA(boardNo);
-		return new ModelAndView("redirect:qna_list.do");
+		return new ModelAndView("redirect:interceptor_qna_list.do");
 	}
 }

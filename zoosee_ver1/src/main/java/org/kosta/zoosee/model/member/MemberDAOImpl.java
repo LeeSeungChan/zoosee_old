@@ -46,7 +46,7 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 	@Override
 	public void upgradeRank(HashMap<String,String> map) {
-		template.update("member.registerPet",map);
+		template.update("member.upgradeRank",map);
 	}
 	@Override
 	public String findRank(String id) {

@@ -2,7 +2,10 @@ alter table petsitterboard drop column petsitterboard_price;
 alter table petsitterboard drop column petsitterboard_petsize;
 alter table petsitterboard drop column petsitterboard_pettype;
 
-
+	select p.petsitterNo,p.petNumber,p.service,p.price,p.petSize,p.petType,p.houseImg,p.petsitterImg,p.adminRecog,
+		         pm.id,pm.name ,pm.address, pm.gender, pm.email, pm.tel, pm.job,pm.existence
+			from petsitter p ,pet_member pm
+		where p.id=pm.id and pm.id='123456'
 -- 펫 고유 번호(시퀀스)
 create sequence petNo_seq;
 drop sequence petNo_seq;
@@ -10,6 +13,7 @@ drop sequence petNo_seq;
 select count(*) from  petsitterboard pb, petsitter pt, pet_member m
 where pt.petsitterNo = pb.petsitterNo and pt.id=m.id and m.address like '서울'
 
+delete from PETSITTER where PETSITTERNo='81'
 -- 게시물 번호(시퀀스)
 create sequence petsitterboard_no_seq;
 drop sequence petsitterboard_no_seq;

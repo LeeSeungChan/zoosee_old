@@ -13,6 +13,9 @@ public class ZooseeController {
 	@RequestMapping("{viewId}.do")
 	public String showView(@PathVariable String viewId){
 		System.out.println("@PathVariable : "+viewId);
+		if(viewId.contains("interceptor_")){
+			viewId=viewId.substring(12);
+		}
 		return viewId;
 	}
 

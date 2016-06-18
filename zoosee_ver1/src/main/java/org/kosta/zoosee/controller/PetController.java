@@ -42,7 +42,7 @@ public class PetController {
 		path = path.substring(path.indexOf("upload\\"));
 		pvo.setPetImg(path);
 		petService.registerPet(pvo);
-		return new ModelAndView("redirect:pet_detail.do?petNo="+pvo.getPetNo());
+		return new ModelAndView("redirect:interceptor_pet_detail.do?petNo="+pvo.getPetNo());
 	}
 	@RequestMapping("interceptor_pet_detail.do")
 		public ModelAndView petDetail(int petNo){
@@ -78,7 +78,7 @@ public class PetController {
 			}else{
 				petService.updatePetNoImg(vo);
 			}
-			return "redirect:pet_detail.do?petNo="+vo.getPetNo();
+			return "redirect:interceptor_pet_detail.do?petNo="+vo.getPetNo();
 		}else{
 			return "redirect:home.do";
 		}

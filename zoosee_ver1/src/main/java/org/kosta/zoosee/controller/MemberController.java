@@ -51,7 +51,7 @@ public class MemberController {
 		}else{
 			HttpSession session=request.getSession(false);
 			session.setAttribute("mvo", vo);
-			mv.setViewName("redirect:member_detail.do");
+			mv.setViewName("redirect:interceptor_member_detail.do");
 		}
 		return mv;
 	}

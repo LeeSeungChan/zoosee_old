@@ -32,7 +32,7 @@ public class FreeBoardController {
 	@RequestMapping("interceptor_freeBoard_showFreeBoardContent.do")
 	public ModelAndView showFreeBoardContent(int freeBoardNo) {		
 		freeBoardService.updateCount(freeBoardNo);	
-		return new ModelAndView("redirect:freeBoard_showFreeBoardContentNoHit.do?freeBoardNo="+freeBoardNo);
+		return new ModelAndView("redirect:interceptor_freeBoard_showFreeBoardContentNoHit.do?freeBoardNo="+freeBoardNo);
 	}
 	
 	//노히트 상세보기
@@ -55,7 +55,7 @@ public class FreeBoardController {
 	@RequestMapping("interceptor_freeBoard_contentDelete.do")
 	public String FreeBoardContentDelete(int freeBoardNo){
 		freeBoardService.FreeBoardContentDelete(freeBoardNo);
-		return "redirect:freeBoard_list.do";
+		return "redirect:interceptor_freeBoard_list.do";
 	}
 	
 	//글 등록
@@ -69,7 +69,7 @@ public class FreeBoardController {
 			}
 		}		
 		freeBoardService.FreeBoardWriteContent(freeBoardVO);
-		return new ModelAndView("redirect:freeBoard_list.do");
+		return new ModelAndView("redirect:interceptor_freeBoard_list.do");
 	}
 	
 	//게시물 업데이트

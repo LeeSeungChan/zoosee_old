@@ -70,7 +70,7 @@
       });
       $("#cancle").click(function(){
          if(confirm("회원 정보 수정을 취소하시겠습니까?")){
-            location.href="member_detail.do";
+            location.href="interceptor_member_detail.do";
          }
       });
    });

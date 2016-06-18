@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<!-- 멤버  리스트 보여주는 화면
-	   
- -->
+<!-- 멤버  리스트 보여주는 화면 -->
  <script>
 	 /* $(document).ready(function(){;
 		 $("#memberlistForm :input[name=deleteBtn]").click(function(){
@@ -16,9 +14,7 @@
 				 });
 				$(this).parent().parent().children().eq(6).html("삭제됨")
 			 }
-			 
 		 });
-		
 	}); */
  </script>
  
@@ -32,7 +28,7 @@
 				<td>아이디:</td> 
 				<td>${l.id}</td> 
 				<td>이름:</td> 
-				<td><a href="member_getMemberVO.do?id=${l.id}">${l.name}</a></td> 
+				<td><a href="interceptor_member_getMemberVO.do?id=${l.id}">${l.name}</a></td> 
 				<!-- <td><input type="button"  name="deleteBtn" value="탈퇴"></td>  -->
 			 </tr>
 		</c:forEach>

@@ -41,7 +41,7 @@ public class AdminController {
 	@RequestMapping("interceptor_admin_update_answer.do")
 	public ModelAndView updateAnswer(QNABoardVO qnaBoardVO){
 		adminService.updateAnswer(qnaBoardVO);
-		return new ModelAndView("redirect:admin_showQuestion.do?boardNo="+qnaBoardVO.getBoardNo());
+		return new ModelAndView("redirect:interceptor_admin_showQuestion.do?boardNo="+qnaBoardVO.getBoardNo());
 	}
 	/*관리자 페이지 - 아이디로 Q&A 검색하기*/
 	@RequestMapping("interceptor_admin_qna_find_view.do")

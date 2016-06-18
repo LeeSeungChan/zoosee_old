@@ -56,7 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select p.petsitterNo,p.petNumber,p.service,p.price,p.petSize,p.petType,p.houseImg,p.petsitterImg,p.adminRecog,
 		         pm.id,pm.name ,pm.address, pm.gender, pm.email, pm.tel, pm.job,pm.existence
 			from petsitter p ,pet_member pm
-		where p.id=pm.id and p.id=#{value}
+		where p.id=pm.id and pm.id=#{value}
 	</select>
 	
 	<delete id="deletePetsitter" >
