@@ -106,7 +106,7 @@ public class PetsitterController {
 		}
 		
 		//펫시터정보보기
-		@RequestMapping("interceptor_petsitter.getPetsitterVO.do")
+		@RequestMapping("interceptor_petsitter_getPetsitterVO.do")
 		public ModelAndView getPetsitterVO(int petsitterNo , String value){
 			PetsitterVO pvo=petsitterService.getPetsitterVO(petsitterNo);
 			ModelAndView mv=new ModelAndView("petsitter_petsitterInfo");

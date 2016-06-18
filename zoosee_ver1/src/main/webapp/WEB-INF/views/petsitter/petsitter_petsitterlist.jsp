@@ -34,7 +34,7 @@
 				<td>아이디:</td> 
 				<td>${l.memberVO.id}</td> 
 				<td>이름:</td> 
-				<td><a href="interceptor_petsitter.getPetsitterVO.do?petsitterNo=${l.petsitterNo}&value=recog">${l.memberVO.name}</a></td> 
+				<td><a href="interceptor_petsitter_getPetsitterVO.do?petsitterNo=${l.petsitterNo}&value=recog">${l.memberVO.name}</a></td> 
 				<td><input type="button"  name="deleteBtn" value="탈퇴"></td> 
 			 </tr>
 		</c:forEach>
