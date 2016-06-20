@@ -1,46 +1,18 @@
-alter table petsitterboard drop column petsitterboard_price;
-alter table petsitterboard drop column petsitterboard_petsize;
-alter table petsitterboard drop column petsitterboard_pettype;
-
-
 -- 펫 고유 번호(시퀀스)
 create sequence petNo_seq;
-drop sequence petNo_seq;
-
-select count(*) from  petsitterboard pb, petsitter pt, pet_member m
-where pt.petsitterNo = pb.petsitterNo and pt.id=m.id and m.address like '서울'
 
 -- 게시물 번호(시퀀스)
 create sequence petsitterboard_no_seq;
-drop sequence petsitterboard_no_seq;
 
 -- 돌보미의 고유 번호(시퀀스)
 create sequence petsitterNo_seq;
-drop sequence petsitterNo_seq;
 
  -- 게시물 번호(시퀀스)
 create sequence petbook_no_seq;
-drop sequence petbook_no_seq;
 
 -- 일련번호(시퀀스)
 create sequence pet_calNO_seq;
-drop sequence pet_calNO_seq;
-commit
-select * from pet_member
-select * from pet
-select * from petsitter
-select * from petsitterboard
-select * from pet_calendar
-select * from reserve
-select * from tradeinfo
-drop table pet_member  cascade CONSTRAINTS; 
-drop table pet
-drop table petsitter
-drop table petsitterboard
-drop table pet_calendar
-drop table reserve
-drop table tradeinfo
-commit
+
 -- 회원 테이블
 CREATE TABLE PET_MEMBER(
 	-- 아이디
@@ -67,7 +39,7 @@ CREATE TABLE PET_MEMBER(
 	rank varchar2(100) not null,
 	existence varchar2(100) not null
 )
-select *from pet
+
 -- 회원이 입력하는 pet 정보 테이블
 CREATE TABLE PET
 (
@@ -121,6 +93,7 @@ create table petsitter
    -- 회원의 아이디를 가져와 foreign key 로 설정
    constraint fk_member_id foreign key(id) references PET_MEMBER(id) on delete cascade
 )
+
 -- 돌보미들이 업로드하는  게시글 테이블
 create table petsitterboard
 (
@@ -153,9 +126,9 @@ CREATE TABLE reserve
 	-- 예약한 게시글의 primary key인 no
 	petsitterboard_no number not null,
 	-- 회원의 아이디를 foreign key 로 설정
-	constraint fk_member2_id foreign key(id) references PET_MEMBER(id),
+	constraint fk_member2_id foreign key(id) references PET_MEMBER(id) on delete cascade,
 	-- 펫 테이블의 고유 번호를 foreign key 로 설정
-	constraint fk_petNo foreign key(petNo) references pet(petNo),
+	constraint fk_petNo foreign key(petNo) references pet(petNo) on delete cascade,
 	-- 게시글의 번호를 foreign key 로 설정
 	constraint fk_petsitterboard_no foreign key(petsitterboard_no) references petsitterboard(petsitterboard_no) on delete cascade
 )
@@ -197,12 +170,10 @@ create table tradeinfo
 	constraint fk_pet2_id foreign key(id) references PET_MEMBER(id) on delete cascade,
 	constraint fk_pesitterNo foreign key(pesitterNo) references petsitter(petsitterNo) on delete cascade
 )
+
 -- qna게시판
--- 질문게시판 시퀀스
-select * from QNABOARD
 create sequence qnaboard_seq;
-drop sequence qnaboard_seq;
-drop table qnaboard;
+
 -- 질문게시판(1:1)
 create table QNABOARD
 (
@@ -213,12 +184,10 @@ create table QNABOARD
 	time_answered date,
 	qnaboard_answer clob,
 	id varchar2(100) not null,
-	constraint fk_qnaboard_id foreign key(id) references PET_MEMBER(id)
+	constraint fk_qnaboard_id foreign key(id) references PET_MEMBER(id) on delete cascade
 )  
 -- 자유게시판 시퀀스
 create sequence freeboard_seq;
-drop sequence freeboard_seq;
-drop table freeboard;
 -- 자유게시판
 create table freeboard
 (
@@ -228,16 +197,12 @@ create table freeboard
    freeboard_hits number default 0 not null,
    freeboard_timePosted date not null,
    id varchar2(100) not null,
-   constraint fk_freeboard_id foreign key(id) references PET_MEMBER(id)
+   constraint fk_freeboard_id foreign key(id) references PET_MEMBER(id) on delete cascade
 )
 
 
 --자유게시판 댓글 시퀀스
 create sequence freeboard_reply_seq;
-drop sequence freeboard_reply_seq;
-
---자게 댓글테이블 드롭
-drop table freeboard_reply;
 
 --자유게시판 댓글
 create table freeboard_reply(
@@ -257,14 +222,12 @@ create table freeboard_reply(
    id varchar2(100) not null,
    --게시판 게시글 번호
    ref number default 0,
-   constraint fk_pet2_id foreign key(id) references pet_member(id),
-   constraint fk_freeboard_reply_ref foreign key(ref) references freeboard(freeboard_no)
+   constraint fk_pet2_id foreign key(id) references pet_member(id) on delete cascade,
+   constraint fk_freeboard_reply_ref foreign key(ref) references freeboard(freeboard_no) on delete cascade
 )
 
 --메세지_넘버 시퀀스
 create sequence message_seq nocache;
-drop sequence message_seq;
-drop table message;
 
 --알림 메세지 테이블
 create table message(
@@ -281,7 +244,7 @@ create table message(
   --메세지 작성 id
    id varchar2(100) not null,
    --게시판 게시글 번호
-   constraint fk_pet3_id foreign key(id) references pet_member(id)
+   constraint fk_pet3_id foreign key(id) references pet_member(id) on delete cascade
 )
 
 

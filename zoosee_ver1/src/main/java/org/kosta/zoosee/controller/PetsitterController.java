@@ -58,7 +58,7 @@ public class PetsitterController {
 	            petsitterVO.setPetsitterImg(filePath);
 	         }
 	      }
-	      MemberVO mvo = (MemberVO) request.getSession().getAttribute("mvo");
+	      MemberVO mvo = (MemberVO) request.getSession(false).getAttribute("mvo");
 	      petsitterVO.setMemberVO(mvo);
 	      petsitterService.registerPetsitter(petsitterVO);
 	      return new ModelAndView("redirect:home.do");
