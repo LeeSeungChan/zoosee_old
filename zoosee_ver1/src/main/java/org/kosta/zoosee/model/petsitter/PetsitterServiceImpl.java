@@ -31,13 +31,11 @@ public class PetsitterServiceImpl implements PetsitterService {
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("id", id);
 			String rank = memberDAO.findRank(id);
-			String inputRank = "rank";
 			if (rank.equals("nomal")) {
-				inputRank = "pre_petsitter";
+				map.put("rank", "pre_petsitter");
 			} else if (rank.equals("petmom")) {
-				inputRank = "pre_petmaster";
+				map.put("rank", "pre_petmaster");
 			}
-			map.put("rank", inputRank);
 			memberDAO.upgradeRank(map);
 			// 메세지 보내기
 			String title = "[알람] 펫시터 신청 ";
@@ -75,15 +73,11 @@ public class PetsitterServiceImpl implements PetsitterService {
 			String rank = memberDAO.findRank(id);
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("id", id);
-			String inputRank = "rank";
-			if (rank.equals("pre_petsitter")) {// 멤버의 rank가 prepetsitter 이면
-												// petsitter로 update
-				inputRank = "petsitter";
-			} else if (rank.equals("pre_petmaster")) {// 멤버의 rank가 petmom이면
-														// petmaster로 update
-				inputRank = "petmaster";
+			if (rank.equals("pre_petsitter")) {// 멤버의 rank가 prepetsitter 이면petsitter로 update
+				map.put("rank", "petsitter");
+			} else if (rank.equals("pre_petmaster")) {// 멤버의 rank가 petmom이면 petmaster로 update
+				map.put("rank", "petmaster");
 			}
-			map.put("rank", inputRank);
 			memberDAO.upgradeRank(map);
 			// 메세지 보내기
 			String title = "[알람] 펫시터 인증완료 ";

@@ -30,15 +30,13 @@ public class PetServiceImpl implements PetService {
 			String rank=memberDAO.findRank(id);
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("id", id);
-			String inputRank="rank";
 			if(rank.equals("normal")){
-				inputRank="petmom";
+				map.put("rank", "petmom");
 			}else if(rank.equals("petsitter")){
-				inputRank="petmaster";
+				map.put("rank", "petmaster");
 			}else if(rank.equals("pre_petsitter")){
-				inputRank="pre_petmaster";
+				map.put("rank", "pre_petmaster");
 			}
-			map.put("rank", inputRank);
 			memberDAO.upgradeRank(map); 
 			//메세지 보내기
 			String title="[알람] 펫 등록 ";

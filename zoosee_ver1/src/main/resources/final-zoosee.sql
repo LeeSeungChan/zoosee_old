@@ -39,6 +39,7 @@ drop table petsitter
 drop table petsitterboard
 drop table pet_calendar
 drop table reserve
+drop table tradeinfo
 commit
 -- 회원 테이블
 CREATE TABLE PET_MEMBER(
