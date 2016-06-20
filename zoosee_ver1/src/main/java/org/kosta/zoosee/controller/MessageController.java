@@ -61,7 +61,7 @@ public class MessageController {
 	@RequestMapping("interceptor_message_updateCheckedAll.do")
 	public ModelAndView updateCheckedAll(String id){
 		messageService.updateCheckedAll(id);
-		return new ModelAndView("redirect:message_list.do");
+		return new ModelAndView("redirect:interceptor_message_list.do");
 	}
 	
 	

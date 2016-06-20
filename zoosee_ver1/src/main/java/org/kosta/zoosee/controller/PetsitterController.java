@@ -125,7 +125,10 @@ public class PetsitterController {
 		
 		//팻시터 정보 수정
 		@RequestMapping("interceptor_petsitter_update.do")
-		public ModelAndView petsitter_update(PetsitterVO	petsitterVO,FileVO fileVO){
+		public ModelAndView petsitter_update(PetsitterVO	petsitterVO,FileVO fileVO,HttpServletRequest request){
+			HttpSession session = request.getSession(false);
+			MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+			petsitterVO.setMemberVO(mvo);
 			  List<MultipartFile>list = fileVO.getFile();
 		      ArrayList<String> nameList=new ArrayList<String>();
 		      for(int i=0; i<list.size(); i++){
