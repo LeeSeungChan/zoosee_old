@@ -260,10 +260,27 @@ create table freeboard_reply(
    constraint fk_freeboard_reply_ref foreign key(ref) references freeboard(freeboard_no)
 )
 
+--메세지_넘버 시퀀스
+create sequence message_seq nocache;
+drop sequence message_seq;
+drop table message;
 
-			select case when lvl=1 then reply_no
-			when lvl>1 then null end reply_no
-			,content,to_char(time_posted,'yyyy/mm/dd hh24:mi') as time_posted,grp,lvl,id,ref,con
-			from freeboard_reply
-			where ref=15
-			order by grp asc, lvl
+--알림 메세지 테이블
+create table message(
+   --메세지 NO
+   message_no number primary key,
+   --타이틀
+   title varchar2(100) not null,
+   --메세지 내용
+   content clob not null,
+   --메세지 작성시간
+   time_posted date not null,
+     --메세지 read or not (안읽은 메세지 갯수를 가져오기 위해)
+   checked number default 0,
+  --메세지 작성 id
+   id varchar2(100) not null,
+   --게시판 게시글 번호
+   constraint fk_pet3_id foreign key(id) references pet_member(id)
+)
+
+

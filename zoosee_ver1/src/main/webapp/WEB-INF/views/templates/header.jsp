@@ -1,6 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="${initParam.root}resources/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	$.ajax({
+		type:"POST",
+		url:"countMessage.do",
+		data:id="id=${sessionScope.mvo.id}",
+		dataType:"json", 
+		success:function(result){
+			if(result.count=="0"){
+			$("#message").html("메세지");
+			}else{
+			$("#message").html("메세지"+result.count);
+			}
+		}
+	})
+</script>
+
 
 <a href="${initParam.root}home.do">홈</a>
 
@@ -22,6 +39,7 @@
 		<a href="${initParam.root}interceptor_petsitter_petsitterList.do?value=recog">회원관리</a><!-- //관리자 페이지 -->
 		<a href="${initParam.root}interceptor_admin_qna_list.do?when=all">관리자qna 목록</a><!-- //관리자 페이지 -->
 		<a href="${initParam.root}interceptor_freeBoard_list.do?">자유게시판</a>
+		<a href="${initParam.root}interceptor_message_list.do" id="message">메세지</a>
 		
 		<c:if test="${sessionScope.mvo.rank == 'petsitter' || sessionScope.mvo.rank == 'petmaster'}">
 			<a href="${initParam.root}interceptor_petsitterboard_registerform.do?id=${sessionScope.mvo.id}">글 등록</a>
