@@ -51,8 +51,8 @@ public class PetsitterDAOImpl implements PetsitterDAO {
 	}
 
 	@Override
-	public void update(PetsitterVO petsitterVO) {
-		template.update("petsitter.update",petsitterVO);
+	public int update(PetsitterVO petsitterVO) {
+		return template.update("petsitter.update",petsitterVO);
 	}
 
 }

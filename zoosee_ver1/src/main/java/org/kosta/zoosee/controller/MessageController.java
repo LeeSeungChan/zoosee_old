@@ -36,7 +36,7 @@ public class MessageController {
 		return map;
 	}
 	
-	@RequestMapping("message_list.do")
+	@RequestMapping("interceptor_message_list.do")
 	public ModelAndView messageList(String pageNo,HttpServletRequest request){
 		HttpSession session = request.getSession(false);
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
@@ -44,17 +44,21 @@ public class MessageController {
 		return new ModelAndView("message_list","list",messageService.getMessageList(pageNo,id));
 	}
 	
-	@RequestMapping("message_uncheckedlist.do")
-	public ModelAndView messageUncheckedList(String pageNo,String id,HttpServletRequest request){
-		return new ModelAndView("message_uncheckedlist","list",messageService.getMessageList(pageNo, id));
+	@RequestMapping("interceptor_message_uncheckedlist.do")
+	public ModelAndView messageUncheckedList(HttpServletRequest request){
+		HttpSession session=request.getSession(false);
+		String id=((MemberVO)session.getAttribute("mvo")).getId();
+		String pageNo=request.getParameter("pageNo");
+		ListVO list=messageService.messageUncheckedList(id,pageNo);
+		return new ModelAndView("message_uncheckedlist","listVO",list);
 	}
 	
-	@RequestMapping("message_content.do")
+	@RequestMapping("interceptor_message_content.do")
 	public ModelAndView showContent(String message_no){
 		return new ModelAndView("message_showcontent","message",messageService.getMessageByNo(message_no));
 	}
 	
-	@RequestMapping("message_updateCheckedAll.do")
+	@RequestMapping("interceptor_message_updateCheckedAll.do")
 	public ModelAndView updateCheckedAll(String id){
 		messageService.updateCheckedAll(id);
 		return new ModelAndView("redirect:message_list.do");

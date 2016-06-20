@@ -16,8 +16,8 @@ public class MemberDAOImpl implements MemberDAO {
 	private SqlSessionTemplate template;
 	
 	@Override
-	public void registerMember(MemberVO mvo){
-		template.insert("member.registerMember", mvo);
+	public int registerMember(MemberVO mvo){
+		return template.insert("member.registerMember", mvo);
 	}
 	@Override
 	public MemberVO loginMember(MemberVO mvo) {

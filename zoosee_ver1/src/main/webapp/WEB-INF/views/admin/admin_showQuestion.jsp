@@ -7,13 +7,13 @@ $(document).ready(function(){
 		var answer=$("#answer").val();
 		if("${qnaBoardVO.answer}"!=answer){
 			if("${qnaBoardVO.answer}"==""){
-				if(confirm("답변을 등록하시겠습니까?")){
-					location.replace("${initParam.root}interceptor_admin_update_answer.do?boardNo=${qnaBoardVO.boardNo}&answer="+answer);
+				iif(confirm("답변을 등록하시겠습니까?")){
+					location.replace("${initParam.root}interceptor_admin_update_answer.do?memberVO.id=${qnaBoardVO.memberVO.id}&boardNo=${qnaBoardVO.boardNo}&answer="+answer);
 				}
 			}else {
 				if(answer!=""){
 					if(confirm("답변을 수정하시겠습니까?")){
-						location.replace("${initParam.root}interceptor_admin_update_answer.do?boardNo=${qnaBoardVO.boardNo}&answer="+answer);
+						location.replace("${initParam.root}interceptor_admin_update_answer.do?memberVO.id=${qnaBoardVO.memberVO.id}&boardNo=${qnaBoardVO.boardNo}&answer="+answer);
 					}
 				}else{
 					alert("답변을 공란으로 입력할 수 없습니다.");

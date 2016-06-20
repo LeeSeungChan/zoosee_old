@@ -29,8 +29,8 @@ public class MessageDAOImpl implements MessageDAO {
 	}
 
 	@Override
-	public int getTotalMessage() {
-		return template.selectOne("message.getTotalMessage");
+	public int getTotalMessage(String id) {
+		return template.selectOne("message.getTotalMessage",id);
 	}
 
 	@Override
@@ -47,6 +47,15 @@ public class MessageDAOImpl implements MessageDAO {
 	public void updateCheckedAll(String id) {
 		template.update("message.updateCheckedAll",id);
 	}
+	
+	@Override
+	public List<MessageVO> messageUncheckedList(HashMap<String, String> map) {
+		return template.selectList("message.messageUncheckedList", map);
+	}
 
+	@Override
+	public void insertMessage(MessageVO message) {
+		template.insert("message.insertMessage",message);		
+	}
 
 }

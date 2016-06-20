@@ -19,7 +19,7 @@ public interface PetsitterDAO {
 
 	public abstract PetsitterVO findPetsitterById(String id);
 
-	public abstract void update(PetsitterVO petsitterVO);
+	public abstract int update(PetsitterVO petsitterVO);
 
 	public abstract int petsitterListCount(String value);
 }

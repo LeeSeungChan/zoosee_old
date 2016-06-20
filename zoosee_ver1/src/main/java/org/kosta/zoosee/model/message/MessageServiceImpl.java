@@ -1,5 +1,6 @@
 package org.kosta.zoosee.model.message;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -24,7 +25,8 @@ public class MessageServiceImpl implements MessageService {
 			pageNo="1";
 		}
 		List<MessageVO> list = messageDAO.getMessageList(pageNo,id);
-		PagingBean pagingBean = new PagingBean(messageDAO.getTotalMessage(),Integer.parseInt(pageNo));
+		int total=messageDAO.getTotalMessage(id);
+		PagingBean pagingBean = new PagingBean(total,Integer.parseInt(pageNo));
 		ListVO listVO = new ListVO(list,pagingBean);
 		return listVO;
 	}
@@ -43,5 +45,22 @@ public class MessageServiceImpl implements MessageService {
 	public void updateCheckedAll(String id) {
 		messageDAO.updateCheckedAll(id);
 	}
+	
+	@Override
+	public ListVO messageUncheckedList(String id,String pageNo) {
+		System.out.println(id+pageNo);
+		HashMap<String,String> map=new HashMap<String, String>();
+		map.put("id", id);
+		if(pageNo==null){
+			pageNo="1";
+		}
+		map.put("pageNo", pageNo);
+		List<MessageVO> list=messageDAO.messageUncheckedList(map);
+		System.out.println(list);
+		int totalContent=messageDAO.countMessage(id);
+		PagingBean pagingBean=new PagingBean(totalContent, Integer.parseInt(pageNo));
+		return new ListVO(list, pagingBean);
+	}
+
 
 }

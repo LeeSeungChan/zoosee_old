@@ -51,7 +51,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteQNA">
 		delete QNABOARD where qnaboard_no=#{value}
 	</delete>
-	
 	<select id="getAllQuestionCount" resultType="int">
 		select count(*) from QNABOARD 
 	</select>

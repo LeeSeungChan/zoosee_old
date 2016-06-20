@@ -19,7 +19,7 @@ public interface QNABoardDAO {
 
 	List<QNABoardVO> getQuestionList(int pageNo);
 
-	void updateAnswer(QNABoardVO qnaBoardVO);
+	int updateAnswer(QNABoardVO qnaBoardVO);
 
 	List<QNABoardVO> nonAnswerList(int pageNo);
 
