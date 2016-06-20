@@ -198,6 +198,7 @@ create table tradeinfo
 )
 -- qna게시판
 -- 질문게시판 시퀀스
+select * from QNABOARD
 create sequence qnaboard_seq;
 drop sequence qnaboard_seq;
 drop table qnaboard;
@@ -213,7 +214,6 @@ create table QNABOARD
 	id varchar2(100) not null,
 	constraint fk_qnaboard_id foreign key(id) references PET_MEMBER(id)
 )  
-
 -- 자유게시판 시퀀스
 create sequence freeboard_seq;
 drop sequence freeboard_seq;
