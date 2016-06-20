@@ -7,7 +7,7 @@ $(document).ready(function(){
 		var answer=$("#answer").val();
 		if("${qnaBoardVO.answer}"!=answer){
 			if("${qnaBoardVO.answer}"==""){
-				iif(confirm("답변을 등록하시겠습니까?")){
+				if(confirm("답변을 등록하시겠습니까?")){
 					location.replace("${initParam.root}interceptor_admin_update_answer.do?memberVO.id=${qnaBoardVO.memberVO.id}&boardNo=${qnaBoardVO.boardNo}&answer="+answer);
 				}
 			}else {
