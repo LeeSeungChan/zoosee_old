@@ -94,12 +94,12 @@
          }
 
    </script>
-<div class="WJcontainer" style="border: 4px dotted black;">   
+<div class="WJcontainer4" >   
 <div align="center">
 <a href="home.do"><img src="${initParam.root}resources/image/Mzoosee.png"></a>
 </div>
         <div class="WJLayout"
-		style="border: 3px dotted blue; text-align: left;" id="member_register">
+		style="text-align: left;" id="member_register">
             <form action="interceptor_member_update_result.do" method="post" id="updateForm">
                <div class="WJform-group">
                 <label>id</label>

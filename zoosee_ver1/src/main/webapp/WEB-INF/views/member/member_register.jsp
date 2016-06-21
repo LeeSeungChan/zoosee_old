@@ -127,10 +127,10 @@
 
    </script>
 <!-- 전체 시작 -->
-<div class="WJcontainer4" style="border: 4px dotted black;">
+<div class="WJcontainer4">
 	<!-- 텍스트는 왼쪽 정렬 및 삽입 중간 정렬 -->
 	<div class="WJLayout"
-		style="border: 3px dotted blue; text-align: left;">
+		style="text-align: left;">
 		<form action="registerMember.do" method="post" id="memberRegisterForm">
 		<!-- 사진 중간 정렬 시작-->
 		<div align="center">
@@ -162,12 +162,12 @@
             <input class="WJform-control" id="name" name="name" placeholder="Name" type="text">
         </div>
         
-        <div class="WJform-group" style="border: 2px dotted yellow; ">
+        <div class="WJform-group">
         <label>Address</label>
-        <div style="border: 2px dotted red; ">
-        	<input class="WJform-control2" style="float: left;" type="text" id="addressCode" name="addressCode" value="" readonly="readonly">
+        <div>
+        	<input class="WJform-control2" style="float: left; width: 49.5%;" type="text" id="addressCode" name="addressCode" value="" readonly="readonly">
 			<a href="javascript:openDaumPostcode()"> 
-			<input class="active WJbtn btn-default" style="float: right; width: 50%;" type="button" value="Zip Code">
+			<input class="active WJbtn btn-default" style="float: right; width: 49.5%;" type="button" value="Zip Code">
 			</a> 
         <div class="WJform-group">
             <input class="WJform-control " type="text" name="address" id="address" value="" readonly="readonly">
@@ -176,9 +176,11 @@
         </div>
 		</div>
         </div>
-		
 		<div class="WJform-group">
-         <label>Gender</label>
+                <label>Email address</label>
+                <input class="WJform-control" type="email" name="email" placeholder="email" >
+        </div>
+		<div class="WJform-group">
             <div class="radio" align="center">
                   <label class="radio-inline">
                     <input type="radio" name="gender" value="man">MAN</label>

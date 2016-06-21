@@ -17,14 +17,14 @@
     	$("input:radio[name=existence][value=" + '<c:out value="${ mvo.existence }"/>' + "]").attr("checked","checked");
 	});
 </script>
-<div class="WJcontainer5" style="border: 4px dotted black;">
+<div class="WJcontainer5">
 <!-- 사진 중간 정렬 시작-->
 		<div align="center">
 			<a href="home.do"><img
 				src="${initParam.root}resources/image/Mzoosee.png"></a>
 		</div>
 		<div class="WJLayout"
-		style="border: 3px dotted blue; text-align: left;" id="member_register">
+		style="text-align: left;" id="member_register">
             <form>
                <div class="WJform-group">
                 <label>id</label>
