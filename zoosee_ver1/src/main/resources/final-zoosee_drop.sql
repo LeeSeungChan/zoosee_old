@@ -14,7 +14,7 @@ drop sequence petbook_no_seq;
 drop sequence pet_calNO_seq;
 
 -- 회원 테이블
-drop table pet_member  
+drop table pet_member 
 
 -- 회원이 입력하는 pet 정보 테이블
 drop table pet

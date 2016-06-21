@@ -1,10 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<!-- method랑 action 추가 -->
-	<form action="findAllPetsitterList.do">
-		<input type="text" name="address" />
-		<input type="submit" value="검색" />
-	</form>
 
-	git test
+ <div class="BJMainDivCenter"  >
+ 	
+ 	<div class="BJMainText"  align="center" >
+ 		<h1 style="color:white; font-size:500%;">믿고 맡길 수 있는 펫시터를 찾아보세요!!</h1>
+        <h2 style="color:white;">답답한 케이지가 아닌 펫시터의 집에서 당신의 강아지만 돌봐드립니다</h2> 
+ 	</div>
+
+ 
+
+  <div class="BJMainSearchDiv">
+	<form class="BJMainSearchForm" role="search" action="findAllPetsitterList.do">
+	<div class="BJMainSearchDiv2" style="border:1px solid red;">
+	<div class="BJform-group"  style="border:1px solid red;">
+		<input type="text" class="BJform-control" name="address" placeholder="서울/경기/인천" />
+	</div>
+	<div class="BJMainSubmitBtnDiv"  style="border:1px solid red;">
+		<button type="submit" class="BJBtn btn-default">펫시터찾기</button>
+	</div>
+	</div>
+	</form>
+  	</div>
+ <!-- 
+	<form  class="navbar-form navbar-left" role="search" action="findAllPetsitterList.do">
+        <div class="form-group"  >
+          <input type="text" class="form-control"  name="address" placeholder="서울/경기/인천"> 
+        </div>
+          <button type="submit" class="btn btn-default">펫시터찾기</button>
+	</form> -->
+	
+</div><!-- style="border:2px solid yellow;" -->
+<div class="BJMainDIVBottom"   align="center">
+	<div class="BJMainBoardDiv" >
+		<div class="BJMainBoardC1">
+			 <a href="${initParam.root}petsitter_register.do"><img  src="${initParam.root }resources/image/ex1.JPG" style="width: 100%; height:100%; max-width: 760px; vertical-align: middle" /></a>
+		</div>
+		<div class="BJMainBoardC2">
+			 <a href="${initParam.root}qna_list.do"><img  src="${initParam.root }resources/image/ex2.JPG" style="width: 100%; height:100%; max-width: 760px; vertical-align: middle" /></a>
+		</div>
+		<div class="BJMainBoardC3">
+			 <a href="${initParam.root}freeBoard_list.do?"><img  src="${initParam.root }resources/image/ex3.JPG" style="width: 100%; height:100%; max-width: 760px; vertical-align: middle" /></a>
+		</div>
+
+	</div>
+	
+</div>

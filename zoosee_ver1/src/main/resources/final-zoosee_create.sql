@@ -222,8 +222,8 @@ create table freeboard_reply(
    id varchar2(100) not null,
    --게시판 게시글 번호
    ref number default 0,
-   constraint fk_pet2_id foreign key(id) references pet_member(id) on delete cascade,
-   constraint fk_freeboard_reply_ref foreign key(ref) references freeboard(freeboard_no) on delete cascade
+   constraint fk_pet4_id foreign key(id) references pet_member(id) on delete cascade,
+   constraint fk_freeboard_reply_ref2 foreign key(ref) references freeboard(freeboard_no) on delete cascade
 )
 
 --메세지_넘버 시퀀스
