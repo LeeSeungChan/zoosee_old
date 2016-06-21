@@ -1,12 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-${mvo.name }님이 작성하신 질문
-<table border="1">
-	<tr>
-		<th>질문 제목</th>
-		<th>답변여부</th>
-		<th>작성시간</th>
+
+<link rel="stylesheet" type="text/css" href="${initParam.root}resources/css/sb.css">
+<div class="BJMainDiv" style="border: 1px solid red;margin-bottom: 10%;">
+	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">1:1 Q&A 게시판</h3>
+			</div>
+			<div class="panel-body">1:1 Q&A 게시판은 고객님의 궁금증을 풀어드리기 위한 공간입니다.
+			</div>
+		</div>
+		<div class="well well-sm">${mvo.name }님이 작성하신 1:1 질문</div>
+	</div>
+<div class="BJMain2Div" align="center">
+
+<table  class="table table-striped table-hover"  style="width: 100%">
+	<tr class="active">
+		<th style="width: 55%"><label>Question</label></th>
+		<th style="width: 15%"><label>Answer</label></th>
+		<th style="width: 30%"><label>Posted Time</label></th>
 	</tr>
 	<c:forEach items="${listVO.list}" var="qnaBoard">
 		<tr>
@@ -22,21 +36,25 @@ ${mvo.name }님이 작성하신 질문
 </table>
 <br>
 <br>
+<ul class="pagination pagination-sm" > 
 <c:set var="pb" value="${listVO.pagingBean}"></c:set>
 <c:if test="${pb.previousPageGroup}">
-	<a href="interceptor_qna_list.do?pageNo=${pb.startPageOfPageGroup-1}">◀</a>
+	<li><a href="interceptor_qna_list.do?pageNo=${pb.startPageOfPageGroup-1}">&laquo;</a></li>
 </c:if>
 <c:forEach var="i" begin="${pb.startPageOfPageGroup}"
 	end="${pb.endPageOfPageGroup}">
 	<c:choose>
 		<c:when test="${pb.nowPage!=i}">
-			<a href="interceptor_qna_list.do?pageNo=${i}">${i}</a>
+			<li><a href="interceptor_qna_list.do?pageNo=${i}">${i}</a></li>
 		</c:when>
 		<c:otherwise>
-		${i}
+		<li class="active"><a >${i}</a></li>
 		</c:otherwise>
 	</c:choose>
 </c:forEach>
 <c:if test="${pb.nextPageGroup}">
-	<a href="interceptor_qna_list.do?pageNo=${pb.endPageOfPageGroup+1}">▶</a>
+	<li><a href="interceptor_qna_list.do?pageNo=${pb.endPageOfPageGroup+1}">&laquo;</a></li>
 </c:if>
+</ul>
+</div>
+</div>
