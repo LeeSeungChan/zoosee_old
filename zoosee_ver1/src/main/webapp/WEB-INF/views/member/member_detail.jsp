@@ -3,17 +3,77 @@
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#existence option[value="+"'${mvo.existence}'"+"]").attr('selected', 'selected');
+		$("input:radio[name=gender][value=" + '<c:out value="${ mvo.gender }"/>' + "]").attr("checked","checked");
 		$("#update").click(function() {
-			location.replace("${initParam.root}interceptor_member_update.do");
+			if (confirm("수정하시겠습니까?")) {
+			location.replace("${initParam.root}member_update.do");
+			}
 		});
 		$("#delete").click(function() {
 			if (confirm("탈퇴하시겠습니까?")) {
-				location.replace("${initParam.root}interceptor_member_delete.do");
+				location.replace("${initParam.root}member_delete.do");
 			}
 		});
+    	$("input:radio[name=existence][value=" + '<c:out value="${ mvo.existence }"/>' + "]").attr("checked","checked");
 	});
 </script>
+<div class="WJcontainer5" style="border: 4px dotted black;">
+<!-- 사진 중간 정렬 시작-->
+		<div align="center">
+			<a href="home.do"><img
+				src="${initParam.root}resources/image/Mzoosee.png"></a>
+		</div>
+		<div class="WJLayout"
+		style="border: 3px dotted blue; text-align: left;" id="member_register">
+            <form>
+               <div class="WJform-group">
+                <label>id</label>
+                <input class="WJform-control"  type="text" value="${mvo.id}" readonly="readonly">
+              </div>
+               <div class="WJform-group">
+                <label>Name</label>
+                <input class="WJform-control" type="text" value="${mvo.name}" readonly="readonly">
+              </div>
+                <div class="WJform-group">
+                <label>Address</label>
+                <input class="WJform-control"  value="우편번호 : ${mvo.addressCode}" disabled="disabled">
+                <input class="WJform-control"  value="${mvo.address}" disabled="disabled">
+                <input class="WJform-control"  value="${mvo.detailAddress}"disabled="disabled">
+              </div>
+              <div class="WJform-group">
+                <label>Email address</label>
+                <input class="WJform-control" type="text" value="${mvo.email}" readonly="readonly">
+              </div>
+              <div class="WJform-group" align="center">
+                <div class="radio">
+                  <label class="radio-inline">
+                    <input type="radio" name="gender" value="man" disabled="disabled">MAN</label>
+                  <label class="radio-inline">
+                    <input type="radio" name="gender" value="woman" disabled="disabled">WOMAN</label>
+                </div>
+              </div>
+              <div class="WJform-group">
+                <label>Tel</label>
+                <input class="WJform-control" type="text" value="${mvo.tel}" readonly="readonly">
+              </div>
+               <div class="WJform-group">
+                <label>Job</label>
+                <input class="WJform-control" type="text" value="${mvo.job }" readonly="readonly">
+              </div>
+               <div class="WJform-group">
+                <label>Existence</label>
+                <input class="WJform-control" value="${mvo.existence}" disabled="disabled">
+              </div>
+              <br>
+              <div class="WJform-group">
+              <input type="button" class="active WJbtn btn-default" style="float:left; width:49.5%;"value="Update" id="update" > 
+              <input type="button" class="active WJbtn btn-default" style="float:right; width:49.5%;"value="Delete" id="delete">
+              </div>
+     		  </form>       
+        </div>
+</div>
+
+<%-- 
 아이디
 <input type="text" name="id" value="${mvo.id }" readonly="readonly">
 <br>
@@ -35,14 +95,9 @@
 <input type="text" name="job" value="${mvo.job }" readonly="readonly">
 <br>
 펫 양육 경험 <br>
-<select name="existence" id="existence" disabled="disabled">
-	<option value="" selected>-Select-</option>
-	<option value="키워본 경험이 없다.">키워본 경험이 없다.</option>
-	<option value="키워본 경험이 있다.">키워본 경험이 있다.</option>
-	<option value="현재 키우고 있다.">현재 키우고 있다. </option>
-</select>
-<!-- <input type="radio" name="existence" value="키워본 경험이 없다." disabled="disabled" > 키워본 경험이 없다<br>
-<input type="radio" name="existence" value="키워본 경험이 없다." disabled="disabled" > 키워본 경험이 있다<br>
-<input type="radio" name="existence" value="현재 키우고 있다." disabled="disabled"> 현재 키우고 있다<br> -->
+<input type="radio" name="existence" value="A" disabled="disabled" > 키워본 경험이 없다<br>
+<input type="radio" name="existence" value="B" disabled="disabled" > 키워본 경험이 있다<br>
+<input type="radio" name="existence" value="C" disabled="disabled"> 현재 키우고 있다<br>
 <input type="button" value="수정" id="update">
 <input type="button" value="탈퇴" id="delete">
+ --%>

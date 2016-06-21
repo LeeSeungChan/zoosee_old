@@ -84,7 +84,7 @@
                oncomplete: function(data) {
                   $("#dong_addr").val(data.sido + " " + data.sigungu + " " + data.bname);
          document.getElementById('addressCode').value = data.postcode || data.zonecode;
-         document.getElementById('addrress').value = data.address;
+         document.getElementById('address').value = data.address;
          document.getElementById('detailAddress').focus();
                }
          });
@@ -94,10 +94,12 @@
          }
 
    </script>
+<div class="WJcontainer" style="border: 4px dotted black;">   
 <div align="center">
 <a href="home.do"><img src="${initParam.root}resources/image/Mzoosee.png"></a>
 </div>
-        <div class="WJcontainer" id="member_register"  style="text-align: left;">
+        <div class="WJLayout"
+		style="border: 3px dotted blue; text-align: left;" id="member_register">
             <form action="interceptor_member_update_result.do" method="post" id="updateForm">
                <div class="WJform-group">
                 <label>id</label>
@@ -166,4 +168,5 @@
                 <input type="button" class="active WJbtn btn-default" value="Cancle" id="cancle" style="float:right; width:49.5%;">
                </div>
              </form>       
+          </div>
           </div>

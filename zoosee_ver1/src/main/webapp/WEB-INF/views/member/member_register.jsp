@@ -67,8 +67,11 @@
             $("#name").focus();
             return false;
          }else if($("#address").val()==""){
-            alert("주소를 입력하세요.");
-            $("#address").focus();
+             alert("주소를 입력하세요.");
+             return false;
+          }else if($("#detailAddress").val()==""){
+            alert("상세 주소를 입력하세요.");
+            $("#detailAddress").focus();
             return false;
          }else if($("#email").val()==""){
             alert("메일을 입력하세요.");
@@ -123,49 +126,58 @@
          }
 
    </script>
-   
-<div align="center" style="border: 4px dotted red;" >
-   <a href="home.do"><img src="${initParam.root}resources/image/Mzoosee.png"></a><br>
-      <form action="registerMember.do" method="post" id="memberRegisterForm">
-   <div class="WJcontainer" style="border: 4px dotted blue; text-align: left;">
-      <div class="WJform-group">
-      <label>id</label>
-          <input class="WJform-control" id="id" name="id" placeholder="id" type="text">
-          <span id="idView"></span>
-      </div>
-      <div class="WJform-group">
-      <label>Password</label>
-            <input class="WJform-control" id="password" name="password" placeholder="Password" type="password">
-              <span id="passView"></span>
-        </div>
-        <div class="WJform-group">
-        <label>PasswordCheck</label>
-              <input class="WJform-control" id="passwordCheck" name="passwordCheck" placeholder="PasswordCheck" type="password">
-              <span id="passCheckView"></span>
-        </div>
-        <div class="WJform-group">
-            <label>Name</label>
+<!-- 전체 시작 -->
+<div class="WJcontainer4" style="border: 4px dotted black;">
+	<!-- 텍스트는 왼쪽 정렬 및 삽입 중간 정렬 -->
+	<div class="WJLayout"
+		style="border: 3px dotted blue; text-align: left;">
+		<form action="registerMember.do" method="post" id="memberRegisterForm">
+		<!-- 사진 중간 정렬 시작-->
+		<div align="center">
+			<a href="home.do"><img
+				src="${initParam.root}resources/image/Mzoosee.png"></a>
+		</div>
+		<!-- 사진 중간 정렬 끝-->
+		<div class="WJform-group">
+		<label>id</label> 
+		<input class="WJform-control" id="id" name="id"
+			placeholder="id" type="text"><span id="idView"></span>
+		</div>
+		
+		<div class="WJform-group">
+		<label>Password</label>
+		<input class="WJform-control" id="password" name="password"
+			placeholder="Password" type="password"><span id="passView"></span>
+		</div>
+		
+		<div class="WJform-group">
+		<label>PasswordCheck</label> 
+		<input class="WJform-control"
+			id="passwordCheck" name="passwordCheck" placeholder="PasswordCheck"
+			type="password"><span id="passCheckView"></span>
+		</div>
+		
+		<div class="WJform-group">
+		<label>Name</label>
             <input class="WJform-control" id="name" name="name" placeholder="Name" type="text">
         </div>
-        <div class="WJform-group">
-            <label>Address</label>
-            <div class="WJform-group">
-             <input class="WJform-control2" style=" float:left;" type="text" id="addressCode" name="addressCode" value="" readonly="readonly">
-             <a href="javascript:openDaumPostcode()" >
-             <input class="active WJbtn btn-default" style="float:right; width:50%;" type="button" value="Zip Code">
-             </a>
-            </div>
-        </div>
+        
+        <div class="WJform-group" style="border: 2px dotted yellow; ">
+        <label>Address</label>
+        <div style="border: 2px dotted red; ">
+        	<input class="WJform-control2" style="float: left;" type="text" id="addressCode" name="addressCode" value="" readonly="readonly">
+			<a href="javascript:openDaumPostcode()"> 
+			<input class="active WJbtn btn-default" style="float: right; width: 50%;" type="button" value="Zip Code">
+			</a> 
         <div class="WJform-group">
             <input class="WJform-control " type="text" name="address" id="address" value="" readonly="readonly">
              <input class="WJform-control " type="text" value="" name="detailAddress" id="detailAddress" placeholder="Enter Address">
              <input type="hidden" name="dong_addr" id="dong_addr" value="">
         </div>
-        <div class="WJform-group">
-            <label>Email address</label>
-             <input class="WJform-control" id="email" name="email" placeholder="Enter email" type="email">
+		</div>
         </div>
-         <div class="WJform-group">
+		
+		<div class="WJform-group">
          <label>Gender</label>
             <div class="radio" align="center">
                   <label class="radio-inline">
@@ -178,21 +190,22 @@
               <label>Tel</label>
             <input class="WJform-control" id="tel" name="tel" placeholder="tel" type="text">
         </div>
-           <div class="WJform-group">
+        <div class="WJform-group">
               <label>Job</label>
             <input class="WJform-control" id="job" name="job" placeholder="job" type="text">
         </div>
         <div class="WJform-group">
           <label>Existence</label>
              <select class="WJform-control"  id="existence" name="existence">
-                      <option value="" selected>-Select-</option>
+                      <option value="">-Select-</option>
                     <option value="키워본 경험이 없다.">키워본 경험이 없다.</option>
                <option value="키워본 경험이 있다.">키워본 경험이 있다.</option>
                <option value="현재 키우고 있다.">현재 키우고 있다. </option>
              </select>
         </div>
-        <br>
+		<br>
         <button type="submit" class="active WJbtn btn-block btn-default">Submit</button>
-   </div>
-   </form>
+        </form>
+	</div>
 </div>
+<!-- 전체 끝 -->
