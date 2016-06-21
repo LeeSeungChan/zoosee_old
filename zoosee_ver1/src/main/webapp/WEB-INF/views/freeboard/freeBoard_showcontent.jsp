@@ -17,6 +17,11 @@
 			}
  		});
  		
+ 		
+ 
+ 	
+ 		
+ 		
  		$("#replyForm").submit(function(){
  			var content = $("#content").val();
  			if(content==""){
@@ -29,7 +34,7 @@
  	
 	function rereplyButton(index,grp,lvl,ref){
 		var rereplyform = "";
-		rereplyform+="<form action='freeBoard_writeReply2.do' id='rereplyForm'>"; 
+		rereplyform+="<form action='interceptor_freeBoard_writeReply2.do' id='rereplyForm'>"; 
 		rereplyform+="<textarea rows='7' cols='50' name='content' id='content'> </textarea>";
 		rereplyform+="<input type='hidden' name='grp' value="+grp+">";
 		rereplyform+="<input type='hidden' name='lvl' value="+lvl+"><br>";
@@ -47,42 +52,66 @@
 		}
 	};
 	
-	
-	
-	
- 	
 </script>
+<!-- 자유게시판 상세보기 메인 -->
+<div class="BJMainDiv" style="border: 1px solid red;">
+<div class="BJPanel" style="width:80%;	 margin-left:10%;">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">자유게시판</h3>
+  </div>
+  <div class="panel-body">
+    자유게시판은 펫맘들과 펫시터들의 소통을 위한 공간입니다.
+  </div>
+</div>
+<div class="well well-sm">
+  게시물
+</div>
+</div>
 
 <form id="contentForm">
-<table border="1">
-	<tr>
-		<td>NO: ${requestScope.freeBoardVO.freeBoardNo }</td>
-		<td colspan=2>제목: ${requestScope.freeBoardVO.freeBoardTitle }</td>
-	</tr>
-	<tr>
-		<td>작성자: ${requestScope.freeBoardVO.memberVO.name }</td>
-		<td>작성일자: ${requestScope.freeBoardVO.freeBoardTimePosted }</td>
-		<td>조회수: ${requestScope.freeBoardVO.freeBoardHits }</td>
-	</tr>
-	<tr>
-		<td colspan=3>내용: ${requestScope.freeBoardVO.freeBoardContents }</td>
-	</tr>
-	<tr>
-	<c:choose>
-		<c:when test="${sessionScope.mvo.id==requestScope.freeBoardVO.memberVO.id }">
-			<td align="center" colspan=3>
-			<input type="button" name="list" value="목록" >
+<div class="BJMain2Div" >
+<div class="BJWriteTableLine" >
+<div class="BJHrAllLine" >
+<div class="BJDeleteAndUpdateBtn"  style="border: 1px solid red;">
+	<c:if  test="${sessionScope.mvo.id==requestScope.freeBoardVO.memberVO.id }">
+			
 			<input type="button" name="delete" value="삭제" >
 			<input type="button" name="update" value="수정" >
-			</td>
-		</c:when>
-		<c:otherwise>
-			<td align="center" colspan=3><input type="button" name="list" value="목록" ></td>
-		</c:otherwise>
-	</c:choose>
+
+		</c:if>
+</div>
+<table   class="BJFreeBoardShowContentTable ">
+	<tr>
+		<%-- <td>NO: ${requestScope.freeBoardVO.freeBoardNo }</td> --%>
+		<td align="right">제목 : </td>
+		<td align="left" colspan=3>${requestScope.freeBoardVO.freeBoardTitle }</td>
+
 	</tr>
+	<tr>
+		<td align="right">작성자 : </td>
+		<td align="left">${requestScope.freeBoardVO.memberVO.name }</td>
+	</tr>
+	<tr>
+		<td align="right">조회수 : </td>
+		<td align="left">${requestScope.freeBoardVO.freeBoardHits }</td>
+	</tr>
+	<tr>
+		<td align="right">작성일자 : </td>
+		<td align="left" colspan=3>${requestScope.freeBoardVO.freeBoardTimePosted }</td>
+		</tr>
+	
 </table>
+<hr class="BJHr" >
+${requestScope.freeBoardVO.freeBoardContents }
+
+		
+
+</div>
+</div>
+</div>
 </form>
+<div class="BJReplyAllLine">
 <%--댓글리스트 --%>
 <table>
 	<c:forEach items="${requestScope.replyList }" var="reply" varStatus="status">
@@ -125,5 +154,8 @@
 	</table>
 	<input type="hidden" name="id" value="${sessionScope.mvo.id }">
 	<input type="hidden" name="ref" value="${requestScope.freeBoardVO.freeBoardNo }">
-</form>
+</form>	
+</div>
+</div>
+
 

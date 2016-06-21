@@ -7064,7 +7064,7 @@ label {
 .BJform-control{
 	display: block;
   margin:auto;	
-  width:90%;
+  width:50%;
   height: 60px;
   padding: 8px 12px;
   font-size: 13px;
@@ -7162,13 +7162,101 @@ label {
  	-webkit-box-shadow: 0 0 16px rgb(221,221,221);
  	-moz-box-shadow: 0 0 16px rgb(221,221,221);
  }
+ 
 
+.WJcontainer {
+  margin-right: 40%;
+  margin-left: 40%;
+}
+.WJcontainer2 {
+  margin-right: 20%;
+  margin-left: 20%;
+  height:700px;
+ }
+.WJrow {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.WJform-group {
+  margin-bottom: 1%;
+}
 
-.BJFreeBoardListMainDiv{
+.WJform-control {
+  display: block;
+  width: 100%;
+  height: 36px;
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #777777;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.WJform-control2 {
+  display: block;
+  width: 50%;
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #777777;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.WJbtn-default {
+  color: #ffffff;
+  background-color: #474949;
+  border-color: #474949;
+}
+.WJbtn {
+  display: inline-block;
+  margin: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
+}
+.WJbtn-block {
+  display: block;
+  width: 100%;
+}
+.WJcol-md-6 {
+    width: 50%;
+}
+
+.BJMainDiv{
+	
 	whidth:60%;
 	margin-right:20%;
 	margin-left:20%;
-	height:800px;
+	height:auto;
 }
 
 .BJFreeBoardListDiv{
@@ -7176,7 +7264,7 @@ label {
 }
 
 .BJFreeBoardListWriteBtnDiv{
-	float: right;
+
 	margin-top: 1%;
 	
 		position: absolute;
@@ -7218,7 +7306,7 @@ label {
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
-.BJFreeBoardWrite2Div{
+.BJMain2Div{
 	width:80%;
 	margin-left:10%;
 }
@@ -7248,6 +7336,10 @@ label {
 }
 .BJFreeBoardWriteTableDiv{
 	width:100%;
+
+
+
+
 
 }
 
@@ -7283,6 +7375,38 @@ label {
 .BJFreeBoardUpdateTable{
 	margin: auto;
 }
+
+.BJWriteTableLine{
+	border: 1px solid #c0c0c0;
+	border-radius: 10px;
+	
+
+}
+
+.BJHr{
+	margin
+}
+
+.BJHrAllLine{
+	width:90%;
+	margin-top:2%;
+	margin-left:5%;
+	height:400px;
+}
+
+.BJDeleteAndUpdateBtn{
+	float: right;
+}
+
+.BJReplyAllLine{
+	width:80%;
+	margin-top:5%;
+	margin-left:10%;
+	border: 1px solid #c0c0c0;
+	border-radius: 10px;
+}
+
+
 
 .WJcontainer {
   width:60%;
@@ -7393,11 +7517,68 @@ label {
 .WJLayout{
   width:30%;
   margin-left: 35%;
-  height: auto;	
+  height: auto;   
 }
 .WJLayout2{
   margin-top: 10%;
   margin-left: 15% ;
   width: 70%;
   height: auto;
+}
+.WJform-groupMain{
+   width:70%;
+   height:auto;
+   float:;
+}
+.WJMainSearchDiv{
+   margin-left:32%;
+   width:36%;
+}
+.WJMainSection{
+   margin-top:24%;
+   margin-left:20%;
+   width:60%;
+   height:auto;
+   float: left;
+}
+.WJform-control3 {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 8px 12px;
+  font-size: 17px;
+  line-height: 1.42857143;
+  color: #777777;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.WJbtn2 {
+  display: inline-block;
+  height:50px;
+  margin: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 8px 12px;
+  font-size: 17px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
 }

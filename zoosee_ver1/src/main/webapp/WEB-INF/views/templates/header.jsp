@@ -46,6 +46,7 @@
 				            <li class="divider"></li>
 				            <li><a href="${initParam.root}qna_board_register.do">qna 등록</a></li>
 				            <li><a href="${initParam.root}qna_list.do">qna 목록</a></li>
+				            <li><a href="${initParam.root}admin_qna_list.do?when=all">관리자qna 목록</a></li>
 				            <li class="divider"></li>
 				            <li><a href="${initParam.root}logout.do">로그아웃</a></li>
 				          </ul>

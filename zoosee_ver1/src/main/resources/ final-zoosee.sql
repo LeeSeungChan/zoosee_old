@@ -288,3 +288,11 @@ create table message(
 )
 
 
+	select fb.freeboard_no,fb.freeboard_title,fb.freeboard_hits,fb.freeBoardTimePosted,pm.id ,pm.name
+		from(
+		     select  freeboard_no,freeboard_title, freeBoardTimePosted,freeboard_hits ,ceil(rownum/5) as page, id
+			 from(
+				select freeboard_no,freeboard_title,to_char(freeboard_timePosted,'YYYY.MM.DD') as freeBoardTimePosted ,freeboard_hits,id
+				from freeboard order by freeboard_no desc
+				) 
+		) fb, pet_member pm where fb.id=pm.id and page=1
