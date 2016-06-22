@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.kosta.zoosee.model.member.ListVO;
 import org.kosta.zoosee.model.member.MemberSerivce;
 import org.kosta.zoosee.model.vo.MemberVO;
 import org.springframework.stereotype.Controller;
@@ -32,8 +33,10 @@ public class MemberController {
 		HttpSession session = request.getSession();
 		if(vo != null){
 			session.setAttribute("mvo", vo);
+			return "home";
+		}else{
+			return "member_loginFail";
 		}
-		return "home";
 	}
 	/* Member 회원가입시 아이디 중복확인 메서드 */
 	@RequestMapping(value="memberIdCheck.do",method=RequestMethod.POST)
@@ -58,8 +61,10 @@ public class MemberController {
 	
 	//멤버 리스트를 보여준다.
 	@RequestMapping("interceptor_member_memberlist.do")
-	public ModelAndView memberList(String rank){
-		return new ModelAndView("member_memberlist","list",memberService.memberList(rank));	
+	public ModelAndView memberList(String rank,HttpServletRequest requestion){
+		String pageNo=requestion.getParameter("pageNo");
+		ListVO list=memberService.memberList(rank,pageNo);
+		return new ModelAndView("member_memberlist","listVO",list);	
 	}
 	
 	//멤버정보보기

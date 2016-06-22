@@ -30,6 +30,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where rank=#{value}
 	</select>
 	
+	<select id="memberListCount" resultType="int">
+		select count(*) from pet_member where rank=#{value}
+	</select>
+	
 	<select id="getMemberVO" resultType="memberVO" >
 		select id,name ,addresscode,address,detailaddress, gender, email, tel, job, rank, existence
 		from pet_member

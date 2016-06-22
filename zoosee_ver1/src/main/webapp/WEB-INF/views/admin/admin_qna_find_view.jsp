@@ -2,8 +2,10 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" type="text/css" href="${initParam.root}resources/css/sb.css">
-<div class="BJMainDiv" style="border: 1px solid red; margin-bottom: 10%;">
+<link rel="stylesheet" type="text/css"
+	href="${initParam.root}resources/css/sb.css">
+<div class="BJMainDiv"
+	style="border: 1px solid red; margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -28,10 +30,10 @@
 			<c:otherwise>
 				<table class="table table-striped table-hover " style="width: 100%">
 					<tr class="active">
-						<th style="width: 10%;">No</th>
+						<th style="width: 5%;">No</th>
 						<th style="width: 40%;">Title</th>
-						<th style="width: 10%;">Writer</th>
-						<th style="width: 30%;">Posted Time</th>
+						<th style="width: 18%;">Writer</th>
+						<th style="width: 27%;">Posted Time</th>
 						<th style="width: 10%;">Answer</th>
 					</tr>
 					<c:forEach items="${listVO.list }" var="Question">

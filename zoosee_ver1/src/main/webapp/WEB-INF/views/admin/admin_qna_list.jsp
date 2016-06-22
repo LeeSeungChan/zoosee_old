@@ -26,10 +26,10 @@
 			style="font-size: 18px;">아이디로 Q&A 검색</label></a>
 		<table class="table table-striped table-hover " style="width: 100%">
 			<tr class="active">
-				<th style="width: 10%;">No</th>
+				<th style="width: 5%;">No</th>
 				<th style="width: 40%;">Title</th>
-				<th style="width: 10%;">Writer</th>
-				<th style="width: 30%;">Posted Time</th>
+				<th style="width: 18%;">Writer</th>
+				<th style="width: 27%;">Posted Time</th>
 				<th style="width: 10%;">Answer</th>
 			</tr>
 			<c:forEach items="${listVO.list }" var="Question">

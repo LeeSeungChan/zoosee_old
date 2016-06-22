@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.kosta.zoosee.model.message.MessageDAO;
+import org.kosta.zoosee.model.qnaboard.PagingBean;
 import org.kosta.zoosee.model.vo.MemberVO;
 import org.kosta.zoosee.model.vo.MessageVO;
 import org.springframework.stereotype.Service;
@@ -53,8 +54,14 @@ public class MemberServiceImpl implements MemberSerivce {
 	}
 
 	@Override
-	public List<MemberVO> memberList(String rank) {
-		return memberDAO.memberList(rank);
+	public ListVO memberList(String rank,String pageNo) {
+		if(pageNo==null){
+			pageNo="1";
+		}
+		List<MemberVO> list =memberDAO.memberList(rank);
+		int totalContents=memberDAO.memberListCount(rank);
+		PagingBean pagingBean=new PagingBean(totalContents, Integer.parseInt(pageNo));
+		return new ListVO(list, pagingBean);
 	}
 
 	@Override

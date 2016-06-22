@@ -25,4 +25,6 @@ public interface MemberDAO {
 
 	public abstract void upgradeRank(HashMap<String, String> map);
 
+	public abstract int memberListCount(String rank);
+
 }

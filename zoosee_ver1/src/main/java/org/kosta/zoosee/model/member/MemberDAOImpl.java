@@ -52,4 +52,8 @@ public class MemberDAOImpl implements MemberDAO {
 	public String findRank(String id) {
 		return template.selectOne("member.findRank",id);
 	}
+	@Override
+	public int memberListCount(String rank) {
+		return template.selectOne("member.memberListCount",rank);
+	}
 }
