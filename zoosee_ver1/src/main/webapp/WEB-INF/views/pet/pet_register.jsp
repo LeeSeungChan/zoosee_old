@@ -58,7 +58,6 @@
     	}); 
     }); 	 
 </script>
-<!-- 전체 시작 -->
 <!-- 더블헤더 -->
 <div class="BJHeaderLayout0">
 <div class="BJHeaderLayout" >
@@ -70,6 +69,7 @@
 	</div>
 </div>
 </div>
+<!-- 전체 시작 -->
 <div class="WJcontainer6">
 <form method="post" action="interceptor_registerPet.do" id="regForm" enctype="multipart/form-data">
 		<!-- 왼쪽 시작-->

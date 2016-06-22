@@ -38,21 +38,21 @@
             <form>
                <div class="WJform-group">
                 <label>id</label>
-                <input class="WJform-control"  type="text" value="${mvo.id}" readonly="readonly">
+                <input class="WJform-control"  type="text" value="${mvo.id}" readonly="readonly" style="background-color: #F4F4F4;">
               </div>
                <div class="WJform-group">
                 <label>Name</label>
-                <input class="WJform-control" type="text" value="${mvo.name}" readonly="readonly">
+                <input class="WJform-control" type="text" value="${mvo.name}" readonly="readonly" style="background-color: #F4F4F4;">
               </div>
                 <div class="WJform-group">
                 <label>Address</label>
-                <input class="WJform-control"  value="우편번호 : ${mvo.addressCode}" disabled="disabled">
-                <input class="WJform-control"  value="${mvo.address}" disabled="disabled">
-                <input class="WJform-control"  value="${mvo.detailAddress}"disabled="disabled">
+                <input class="WJform-control"  value="우편번호 : ${mvo.addressCode}" disabled="disabled" style="background-color: #F4F4F4;">
+                <input class="WJform-control"  value="${mvo.address}" disabled="disabled" style="background-color: #F4F4F4;">
+                <input class="WJform-control"  value="${mvo.detailAddress}"disabled="disabled" style="background-color: #F4F4F4;">
               </div>
               <div class="WJform-group">
                 <label>Email address</label>
-                <input class="WJform-control" type="text" value="${mvo.email}" readonly="readonly">
+                <input class="WJform-control" type="text" value="${mvo.email}" readonly="readonly" style="background-color: #F4F4F4;">
               </div>
               <div class="WJform-group" align="center">
                 <div class="radio">
@@ -64,15 +64,15 @@
               </div>
               <div class="WJform-group">
                 <label>Tel</label>
-                <input class="WJform-control" type="text" value="${mvo.tel}" readonly="readonly">
+                <input class="WJform-control" type="text" value="${mvo.tel}" readonly="readonly" style="background-color: #F4F4F4;">
               </div>
                <div class="WJform-group">
                 <label>Job</label>
-                <input class="WJform-control" type="text" value="${mvo.job }" readonly="readonly">
+                <input class="WJform-control" type="text" value="${mvo.job }" readonly="readonly" style="background-color: #F4F4F4;">
               </div>
                <div class="WJform-group">
                 <label>Existence</label>
-                <input class="WJform-control" value="${mvo.existence}" disabled="disabled">
+                <input class="WJform-control" value="${mvo.existence}" disabled="disabled"  style="background-color: #F4F4F4;">
               </div>
               <br>
               <div class="WJform-group">

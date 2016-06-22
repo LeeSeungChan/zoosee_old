@@ -48,8 +48,23 @@
 </script>
 <link rel="stylesheet" type="text/css"
 	href="${initParam.root}resources/css/sb.css">
-<div class="BJMainDiv"
-	style=" margin-bottom: 10%;">
+<!-- 더블헤더 -->
+<div class="BJHeaderLayout0">
+	<div class="BJHeaderLayout">
+		<div class="BJHeader2">
+			<a class="BJA"
+				href="${initParam.root}interceptor_admin_qna_list.do?when=all">모든
+				Q&A 목록</a> <a class="BJA"
+				href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer">답변
+				미등록 Q&A 목록</a> <a class="BJA"
+				href="${initParam.root}interceptor_admin_qna_findbyid.do">아이디로
+				Q&A 검색</a>
+
+
+		</div>
+	</div>
+</div>
+<div class="BJMainDiv" style="margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -104,21 +119,11 @@
 							</c:otherwise>
 						</c:choose>
 					</table>
-					<div style="margin-top: 5%;">
-						<div style="float: left; width: 50%;">
-							<div style="margin-right: 1%; float: right;">
-								<input type="button" id="update" value="답변등록"
-									class="active SBbtn btn-default">
-							</div>
-						</div>
-						<div style="float: right; width: 50%;">
-							<div style="margin-right: 1%;">
-								<input type="button" class="active SBbtn btn-default" id="check"
-									value="목록">
-							</div>
-						</div>
-					</div>
 				</div>
+			</div>
+			<div class="SBbtn_1">
+				<input type="button" id="update" value="답변등록"
+					class="active SBbtn btn-default">
 			</div>
 		</div>
 	</form>

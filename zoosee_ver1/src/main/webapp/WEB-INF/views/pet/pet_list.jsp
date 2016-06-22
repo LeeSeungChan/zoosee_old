@@ -19,8 +19,6 @@
 <div class="BJHeader2" >
 	<a class="BJA"  href="${initParam.root}interceptor_pet_list.do">펫목록</a>
 	<a class="BJA" href="${initParam.root}interceptor_pet_register.do">펫등록</a>
-
-
 	</div>
 </div>
 </div>
@@ -34,10 +32,10 @@
 			</div>
 		</div>
 		<div class="well well-sm">${mvo.name }님이 등록 하신 반려동물 목록</div>
-	 <a style="float: right; margin-bottom: 2%;" href="${initParam.root}interceptor_pet_register.do">+ 반려동물 추가하기</a>
 	</div>
 <div class="BJMain2Div" align="center">
-
+<div class="BJWriteTableLine">
+				<div class="SBHrAllLine_1">
 <table  class="table table-striped table-hover" style="width: 100%">
 	<tr class="active" >
 		<th style="width: 25%"><label>Image</label></th>
@@ -66,6 +64,8 @@
 		</tr>
 	</c:forEach>
 </table>
+</div>
+</div>
 <%-- <br>
 <br>
 <ul class="pagination pagination-sm" > 

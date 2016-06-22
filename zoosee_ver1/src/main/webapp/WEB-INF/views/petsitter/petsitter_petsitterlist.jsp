@@ -45,13 +45,11 @@
 	<a class="BJA"  href="${initParam.root}interceptor_member_memberlist.do?rank=normal">일반회원</a>
 	<a class="BJA" href="${initParam.root}interceptor_petsitter_petsitterList.do?value=recog">펫시터</a>
 	<a class="BJA" href="${initParam.root}interceptor_petsitter_petsitterList.do?value=nonrecog">펫시터 신청자</a>
-
-
 	</div>
 </div>
 </div>
 <div class="BJMainDiv"
-	style="border: 1px solid red; margin-bottom: 10%;">
+	style=" margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
