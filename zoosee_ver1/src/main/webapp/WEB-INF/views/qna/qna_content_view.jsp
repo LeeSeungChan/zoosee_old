@@ -25,7 +25,7 @@
 </script>
 <link rel="stylesheet" type="text/css"
 	href="${initParam.root}resources/css/sb.css">
-<div class="BJMainDiv" style="border: 1px solid red;margin-bottom: 10%;">
+<div class="BJMainDiv" style="margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
