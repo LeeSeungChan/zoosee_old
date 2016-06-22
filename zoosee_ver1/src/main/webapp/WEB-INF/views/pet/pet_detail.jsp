@@ -45,22 +45,33 @@
 		</div>
 	</div>
 </div>
+<div class="BJMainDiv" style="margin-bottom: 10%;">
+	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">반려동물 상세보기</h3>
+			</div>
+			<div class="panel-body">${mvo.name }님의 소중한 반려동물 "${petVO.petName}"의 상세정보를 보여 드리기 위한 공간입니다.
+			</div>
+		</div>
+		<div class="well well-sm">${mvo.name }님의 소중한 ${petVO.petType}(${petVO.petName})의 상세정보</div>
+	</div>
+	
 <!-- 전체 시작 -->
-<div class="WJcontainer3">
+<div class="WJcontainer7">
 	<!-- 왼쪽 시작-->
 	<div style="float: left; width: 50%;">
 		<br>
-		<div style="margin: 0 auto; width: 500px; height: 500px;">
+		<div style="margin: 0 auto; width: 400px; height: 400px;">
 			<img style="border: 1px solid black;"
 				src="${initParam.root}${petVO.petImg}"
 				class="center-block img-circle img-responsive" width="90%"
 				height="90%">
-		</div>
+				</div>
 	</div>
 	<!-- 왼쪽 끝 -->
 	<!-- 오른쪽 시작 -->
 	<div style="float: right; width: 50%;">
-	<!-- <div style="float: left; width: 80%;"> -->
 		<label>Pet Name</label> <input class="WJform-control" id="petName"
 			name="petName" type="text" value="${petVO.petName}"
 			readonly="readonly" style="background-color: #F4F4F4;"> <label>Pet
@@ -97,5 +108,5 @@
 			class="active WJbtn btn-default"
 			style="float: right; width: 49.5%; margin-bottom: 2%"> 
 	</div>
-	<!-- </div> -->
+	</div>
 </div>

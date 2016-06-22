@@ -133,9 +133,9 @@
               <div class="WJform-group">
                   <label>Address</label>
                   <div class="WJform-group">
-                   <input class="WJform-control2" style=" float:left;" type="text" id="addressCode" name="addressCode" value="${mvo.addressCode}" readonly="readonly">
+                   <input class="WJform-control2" style=" float:left; width:49.5%;" type="text" id="addressCode" name="addressCode" value="${mvo.addressCode}" readonly="readonly">
                    <a href="javascript:openDaumPostcode()" >
-                   <input class="active WJbtn btn-default" style="float:right; width:50%;" type="button" value="Zip Code">
+                   <input class="active WJbtn btn-default" style="float:right; width:49.5%;" type="button" value="Zip Code">
                    </a>
                   </div>
               </div>

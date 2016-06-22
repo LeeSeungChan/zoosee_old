@@ -41,6 +41,7 @@
 										});
 					});
 </script>
+<!-- 더블헤더 -->
 <div class="BJHeaderLayout0">
 	<div class="BJHeaderLayout">
 		<div class="BJHeader2">
@@ -49,15 +50,26 @@
 		</div>
 	</div>
 </div>
+<div class="BJMainDiv" style="margin-bottom: 10%;">
+	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">반려동물 정보수정</h3>
+			</div>
+			<div class="panel-body">${mvo.name }님의 소중한 반려동물 "${pvo.petName}"의 정보수정을 입력하기 위한 공간입니다.
+			</div>
+		</div>
+		<div class="well well-sm">${mvo.name }님의 소중한 ${pvo.petType}(${pvo.petName})의 상세정보</div>
+	</div>
 <!-- 전체 시작 -->
-<div class="WJcontainer3">
+<div class="WJcontainer7">
 	<!-- 왼쪽 시작-->
 	<form action="interceptor_pet_update_result.do"
 		enctype="multipart/form-data" method="post">
 		<input type="hidden" name="petNo" value="${pvo.petNo}">
 		<div style="float: left; width: 50%;">
 			<br>
-			<div style="margin: 0 auto; width: 500px; height: 500px;">
+			<div style="margin: 0 auto; width: 400px; height: 400px;">
 				<img id="UploadedImg" style="border: 1px solid black;"
 					src="${initParam.root}${pvo.petImg}"
 					class="center-block img-circle img-responsive" width="90%"
@@ -107,5 +119,6 @@
 				class="active WJbtn btn-block btn-default">
 		</div>
 	</form>
+	</div>
 </div>
 

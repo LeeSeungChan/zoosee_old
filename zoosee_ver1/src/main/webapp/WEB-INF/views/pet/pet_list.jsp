@@ -28,10 +28,10 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">반려동물 목록</h3>
 			</div>
-			<div class="panel-body">반려동물 목록은 ${mvo.name }님의 등록된 반려동물을 보여 드리기 위한 공간입니다.
+			<div class="panel-body">${mvo.name }님의 등록된 반려동물을 보여 드리기 위한 공간입니다.
 			</div>
 		</div>
-		<div class="well well-sm">${mvo.name }님이 등록 하신 반려동물 목록</div>
+		<div class="well well-sm">${mvo.name }님이 등록하신 반려동물 목록</div>
 	</div>
 <div class="BJMain2Div" align="center">
 <div class="BJWriteTableLine">

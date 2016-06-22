@@ -64,18 +64,27 @@
 <div class="BJHeader2" >
 	<a class="BJA"  href="${initParam.root}interceptor_pet_list.do">펫목록</a>
 	<a class="BJA" href="${initParam.root}interceptor_pet_register.do">펫등록</a>
-
-
 	</div>
 </div>
 </div>
+<div class="BJMainDiv" style="margin-bottom: 10%;">
+	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">반려동물 등록</h3>
+			</div>
+			<div class="panel-body">${mvo.name }님의 소중한 반려동물을 등록하기 위한 공간입니다.
+			</div>
+		</div>
+		<div class="well well-sm">${mvo.name }님의 소중한 반려동물의 등록</div>
+	</div>
 <!-- 전체 시작 -->
-<div class="WJcontainer6">
+<div class="WJcontainer7">
 <form method="post" action="interceptor_registerPet.do" id="regForm" enctype="multipart/form-data">
 		<!-- 왼쪽 시작-->
 		<div style="float:left; width:50%;">
 		<br>
-		<div style=" margin:0 auto; width:500px; height:500px;">
+		<div style=" margin:0 auto; width:400px; height:400px;">
 			<img id="UploadedImg" style="border: 1px solid black;"
 				src="${initParam.root}resources/image/Pzoosee.png"
 				class="center-block img-circle img-responsive" width="90%" height="90%">
@@ -127,4 +136,5 @@
           
         </div> <!-- 오른쪽 끝 -->
         </form>
+        </div>
 </div><!-- 전체 끝 -->
