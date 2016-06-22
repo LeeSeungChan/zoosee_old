@@ -30,7 +30,7 @@ public class PetServiceImpl implements PetService {
 			String rank=memberDAO.findRank(id);
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("id", id);
-			if(rank.equals("normal")){
+			if(rank.equals("normal")||rank.equals("petmom")){
 				map.put("rank", "petmom");
 			}else if(rank.equals("petsitter")){
 				map.put("rank", "petmaster");

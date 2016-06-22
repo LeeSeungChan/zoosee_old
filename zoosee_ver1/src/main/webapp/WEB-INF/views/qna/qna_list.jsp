@@ -16,11 +16,11 @@
 	</div>
 <div class="BJMain2Div" align="center">
 
-<table  class="table table-striped table-hover"  style="width: 100%">
-	<tr class="active">
-		<th style="width: 55%"><label>Question</label></th>
-		<th style="width: 15%"><label>Answer</label></th>
-		<th style="width: 30%"><label>Posted Time</label></th>
+<table  class="table table-striped table-hover"  style="width: 100%;">
+	<tr >
+		<th style="width: 55%" >Question</th>
+		<th style="width: 15%">Answer</th>
+		<th style="width: 30%">Posted Time</th>
 	</tr>
 	<c:forEach items="${listVO.list}" var="qnaBoard">
 		<tr>
@@ -36,6 +36,7 @@
 </table>
 <br>
 <br>
+<c:if test="${listVO.list != null}">
 <ul class="pagination pagination-sm" > 
 <c:set var="pb" value="${listVO.pagingBean}"></c:set>
 <c:if test="${pb.previousPageGroup}">
@@ -56,5 +57,6 @@
 	<li><a href="interceptor_qna_list.do?pageNo=${pb.endPageOfPageGroup+1}">&laquo;</a></li>
 </c:if>
 </ul>
+</c:if>
 </div>
 </div>

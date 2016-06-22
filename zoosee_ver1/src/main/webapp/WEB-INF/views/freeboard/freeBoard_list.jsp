@@ -18,9 +18,9 @@
 <div class="BJMain2Div" >
 
 
-	<table border="1" class="table table-striped table-hover ">
+	<table class="table table-striped table-hover ">
   <thead>
-    <tr>
+    <tr >
       <th style="width: 10%;">No</th>
       <th>Title</th>
       <th>Name</th>
