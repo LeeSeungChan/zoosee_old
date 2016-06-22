@@ -1,7 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="${initParam.root}resources/js/jquery-1.12.4.min.js"></script>
 <script>
+$.ajax({
+	type:"POST",
+	url:"countMessage.do",
+	data:id="id=${sessionScope.mvo.id}",
+	dataType:"json", 
+	success:function(result){
+		if(result.count=="0"){
+		$("#message").html("메세지");
+		}else{
+		$("#message").html("메세지"+result.count);
+		}
+	}
+})
+
+
 	$(document).ready(function(){
 		
 		$(".dropdown-toggle").click(function(){
@@ -38,6 +54,12 @@
 	      <c:otherwise>
 	      		<ul class="nav navbar-nav navbar-right">
 	      		<li><a href="${initParam.root}petsitter_register.do">돌보미신청</a></li>
+	      		<li><a href="${initParam.root}interceptor_petsitter_updateform.do">돌보미 정보 수정</a></li>
+	      		<li><a href="${initParam.root}interceptor_freeBoard_list.do?">자유게시판</a></li>
+	      		<li><a href="${initParam.root}interceptor_petsitter_petsitterList.do?value=recog">회원리스트 및 승인(관리자)</a></li>
+	      		<li><a href="${initParam.root}interceptor_message_list.do" id="message">메세지</a></li>
+	      		
+	      		
 	      			  <li  class="dropdown" >
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${sessionScope.mvo.name} <span class="caret"></span></a>
 				          <ul class="dropdown-menu" role="menu">

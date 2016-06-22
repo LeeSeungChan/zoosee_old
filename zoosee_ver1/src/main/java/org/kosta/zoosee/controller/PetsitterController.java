@@ -118,8 +118,10 @@ public class PetsitterController {
 		
 		//팻시터 정보 수정폼
 		@RequestMapping("interceptor_petsitter_updateform.do")
-		public ModelAndView petsitter_updateForm(String id){
-			PetsitterVO petsitterVO=petsitterService.findPetsitterById(id);
+		public ModelAndView petsitter_updateForm(HttpServletRequest request){
+			HttpSession session = request.getSession(false);
+			MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+			PetsitterVO petsitterVO=petsitterService.findPetsitterById(mvo.getId());
 			return new ModelAndView("petsitter_updateform","petsitterVO",petsitterVO);
 		}
 		
