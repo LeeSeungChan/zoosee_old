@@ -41,6 +41,18 @@
 </script>
 <link rel="stylesheet" type="text/css"
 	href="${initParam.root}resources/css/sb.css">
+		<!-- 더블헤더 -->
+<div class="BJHeaderLayout0">
+<div class="BJHeaderLayout" >
+<div class="BJHeader2" >
+	<a class="BJA"  href="${initParam.root}interceptor_member_memberlist.do?rank=normal">일반회원</a>
+	<a class="BJA" href="${initParam.root}interceptor_petsitter_petsitterList.do?value=recog">펫시터</a>
+	<a class="BJA" href="${initParam.root}interceptor_petsitter_petsitterList.do?value=nonrecog">펫시터 신청자</a>
+
+
+	</div>
+</div>
+</div>
 <div class="BJMainDiv"
 	style="border: 1px solid red; margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
@@ -53,13 +65,7 @@
 		<div class="well well-sm">Pre Pet Sitter List</div>
 	</div>
 	<div class="BJMain2Div" align="center">
-		<a
-			href="${initParam.root}interceptor_member_memberlist.do?rank=normal">
-			<label style="font-size: 18px;">일반회원 리스트</label>
-		</a> | <a
-			href="${initParam.root}interceptor_petsitter_petsitterList.do?value=recog">
-			<label style="font-size: 18px;">펫시터 리스트</label>
-		</a> | <label style="font-size: 18px;">펫시터 신청자 리스트</label>
+		
 		<form id="recogForm">
 			<table class="table table-striped table-hover" id="recogTable">
 				<tr>

@@ -13,6 +13,18 @@
 </script>
 <link rel="stylesheet" type="text/css"
 	href="${initParam.root}resources/css/sb.css">
+			<!-- 더블헤더 -->
+<div class="BJHeaderLayout0">
+<div class="BJHeaderLayout" >
+<div class="BJHeader2" >
+	<a class="BJA"  href="${initParam.root}interceptor_admin_qna_list.do?when=all">모든 Q&A 목록</a>
+	<a class="BJA" href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer">답변 미등록 Q&A 목록</a>
+	<a class="BJA" href="${initParam.root}interceptor_admin_qna_findbyid.do">아이디로 Q&A 검색</a>
+
+
+	</div>
+</div>
+</div>
 <div class="BJMainDiv"
 	style="border: 1px solid red; margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
@@ -26,13 +38,7 @@
 		<div class="well well-sm">고객 ID를 통해 1:1 Question 검색</div>
 	</div>
 	<div class="BJMain2Div" align="center">
-			<a href="${initParam.root}interceptor_admin_qna_list.do?when=all"><label
-				style="font-size: 18px;">모든 Q&A 목록</label></a>| <a
-				href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer"><label
-				style="font-size: 18px;">답변 미등록 Q&A 목록</label></a>| <a
-				href="${initParam.root}interceptor_admin_qna_findbyid.do"><label
-				style="font-size: 18px;">아이디로 Q&A 검색</label></a>
-		</div>
+			
 		<form id="findForm"
 			action="${initParam.root}interceptor_admin_qna_find_view.do">
 			<div style="vertical-align: middle; border: 2px solid blue;">

@@ -4,6 +4,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" type="text/css"
 	href="${initParam.root}resources/css/sb.css">
+			<!-- 더블헤더 -->
+<div class="BJHeaderLayout0">
+<div class="BJHeaderLayout" >
+<div class="BJHeader2" >
+	<a class="BJA"  href="${initParam.root}interceptor_admin_qna_list.do?when=all">모든 Q&A 목록</a>
+	<a class="BJA" href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer">답변 미등록 Q&A 목록</a>
+	<a class="BJA" href="${initParam.root}interceptor_admin_qna_findbyid.do">아이디로 Q&A 검색</a>
+
+
+	</div>
+</div>
+</div>
 <div class="BJMainDiv"
 	style="border: 1px solid red; margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">

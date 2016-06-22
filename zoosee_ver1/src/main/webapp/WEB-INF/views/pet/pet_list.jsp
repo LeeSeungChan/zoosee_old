@@ -13,6 +13,17 @@
     });
 </script>
 <link rel="stylesheet" type="text/css" href="${initParam.root}resources/css/sb.css">
+<!-- 더블헤더 -->
+<div class="BJHeaderLayout0">
+<div class="BJHeaderLayout" >
+<div class="BJHeader2" >
+	<a class="BJA"  href="${initParam.root}interceptor_pet_list.do">펫목록</a>
+	<a class="BJA" href="${initParam.root}interceptor_pet_register.do">펫등록</a>
+
+
+	</div>
+</div>
+</div>
 <div class="BJMainDiv" style="margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
 		<div class="panel panel-primary">

@@ -17,6 +17,16 @@
     	$("input:radio[name=existence][value=" + '<c:out value="${ mvo.existence }"/>' + "]").attr("checked","checked");
 	});
 </script>
+<!-- 더블헤더 -->
+<div class="BJHeaderLayout0">
+<div class="BJHeaderLayout" >
+<div class="BJHeader2" >
+	<a class="BJA" href="${initParam.root}interceptor_member_detail.do">마이페이지</a>
+	<a class="BJA" href="${initParam.root}interceptor_member_update.do">회원정보수정</a>
+
+	</div>
+</div>
+</div>
 <div class="WJcontainer5">
 <!-- 사진 중간 정렬 시작-->
 		<div align="center">

@@ -4,6 +4,18 @@
 
 <link rel="stylesheet" type="text/css"
 	href="${initParam.root}resources/css/sb.css">
+			<!-- 더블헤더 -->
+<div class="BJHeaderLayout0">
+<div class="BJHeaderLayout" >
+<div class="BJHeader2" >
+	<a class="BJA"  href="${initParam.root}interceptor_admin_qna_list.do?when=all">모든 Q&A 목록</a>
+	<a class="BJA" href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer">답변 미등록 Q&A 목록</a>
+	<a class="BJA" href="${initParam.root}interceptor_admin_qna_findbyid.do">아이디로 Q&A 검색</a>
+
+
+	</div>
+</div>
+</div>
 <div class="BJMainDiv"
 	style="border: 1px solid red; margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
@@ -18,12 +30,7 @@
 	</div>
 	<div class="BJMain2Div" align="center">
 
-		<a href="${initParam.root}interceptor_admin_qna_list.do?when=all"><label
-			style="font-size: 18px;">모든 Q&A 목록</label></a>| <a
-			href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer"><label
-			style="font-size: 18px;">답변 미등록 Q&A 목록</label></a>| <a
-			href="${initParam.root}interceptor_admin_qna_findbyid.do"><label
-			style="font-size: 18px;">아이디로 Q&A 검색</label></a>
+		
 		<table class="table table-striped table-hover " style="width: 100%">
 			<tr class="active">
 				<th style="width: 5%;">No</th>

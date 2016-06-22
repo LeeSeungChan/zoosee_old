@@ -95,6 +95,16 @@
          }
 
    </script>
+   <!-- 더블헤더 -->
+<div class="BJHeaderLayout0">
+<div class="BJHeaderLayout" >
+<div class="BJHeader2" >
+	<a class="BJA" href="${initParam.root}interceptor_member_detail.do">마이페이지</a>
+	<a class="BJA" href="${initParam.root}interceptor_member_update.do">회원정보수정</a>
+
+	</div>
+</div>
+</div>
 <div class="WJcontainer4" >   
 <div align="center">
 <a href="home.do"><img src="${initParam.root}resources/image/Mzoosee.png"></a>
