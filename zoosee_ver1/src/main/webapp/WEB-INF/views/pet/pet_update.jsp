@@ -1,28 +1,92 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <script type="text/javascript">
+	/*사진 바로 업로드 미리보기*/
+	
+	function readURL(input) {
+	if (input.files && input.files[0]) {
+			  var reader = new FileReader();
+			 reader.onload = function (e) {
+		     $('#UploadedImg').attr('src', e.target.result);
+		  }
+		  reader.readAsDataURL(input.files[0]);
+		}
+	}
     $(document).ready(function(){
+    	$("#petName").focus();
     	$("input:radio[name=petGender][value=" + '<c:out value="${ pvo.petGender }"/>' + "]").attr("checked","checked");
     	$("input:radio[name=petNeutral][value=" + '<c:out value="${ pvo.petNeutral }"/>' + "]").attr("checked","checked");
-    	$("input:radio[name=petSize][value=" + '<c:out value="${ pvo.petSize }"/>' + "]").attr("checked","checked");
+    	$("#petSize option[value=" + "'${pvo.petSize}'" + "]").attr("selected","selected");
+    	$("#petType option[value=" + "'${pvo.petType}'" + "]").attr("selected","selected");
+    	$("#update").click(function(){
+    		if(confirm("정보를 수정하셨습니까?")){
+    			location.replace("interceptor_pet_update.do?petNo=${petVO.petNo}");
+    		}else{
+    			return false;
+    		}
+    	});
     });
     </script>
+<!-- 전체 시작 -->
+<div class="WJcontainer3">
+<!-- 왼쪽 시작-->
 <form action="interceptor_pet_update_result.do" enctype="multipart/form-data" method="post">
-	<input type="hidden" name="petNo" value="${pvo.petNo}">
-	${mvo.name} 님의 가축<br/> 
-	펫이름 <input type="text" name="petName" id="petName" value="${pvo.petName}" ><br>
-	펫나이 <input type="text" name="petAge" id="petAge" value="${pvo.petAge}" ><br>
-	펫종류 <input type="text" name="petType" id="petType" value="${pvo.petType}" ><br>
-	펫성별 <input type="radio" name="petGender" value="man" />남자
-	<input type="radio" name="petGender" value="woman" />여자<br> 
-	펫중성화<input type="radio" name="petNeutral" value="yes" >네 
-	<input type="radio" name="petNeutral" value="no" >아니오<br>
-	펫이미지<img src="${pvo.petImg}" width="175" height="250">
-	<input type="file" name="petImg3"> <br> 
-	펫크기<input type="radio" name="petSize" value="s" >소
-	<input type="radio" name="petSize" value="m" >중
-	<input type="radio" name="petSize" value="l" >대<br>
-	특이사항 <input type="text" name="etc" id="petEtc" value="${pvo.etc}"><br> 
-	<input type="submit" value="수정하기">
-</form>
+<input type="hidden" name="petNo" value="${pvo.petNo}">
+		<div style="float:left; width:50%;">
+		<br>
+		<div style=" margin:0 auto; width:500px; height:500px;">
+			<img id="UploadedImg" style="border: 1px solid black;"
+				src="${initParam.root}${pvo.petImg}"
+				class="center-block img-circle img-responsive" width="90%" height="90%">
+				<input id="petImg3" name="petImg3" type="file" onchange="readURL(this)">
+		</div>
+		</div>
+		<!-- 왼쪽 끝 -->
+		<!-- 오른쪽 시작 -->
+		<div style=" float:right; width:50%;">
+		<label>Pet Name</label> 
+			<input class="WJform-control" id="petName" name="petName" type="text"
+			value="${pvo.petName}" >
+	  	<label>Pet Age</label>
+           <input class="WJform-control" id="petAge" name="petAge" type="text"
+           value="${pvo.petAge}" >
+        <label>Pet Type</label>
+        <select class="WJform-control"  id="petType" name="petType">
+               <option value="" selected>-Select-</option>
+               <option value="강아지">강아지</option>
+               <option value="고양이">고양이</option>
+               <option value="새">새</option>
+               <option value="파충류">파충류</option>
+             </select>
+        <label>Pet Gender</label> 
+        	<div class="radio" align="center">   
+        	<label class="radio-inline">
+            	<input type="radio" name="petGender" value="man" >MAN</label>
+            <label class="radio-inline">
+                <input type="radio" name="petGender" value="woman" >WOMAN</label>
+        	</div>
+        <label>Pet Neutral</label>
+      	<div class="radio" align="center">
+           <label class="radio-inline">
+                <input type="radio" name="petNeutral" value="yes" >Yes</label>
+           <label class="radio-inline">
+                 <input type="radio" name="petNeutral" value="no" >No</label>
+        </div>
+        <label>Pet Size</label>
+             <select class="WJform-control"  id="petSize" name="petSize">
+               <option value="" selected>-Select-</option>
+               <option value="Small">Small</option>
+               <option value="Medium">Medium</option>
+               <option value="Large">Large</option>
+             </select>
+        <label>Etc</label>
+         <textarea class="WJform-control2" id="petEtc" name="etc"  
+         rows="3" style="width:100%; resize:none;" >${pvo.etc}</textarea>
+         <br>
+   			 <input type="submit" id="update" value="수정" class="active WJbtn btn-block btn-default" >
+		</div>
+	</form>
+</div>  
+    
+ 

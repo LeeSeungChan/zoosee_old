@@ -3,6 +3,7 @@
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <script type="text/javascript">
 	$(document).ready(function(){
+		$("#password").focus();
 		$("#existence option[value="+"'${mvo.existence}'"+"]").attr('selected', 'selected');
       $("input:radio[name=gender][value=" + '<c:out value="${ mvo.gender }"/>' + "]").attr("checked","checked");
       $("#password").keyup(function(){

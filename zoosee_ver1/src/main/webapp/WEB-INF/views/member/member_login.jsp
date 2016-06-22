@@ -2,6 +2,7 @@
    pageEncoding="UTF-8"%>
 <script type="text/javascript">
  $(document).ready(function() {
+ $("#id").focus();
  $("#memberLoginForm").submit(function(){
           if($("#id").val()==""){
             alert("아이디를 입력하세요.");
@@ -18,7 +19,7 @@
 <!-- 전체 시작 -->
 <div class="WJcontainer3">
 	<!-- 텍스트는 왼쪽 정렬 및 삽입 중간 정렬 시작 -->
-	<div style="border: 1px solid red; height: 550px; width:50%;  margin-top:10%; margin-left:25%; background-color: white">
+	<div style="border: 1px solid #0f0fd9; border-radius: 10px; height: 550px; width:50%;  margin-top:10%; margin-left:25%; background-color: white">
 	<%-- <img src="${initParam.root}resources/image/Mmain.jpg" style="position: absolute; height:230px;  width:30%;"> --%>
 	<div class="WJLayout2"
 		style=" text-align: left;">

@@ -2,6 +2,7 @@
    pageEncoding="UTF-8"%>
 <script type="text/javascript">
    $(document).ready(function() {
+	  $("#id").focus();
       $("#id").keyup(function() {
          var id=$("#id").val();
          $("#idView").empty();

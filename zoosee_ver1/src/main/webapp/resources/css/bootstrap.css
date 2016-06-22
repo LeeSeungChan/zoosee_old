@@ -7407,7 +7407,6 @@ label {
 }
 
 
-
 .WJcontainer {
   width:60%;
   margin-left: 20%;
@@ -7436,7 +7435,14 @@ label {
   width:60%;
   margin-left: 20%;
   height:800px;
-} 
+}
+.WJcontainer6 {
+  margin-right:20%;
+  width:60%;
+  margin-left: 20%;
+  height:500px;
+ }
+  
 .WJrow {
   margin-left: 5%;
   margin-right: 5%;
