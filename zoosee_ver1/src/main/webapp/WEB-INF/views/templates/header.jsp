@@ -63,12 +63,12 @@ $.ajax({
 	      			  <li  class="dropdown" >
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${sessionScope.mvo.name} <span class="caret"></span></a>
 				          <ul class="dropdown-menu" role="menu">
-				          	<li><a href="${initParam.root}member_detail.do">계정관리</a></li>
-				            <li><a href="${initParam.root}pet_list.do">정보관리</a></li>
+				          	<li><a href="${initParam.root}interceptor_member_detail.do">계정관리</a></li>
+				            <li><a href="${initParam.root}interceptor_pet_list.do">정보관리</a></li>
 				            <li class="divider"></li>
-				            <li><a href="${initParam.root}qna_board_register.do">Q&A 등록</a></li>
-				            <li><a href="${initParam.root}qna_list.do">Q&A 목록</a></li>
-				            <li><a href="${initParam.root}admin_qna_list.do?when=all">Q&A 목록(관리자)</a></li>
+				            <li><a href="${initParam.root}interceptor_qna_board_register.do">Q&A 등록</a></li>
+				            <li><a href="${initParam.root}interceptor_qna_list.do">Q&A 목록</a></li>
+				            <li><a href="${initParam.root}interceptor_admin_qna_list.do?when=all">Q&A 목록(관리자)</a></li>
 				            <li class="divider"></li>
 				            <li><a href="${initParam.root}logout.do">로그아웃</a></li>
 				          </ul>
