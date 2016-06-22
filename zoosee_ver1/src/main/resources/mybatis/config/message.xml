@@ -13,10 +13,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getMessageList" resultType="messageVO" parameterType="hashmap">
 		select message_no, id, title, content, time_posted, checked, page
 		from (
-		select message_no, id, title, content,to_char(time_posted,'yyyy/mm/dd hh24:mi:ss') as time_posted, checked, ceil(rownum/5) as page
-		from message where id=#{id} order by message_no desc
+		select message_no, id, title, content,to_char(time_posted,'yyyy/mm/dd hh24:mi:ss') as time_posted, checked, ceil(rownum/10) as page
+		from message where id=#{id} 
 		)
-		where page=#{pageNo}
+		where page=#{pageNo} order by time_posted desc
 	</select>
 	
 	<select id="getTotalMessage" resultType="int">

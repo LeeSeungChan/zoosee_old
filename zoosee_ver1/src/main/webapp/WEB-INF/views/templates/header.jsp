@@ -12,7 +12,7 @@ $.ajax({
       if(result.count=="0"){
       $("#message").html("메세지");
       }else{
-      $("#message").html("메세지"+result.count);
+    	$("#message").html("<img src='${initParam.root}resources/image/new.png''>메세지("+result.count+")");
       }
    }
 })

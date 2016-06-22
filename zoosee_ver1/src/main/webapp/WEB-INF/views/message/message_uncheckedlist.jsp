@@ -1,60 +1,126 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-    
-<a href="${initParam.root}interceptor_message_list.do">전체 메세지 리스트</a> | 읽지 않은 메세지 리스트 
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<br>
-<br>
-읽지않은 메세지 리스트
-<br>
-<br>
+<div class="BJMainDiv" >
 <c:choose>
 <c:when test="${empty listVO.list }">
-읽지 않은 메세지가 없습니다.
+<!-- 읽지않은 메세지가 없을때!! -->
+<div class="BJPanel" style="width:80%;	 margin-left:10%;">
+<div class="panel panel-primary">
+<div class="panel-heading">
+<h3 class="panel-title">MESSAGE</h3>
+</div>
+<div class="panel-body">
+${sessionScope.mvo.name } 님의 읽지 않은 메세지가 없습니다. <div style="text-align: right;">
+ <a href="${initParam.root}interceptor_message_list.do">메세지 전체보기</a></div>
+</div>
+</div>
+</div>
+
 </c:when>
 <c:otherwise>
-<table border="1">
-  <tr>
-    <th>타이틀</th>
-    <th>작성시간</th>
-    <th>읽음표시</th>
-  </tr>
-  <c:forEach items="${listVO.list}"  var="messageVO">
-  <tr>
-    <td><a href="interceptor_message_content.do?message_no=${messageVO.message_no }">${messageVO.title}</a></td>
-    <td>${messageVO.time_posted}</td>
-    <td>
-    <c:choose>
-    <c:when test="${messageVO.checked==0}"> 읽지않음 </c:when>
-    <c:otherwise>읽음</c:otherwise>
-    </c:choose>
-    </td>
-  </tr>
-  </c:forEach>
+<!-- 읽지않은 메세지가 잇을때!! -->
+
+<div class="BJPanel" style="width:80%;	 margin-left:10%;">
+<div class="panel panel-primary">
+<div class="panel-heading">
+<h3 class="panel-title">MESSAGE</h3>
+</div>
+<div class="panel-body">
+${sessionScope.mvo.name } 님의 읽지 않은 메세지 목록입니다. <div style="text-align: right;">
+ <a href="interceptor_message_updateCheckedAll.do?id=${sessionScope.mvo.id }">메세지
+	모두 읽기</a> l <a href="${initParam.root}interceptor_message_list.do">메세지 전체보기</a></div>
+</div>
+</div>
+</div>
+
+<div class="BJMain2Div" >
+	<table border="1" class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th style="width: 10%">읽음 표시 </th>
+      <th style="width: 60%">제목</th>
+      <th style="width: 10%">보낸사람</th>
+      <th>시간</th>	
+    </tr>
+  </thead>
+  <tbody>
+   <c:forEach items="${requestScope.listVO.list }" var="message">				
+			<tr>
+				<td>
+					<c:if test="${message.checked==0}">읽지않음</c:if>
+					<c:if test="${message.checked==1}">읽음</c:if>
+				</td>
+				<td>
+					<a href="interceptor_message_content.do?message_no=${message.message_no }">
+					${message.title}</a>
+				</td>
+				<td>
+					관리자
+				</td>
+				<td>
+					${message.time_posted }
+				</td>
+			</tr>
+	</c:forEach>
+  </tbody>
 </table>
-</c:otherwise>
-</c:choose>
-<br>
-<br>
-<c:set var="pb" value="${listVO.pagingBean}"></c:set>
-<c:if test="${pb.previousPageGroup}">
-	<a href="${initParam.root}interceptor_message_uncheckedlist.do?pageNo=${pb.startPageOfPageGroup-1}">◀</a>
-</c:if>
-<c:forEach var="i" begin="${pb.startPageOfPageGroup}"
-	end="${pb.endPageOfPageGroup}">
-	<c:choose>
-		<c:when test="${pb.nowPage!=i}">
-			<a href="${initParam.root}interceptor_message_uncheckedlist.do?pageNo=${i}">${i}</a>
+</div>
+
+<!-- 메세지 페이징 -->	
+<div class="BJFreeBoardListPagingDiv" style=" text-align: center;">
+<ul class="pagination pagination-sm">
+  <c:set var="pb" value="${requestScope.listVO.pagingBean}"></c:set>
+  <c:choose>
+		<c:when test="${pb.previousPageGroup}">
+		<li><a href="${initParam.root}interceptor_message_uncheckedlist.do?pageNo=${pb.startPageOfPageGroup-1}">&laquo;</a></li>
 		</c:when>
 		<c:otherwise>
-		${i}
+		<li class="disabled"><a >&laquo;</a></li>
 		</c:otherwise>
 	</c:choose>
-</c:forEach>
-<c:if test="${pb.nextPageGroup}">
-	<a href="${initParam.root}interceptor_message_uncheckedlist.do?pageNo=${pb.endPageOfPageGroup+1}">▶</a>
-</c:if>
+  
+  <c:forEach var="i" begin="${pb.startPageOfPageGroup}" end="${pb.endPageOfPageGroup}">
+		<c:choose>
+			<c:when test="${pb.nowPage!=i}">
+				<li><a href="${initParam.root}interceptor_message_uncheckedlist.do?pageNo=${i}">${i}</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="active"><a >${i}</a></li>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>	 
+
+	
+	
+	<c:choose>
+		<c:when test="${pb.nextPageGroup}">
+		<li><a href="${initParam.root}interceptor_message_list.do?pageNo=${pb.endPageOfPageGroup+1}">&raquo;</a></li>
+		</c:when>
+		<c:otherwise>
+		<li class="disabled"><a >&raquo;</a></li>
+		</c:otherwise>
+	</c:choose>
+
+</c:otherwise>
+</c:choose>
+  
+</ul>
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 <br>
 <br>
 <br>
