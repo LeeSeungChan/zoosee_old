@@ -14,7 +14,7 @@
 			<div class="panel-body">1:1 Q&A 게시판은 고객님의 궁금증을 풀어드리기 위한 공간입니다.
 			</div>
 		</div>
-		<div class="well well-sm">전체 1:1 Question 게시물</div>
+		<div class="well well-sm">1:1 Question 게시물 리스트</div>
 	</div>
 	<div class="BJMain2Div" align="center">
 

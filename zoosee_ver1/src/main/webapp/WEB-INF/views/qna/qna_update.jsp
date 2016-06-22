@@ -1,42 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<script	type="text/javascript">
-$(document).ready(function(){
-	$("#updateForm").submit(function(){
-		if($("#title").val()==""){
-			alert("제목을 공란으로 수정할 수 없습니다.");
-			$("#title").focus();
-			return false;
-		}else if($("#question").val()==""){
-			alert("질문을 공란으로 수정할 수 없습니다.");
-			$("#question").focus();
-			return false;
-		}
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#updateForm").submit(function() {
+			if ($("#title").val() == "") {
+				alert("제목을 공란으로 수정할 수 없습니다.");
+				$("#title").focus();
+				return false;
+			} else if ($("#question").val() == "") {
+				alert("질문을 공란으로 수정할 수 없습니다.");
+				$("#question").focus();
+				return false;
+			}
+		});
 	});
-});
 </script>
-<c:choose>
-<c:when test="${empty qnaBoardVO.answer}">
-<form id="updateForm" action="interceptor_qna_update_result.do">
-<input type="hidden" name="boardNo" value="${qnaBoardVO.boardNo}"> 
-<table border="1">
-	<tr>
-		<td>제목</td>
-		<td><input type="text" value="${qnaBoardVO.title}" name="title" id="title"></td>
-	</tr> 
-	<tr>
-		<td>내용</td>
-		<td><input type="text" value="${qnaBoardVO.question}" name="question" id="question"></td>
-	</tr>
-</table>
-<input type="submit" value="수정하기">
-</form>
-</c:when>
-<c:otherwise>
-	<script type="text/javascript">
-		alert("답변이 등록된 질문은 수정이 불가 합니다. 새로 질문을 등록하세요.");
-		location.href="${initParam.root}home.do";
-	</script>
-</c:otherwise>
-</c:choose>
+<link rel="stylesheet" type="text/css"
+	href="${initParam.root}resources/css/sb.css">
+<div class="BJMainDiv"
+	style="border: 1px solid red; margin-bottom: 10%;">
+	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">1:1 Q&A 게시판</h3>
+			</div>
+			<div class="panel-body">1:1 Q&A 게시판은 고객님의 궁금증을 풀어드리기 위한 공간입니다.
+			</div>
+		</div>
+		<div class="well well-sm">Question Update</div>
+	</div>
+	<div class="BJMain2Div">
+		<div class="SBHrAllLine">
+			<c:choose>
+				<c:when test="${empty qnaBoardVO.answer}">
+					<form id="updateForm" action="interceptor_qna_update_result.do">
+						<input type="hidden" name="boardNo" value="${qnaBoardVO.boardNo}">
+						<table class="SBtable">
+							<tr>
+								<td style="width: 15%;"><label>Title</label></td>
+								<td style="width: 85%;"><input class="SBform-text"
+									type="text" id="title" name="title" value="${qnaBoardVO.title}"></td>
+							</tr>
+							<tr>
+								<td><label>Question</label></td>
+								<td><textarea class="SBform-textarea" id="question"
+										name="question" style="height: 400px; resize: none;">${qnaBoardVO.question}</textarea></td>
+							</tr>
+						</table>
+						<div class="SBbtn_1">
+						<input type="submit" class="active SBbtn btn-default" value="수정하기">
+						</div>
+					</form>
+				</c:when>
+				<c:otherwise>
+					<script type="text/javascript">
+						alert("답변이 등록된 질문은 수정이 불가 합니다. 새로 질문을 등록하세요.");
+						location.href = "${initParam.root}interceptor_qna_list.do";
+					</script>
+				</c:otherwise>
+			</c:choose>
+		</div>
+	</div>
+</div>
