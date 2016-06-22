@@ -13,20 +13,23 @@
 </script>
 <link rel="stylesheet" type="text/css"
 	href="${initParam.root}resources/css/sb.css">
-			<!-- 더블헤더 -->
+<!-- 더블헤더 -->
 <div class="BJHeaderLayout0">
-<div class="BJHeaderLayout" >
-<div class="BJHeader2" >
-	<a class="BJA"  href="${initParam.root}interceptor_admin_qna_list.do?when=all">모든 Q&A 목록</a>
-	<a class="BJA" href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer">답변 미등록 Q&A 목록</a>
-	<a class="BJA" href="${initParam.root}interceptor_admin_qna_findbyid.do">아이디로 Q&A 검색</a>
+	<div class="BJHeaderLayout">
+		<div class="BJHeader2">
+			<a class="BJA"
+				href="${initParam.root}interceptor_admin_qna_list.do?when=all">모든
+				Q&A 목록</a> <a class="BJA"
+				href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer">답변
+				미등록 Q&A 목록</a> <a class="BJA"
+				href="${initParam.root}interceptor_admin_qna_findbyid.do">아이디로
+				Q&A 검색</a>
 
 
+		</div>
 	</div>
 </div>
-</div>
-<div class="BJMainDiv"
-	style="border: 1px solid red; margin-bottom: 10%;">
+<div class="BJMainDiv" style="margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -38,21 +41,25 @@
 		<div class="well well-sm">고객 ID를 통해 1:1 Question 검색</div>
 	</div>
 	<div class="BJMain2Div" align="center">
-			
-		<form id="findForm"
-			action="${initParam.root}interceptor_admin_qna_find_view.do">
-			<div style="vertical-align: middle; border: 2px solid blue;">
-				<div style="float: left; width: 58%; border: 1px solid red;">
-					<div style="margin-left: 50%; float: right; border: 1px solid yellow;">
-						<input class="SBform-text_1" type="text" id="id" name="id">
+		<div class="BJWriteTableLine">
+			<div class="SBHrAllLine_2" >
+				<form id="findForm"
+					action="${initParam.root}interceptor_admin_qna_find_view.do">
+					<div style="vertical-align: middle;">
+						<div style="float: left; width: 55%;">
+							<div style="margin-left: 50%; float: right;">
+								<input class="SBform-text_1" type="text" id="id" name="id">
+							</div>
+						</div>
+						<div style="float: right; width: 45%;">
+							<div style="float:left; margin-right: 50%;">
+								<input type="submit" value="검색"
+									class="active SBbtn_2 btn-default">
+							</div>
+						</div>
 					</div>
-				</div>
-				<div style="float: right; width: 42%; border: 1px solid red;">
-					<div style="margin-right: 50%; border: 1px solid yellow;">
-						<input type="submit" value="검색" class="active SBbtn_2 btn-default">
-					</div>
-				</div>
+				</form>
 			</div>
-		</form>
+		</div>
 	</div>
 </div>

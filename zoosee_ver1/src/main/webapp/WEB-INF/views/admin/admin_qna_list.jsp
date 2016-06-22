@@ -16,8 +16,7 @@
 	</div>
 </div>
 </div>
-<div class="BJMainDiv"
-	style="border: 1px solid red; margin-bottom: 10%;">
+<div class="BJMainDiv" style="margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -29,7 +28,8 @@
 		<div class="well well-sm">1:1 Question 게시물 리스트</div>
 	</div>
 	<div class="BJMain2Div" align="center">
-
+<div class="BJWriteTableLine">
+<div class="SBHrAllLine_1">
 		
 		<table class="table table-striped table-hover " style="width: 100%">
 			<tr class="active">
@@ -54,7 +54,8 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<br> <br>
+		</div>
+		</div>
 		<ul class="pagination pagination-sm">
 			<c:if test="${listVO.list!=null }">
 				<c:set var="pb" value="${listVO.pagingBean}"></c:set>

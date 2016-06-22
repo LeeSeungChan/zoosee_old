@@ -16,11 +16,12 @@
 		<div class="well well-sm">${mvo.name }님이 작성하신 1:1 질문 리스트</div>
 	</div>
 <div class="BJMain2Div" align="center">
-
+<div class="BJWriteTableLine">
+<div class="SBHrAllLine_1">
 <table  class="table table-striped table-hover"  style="width: 100%;">
 	<tr >
-		<th style="width: 55%" >Question</th>
-		<th style="width: 15%">Answer</th>
+		<th style="width: 50%" >Question</th>
+		<th style="width: 20%">Answer</th>
 		<th style="width: 30%">Posted Time</th>
 	</tr>
 	<c:forEach items="${listVO.list}" var="qnaBoard">
@@ -35,8 +36,8 @@
 		</tr>
 	</c:forEach>
 </table>
-<br>
-<br>
+</div>
+</div>
 <c:if test="${listVO.list != null}">
 <ul class="pagination pagination-sm" > 
 <c:set var="pb" value="${listVO.pagingBean}"></c:set>

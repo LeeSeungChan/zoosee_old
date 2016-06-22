@@ -22,7 +22,9 @@ ${sessionScope.mvo.name } 님의 메세지입니다. <div style="text-align: rig
 
 <!-- 메세지 list -->
 <div class="BJMain2Div" >
-	<table border="1" class="table table-striped table-hover ">
+<div class="BJWriteTableLine">
+<div class="SBHrAllLine">
+	<table  class="table table-striped table-hover ">
   <thead>
     <tr>
       <th style="width: 10%">읽음 표시 </th>
@@ -54,7 +56,9 @@ ${sessionScope.mvo.name } 님의 메세지입니다. <div style="text-align: rig
 </table>
 <!-- 메세지 list -->
 
-
+</div>
+</div>
+</div>
 </div>	
 
 <!-- 메세지 페이징 -->	

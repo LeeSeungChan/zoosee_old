@@ -4,17 +4,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" type="text/css"
 	href="${initParam.root}resources/css/sb.css">
-			<!-- 더블헤더 -->
+<!-- 더블헤더 -->
 <div class="BJHeaderLayout0">
-<div class="BJHeaderLayout" >
-<div class="BJHeader2" >
-	<a class="BJA"  href="${initParam.root}interceptor_admin_qna_list.do?when=all">모든 Q&A 목록</a>
-	<a class="BJA" href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer">답변 미등록 Q&A 목록</a>
-	<a class="BJA" href="${initParam.root}interceptor_admin_qna_findbyid.do">아이디로 Q&A 검색</a>
+	<div class="BJHeaderLayout">
+		<div class="BJHeader2">
+			<a class="BJA"
+				href="${initParam.root}interceptor_admin_qna_list.do?when=all">모든
+				Q&A 목록</a> <a class="BJA"
+				href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer">답변
+				미등록 Q&A 목록</a> <a class="BJA"
+				href="${initParam.root}interceptor_admin_qna_findbyid.do">아이디로
+				Q&A 검색</a>
 
 
+		</div>
 	</div>
-</div>
 </div>
 <div class="BJMainDiv"
 	style="border: 1px solid red; margin-bottom: 10%;">
@@ -29,68 +33,67 @@
 		<div class="well well-sm">아이디 ${param.id} (으)로 검색하신 정보 입니다.</div>
 	</div>
 	<div class="BJMain2Div" align="center">
-		<a href="${initParam.root}interceptor_admin_qna_list.do?when=all"><label
-			style="font-size: 18px;">모든 Q&A 목록</label></a>| <a
-			href="${initParam.root}interceptor_admin_qna_list.do?when=nonAnswer"><label
-			style="font-size: 18px;">답변 미등록 Q&A 목록</label></a>| <a
-			href="${initParam.root}interceptor_admin_qna_findbyid.do"><label
-			style="font-size: 18px;">아이디로 Q&A 검색</label></a>
-		<c:choose>
-			<c:when test="${empty listVO.list}">
-				<br>검색하신 이용자의 질문 내역이 없습니다.
+		<div class="BJWriteTableLine">
+			<div class="SBHrAllLine_1">
+				<c:choose>
+					<c:when test="${empty listVO.list}">
+						<br>검색하신 이용자의 질문 내역이 없습니다.
 	</c:when>
-			<c:otherwise>
-				<table class="table table-striped table-hover " style="width: 100%">
-					<tr class="active">
-						<th style="width: 5%;">No</th>
-						<th style="width: 40%;">Title</th>
-						<th style="width: 18%;">Writer</th>
-						<th style="width: 27%;">Posted Time</th>
-						<th style="width: 10%;">Answer</th>
-					</tr>
-					<c:forEach items="${listVO.list }" var="Question">
-						<tr>
-							<td>${Question.boardNo }</td>
-							<td><a
-								href="${initParam.root}interceptor_admin_showQuestion.do?boardNo=${Question.boardNo}">${Question.title }</a></td>
-							<td><a
-								href="${initParam.root}interceptor_member_getMemberVO.do?id=${Question.memberVO.id}">${Question.memberVO.name}(${Question.memberVO.id})</a></td>
-							<td>${Question.timePosted }</td>
-							<td><c:choose>
-									<c:when test="${empty Question.answer}">X</c:when>
-									<c:otherwise>O</c:otherwise>
-								</c:choose></td>
-						</tr>
-					</c:forEach>
-				</table>
-				<br>
-				<br>
-				<c:set var="pb" value="${listVO.pagingBean}"></c:set>
-				<ul class="pagination pagination-sm">
-					<c:if test="${pb.previousPageGroup}">
-						<li><a
-							href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${pb.startPageOfPageGroup-1}">
-								&laquo;</a></li>
-					</c:if>
-					<c:forEach var="i" begin="${pb.startPageOfPageGroup}"
-						end="${pb.endPageOfPageGroup}">
-						<c:choose>
-							<c:when test="${pb.nowPage!=i}">
-								<li><a
-									href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${i}">${i}</a></li>
-							</c:when>
-							<c:otherwise>
-								<li class="active"><a>${i}</a></li>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-					<c:if test="${pb.nextPageGroup}">
-						<li><a
-							href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${pb.endPageOfPageGroup+1}">
-								&laquo;</a></li>
-					</c:if>
-				</ul>
-			</c:otherwise>
-		</c:choose>
+					<c:otherwise>
+						<table class="table table-striped table-hover "
+							style="width: 100%">
+							<tr class="active">
+								<th style="width: 5%;">No</th>
+								<th style="width: 40%;">Title</th>
+								<th style="width: 18%;">Writer</th>
+								<th style="width: 27%;">Posted Time</th>
+								<th style="width: 10%;">Answer</th>
+							</tr>
+							<c:forEach items="${listVO.list }" var="Question">
+								<tr>
+									<td>${Question.boardNo }</td>
+									<td><a
+										href="${initParam.root}interceptor_admin_showQuestion.do?boardNo=${Question.boardNo}">${Question.title }</a></td>
+									<td><a
+										href="${initParam.root}interceptor_member_getMemberVO.do?id=${Question.memberVO.id}">${Question.memberVO.name}(${Question.memberVO.id})</a></td>
+									<td>${Question.timePosted }</td>
+									<td><c:choose>
+											<c:when test="${empty Question.answer}">X</c:when>
+											<c:otherwise>O</c:otherwise>
+										</c:choose></td>
+								</tr>
+							</c:forEach>
+						</table>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</div>
+		<c:if test="${listVO.list!=null }">
+			<c:set var="pb" value="${listVO.pagingBean}"></c:set>
+			<ul class="pagination pagination-sm">
+				<c:if test="${pb.previousPageGroup}">
+					<li><a
+						href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${pb.startPageOfPageGroup-1}">
+							&laquo;</a></li>
+				</c:if>
+				<c:forEach var="i" begin="${pb.startPageOfPageGroup}"
+					end="${pb.endPageOfPageGroup}">
+					<c:choose>
+						<c:when test="${pb.nowPage!=i}">
+							<li><a
+								href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${i}">${i}</a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="active"><a>${i}</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${pb.nextPageGroup}">
+					<li><a
+						href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${pb.endPageOfPageGroup+1}">
+							&laquo;</a></li>
+				</c:if>
+			</ul>
+		</c:if>
 	</div>
 </div>
