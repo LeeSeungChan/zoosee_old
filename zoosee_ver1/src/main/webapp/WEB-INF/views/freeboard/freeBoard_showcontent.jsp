@@ -34,15 +34,15 @@
  	
 	function rereplyButton(index,grp,lvl,ref){
 		var rereplyform = "";
-		rereplyform+="<form action='interceptor_freeBoard_writeReply2.do' id='rereplyForm'>"; 
-		rereplyform+="<textarea rows='7' cols='50' name='content' id='content'> </textarea>";
+		rereplyform+="<div style=''><form action='interceptor_freeBoard_writeReply2.do' id='rereplyForm'>"; 
+		rereplyform+="<input class='BJBigButton2' type='submit' value='작성'>";
+		rereplyform+="<textarea class='BJform-controlBig3 input-lg'  style='resize:none;'  name='content' id='content'> </textarea>";
 		rereplyform+="<input type='hidden' name='grp' value="+grp+">";
 		rereplyform+="<input type='hidden' name='lvl' value="+lvl+"><br>";
 		rereplyform+="<input type='hidden' name='ref' value="+ref+">";
 		rereplyform+="<input type='hidden' name='id' value='${sessionScope.mvo.id }'>";
-		rereplyform+="<input type='submit' value='작성'>";
-		rereplyform+="<br>--------------------------------------------------------------";
-		rereplyform+="</form>";
+		rereplyform+="<hr>";
+		rereplyform+="</form></div>";
 		$("#rereply"+index).html(rereplyform); 
 	};
 	
@@ -54,7 +54,7 @@
 	
 </script>
 <!-- 자유게시판 상세보기 메인 -->
-<div class="BJMainDiv" style="border: 1px solid red;">
+<div class="BJMainDiv" >
 <div class="BJPanel" style="width:80%;	 margin-left:10%;">
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -73,7 +73,7 @@
 <div class="BJMain2Div" >
 <div class="BJWriteTableLine" >
 <div class="BJHrAllLine" >
-<div class="BJDeleteAndUpdateBtn"  style="border: 1px solid red;">
+<div class="BJDeleteAndUpdateBtn"  >
 	<c:if  test="${sessionScope.mvo.id==requestScope.freeBoardVO.memberVO.id }">
 			
 			<input type="button" name="delete" value="삭제" >
@@ -83,7 +83,7 @@
 </div>
 <table   class="BJFreeBoardShowContentTable ">
 	<tr>
-		<%-- <td>NO: ${requestScope.freeBoardVO.freeBoardNo }</td> --%>
+		
 		<td align="right">제목 : </td>
 		<td align="left" colspan=3>${requestScope.freeBoardVO.freeBoardTitle }</td>
 
@@ -113,48 +113,68 @@ ${requestScope.freeBoardVO.freeBoardContents }
 </form>
 <div class="BJReplyAllLine">
 <%--댓글리스트 --%>
-<table>
+<!-- 댓글리스트 div -->
+<div class="BJReplyList" >
+<table  style="width:100%;">
 	<c:forEach items="${requestScope.replyList }" var="reply" varStatus="status">
 		<tr>
-			<td>
+			
 			<c:if test="${reply.reply_no==0}">
-			>>
-			</c:if>
-			ID:${reply.id } 
-			</td>
-			<td>${reply.content }</td>
-			<td>${reply.time_posted }</td>
 			<td>
-			<c:if test="${reply.reply_no>0}">
-			<input type="button" value="댓글" onclick="rereplyButton(${status.index},${reply.grp },${reply.lvl},${reply.ref} )">
+			<img width="10" height="15" src="${initParam.root }resources/image/r1.jpg">
+			</td>
 			</c:if>
+			
+			<td align="left" style="width:6%;">
+			${reply.id } 
+			</td>
+			
+			<td align="left" style="width:18%;">${reply.time_posted }</td>
+			<td align="left">
+			<c:if test="${reply.reply_no>0}">
+			<input  class="BJbtn2" type="button" value="댓글" onclick="rereplyButton(${status.index},${reply.grp },${reply.lvl},${reply.ref} )">
+			</c:if>
+			</td>
+			<c:if test="${reply.reply_no!=0}">
+			<td>
+				
+			</td>
+			</c:if>
+			<td align="right">
 			<c:if test="${reply.con==0}">
-			<input type="button" value="삭제" onclick="del_reply(${reply.grp },${reply.lvl},${reply.ref})">
+			<input class="BJbtn2" type="button" value="삭제" onclick="del_reply(${reply.grp },${reply.lvl},${reply.ref})">
 			</c:if>
 			</td>
 		</tr>
-		<tr>
-			<td colspan="4">--------------------------------------------------------------</td>
+		<tr >
+		<c:if test="${reply.reply_no==0}">
+			<td></td>
+			</c:if>
+		<td colspan="5" align="left">${reply.content }</td>
 		</tr>
 		<tr>
-				<td colspan="4"><span id="rereply${status.index}"></span></td>
+			<td colspan="5"><hr></td>
+		</tr>
+		<tr>
+				<td colspan="5"><span id="rereply${status.index}"></span></td>
 		</tr>
 	</c:forEach>
 </table>
+</div >
 <%--댓글작성란 --%>
-<hr>
+<div class="BJReplyInput" >
 <form action="interceptor_freeBoard_writeReply.do" id="replyForm">
 	<table>
 		<tr>
-			<td><textarea rows="7" cols="50" name="content" id="content"></textarea></td>
-		</tr>
-		<tr>
-			<td align="center"><input type="submit" value="댓글쓰기"></td>
+			<td>${sessionScope.mvo.id }</td>
+			<td><textarea style="resize:none;" class="BJform-controlBig2 input-lg" name="content" id="content"  rows="3" cols="100"  ></textarea></td>
+			<td align="center"><input class="BJBigButton" 	type="submit" value="댓글쓰기"></td>
 		</tr>
 	</table>
 	<input type="hidden" name="id" value="${sessionScope.mvo.id }">
 	<input type="hidden" name="ref" value="${requestScope.freeBoardVO.freeBoardNo }">
 </form>	
+</div>
 </div>
 </div>
 

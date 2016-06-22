@@ -43,7 +43,7 @@
 	<tr>
 		<td>제목</td>
 		<td>
-		      <input class="BJform-control" id="focusedInput" type="text" name="freeBoardTitle" >
+		      <input class="BJform-control2" id="focusedInput" type="text" name="freeBoardTitle" >
 		  </td>
 		 
 		  
@@ -56,7 +56,7 @@
 
 	<tr>
 		<td>내용</td>
-		<td  align="center" colspan="2"><textarea  name="freeBoardContents" id="inputLarge" class="BJform-controlBig input-lg" rows="10" ></textarea> </td>
+		<td  align="center" colspan="2"><textarea   style="resize:none;" name="freeBoardContents" id="inputLarge" class="BJform-controlBig input-lg" rows="10" ></textarea> </td>
 	</tr>
 	<tr>
 		<td></td>
