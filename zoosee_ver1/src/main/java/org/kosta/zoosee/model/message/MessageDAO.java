@@ -9,7 +9,7 @@ public interface MessageDAO {
 
 	public abstract int countMessage(String id);
 
-	public abstract List<MessageVO> getMessageList(String pageNo, String id);
+	public abstract List<MessageVO> getMessageList(HashMap<String,String> map);
 
 	public abstract int getTotalMessage(String id);
 

@@ -41,7 +41,8 @@ public class MessageController {
 		HttpSession session = request.getSession(false);
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		String id = mvo.getId();
-		return new ModelAndView("message_list","list",messageService.getMessageList(pageNo,id));
+		ListVO list=messageService.getMessageList(pageNo,id);
+		return new ModelAndView("message_list","list",list);
 	}
 	
 	@RequestMapping("interceptor_message_uncheckedlist.do")

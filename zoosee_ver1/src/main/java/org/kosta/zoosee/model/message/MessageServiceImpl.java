@@ -24,7 +24,10 @@ public class MessageServiceImpl implements MessageService {
 		if(pageNo==null||pageNo==""){
 			pageNo="1";
 		}
-		List<MessageVO> list = messageDAO.getMessageList(pageNo,id);
+		HashMap<String ,String> map=new HashMap<String, String>();
+		map.put("pageNo", pageNo);
+		map.put("id", id);
+		List<MessageVO> list = messageDAO.getMessageList(map);
 		int total=messageDAO.getTotalMessage(id);
 		PagingBean pagingBean = new PagingBean(total,Integer.parseInt(pageNo));
 		ListVO listVO = new ListVO(list,pagingBean);

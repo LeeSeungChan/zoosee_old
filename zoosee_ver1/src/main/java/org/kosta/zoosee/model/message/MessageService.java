@@ -6,7 +6,7 @@ public interface MessageService {
 
 	public abstract int countMessage(String id);
 
-	public abstract Object getMessageList(String pageNo, String id);
+	public abstract ListVO getMessageList(String pageNo, String id);
 
 	public abstract MessageVO getMessageByNo(String message_no);
 

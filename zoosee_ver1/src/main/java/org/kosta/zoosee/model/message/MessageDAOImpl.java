@@ -21,10 +21,7 @@ public class MessageDAOImpl implements MessageDAO {
 	}
 
 	@Override
-	public List<MessageVO> getMessageList(String pageNo,String id) {
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("pageNo", pageNo);
-		map.put("id",id);
+	public List<MessageVO> getMessageList(HashMap<String,String> map) {
 		return template.selectList("message.getMessageList",map);
 	}
 
