@@ -2,8 +2,19 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
+<div class="BJHeaderLayout0">
+	<div class="BJHeaderLayout">
+		<div class="BJHeader2">
+			<a class="BJA" href="${initParam.root}interceptor_freeBoard_list.do">자유게시판</a> 
+			<a class="BJA" href="${initParam.root}interceptor_freeBoard_write.do" >자유게시판 글등록</a>
+			<a class="BJA" href="${initParam.root}interceptor_qna_list.do">Q&A게시판</a> 
+			<a class="BJA" href="${initParam.root}interceptor_qna_board_register.do">Q&A 등록</a>
+		</div>
+	</div>
+</div>
 <!-- 메인레이아웃 -->
 <div class="BJMainDiv" >
+
 <div class="BJPanel" style="width:80%;	 margin-left:10%;">
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -12,6 +23,9 @@
   <div class="panel-body">
     자유게시판은 펫맘들과 펫시터들의 소통을 위한 공간입니다.
   </div>
+</div>
+<div class="well well-sm">
+  목록
 </div>
 </div>
 <!-- 자유게시판레이아웃 -->
@@ -52,14 +66,13 @@
   </tbody>
 </table>
 
+
+
+</div>
+</div>
 <!-- 자유게시판 페이징 -->
 <div class="BJFreeBoardListPagingDiv" style=" text-align: center;">
-<!-- 자유게시판 글쓰기 버튼 -->
-<div class="BJFreeBoardListWriteBtnDiv" >
-<c:if test="${sessionScope.mvo!=null }">
-		<a href="${initParam.root}interceptor_freeBoard_write.do" style="font-size:18px;">+ 글쓰기</a>
-</c:if>
-</div>
+
 <ul class="pagination pagination-sm">
   <c:set var="pb" value="${requestScope.listVO.pagingBean}"></c:set>
   <c:choose>
@@ -97,10 +110,6 @@
 </ul>
 	
 </div>
-
-</div>
-</div>
-
 </div>
 </div>
 

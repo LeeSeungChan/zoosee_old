@@ -8,9 +8,10 @@
 <div class="BJHeaderLayout0">
 	<div class="BJHeaderLayout">
 		<div class="BJHeader2">
-			<a class="BJA" href="${initParam.root}interceptor_qna_list.do">Q&A
-				목록</a> <a class="BJA"
-				href="${initParam.root}interceptor_qna_board_register.do">Q&A 등록</a>
+			<a class="BJA" href="${initParam.root}interceptor_freeBoard_list.do">자유게시판</a> 
+			<a class="BJA" href="${initParam.root}interceptor_freeBoard_write.do" >자유게시판 글등록</a>
+			<a class="BJA" href="${initParam.root}interceptor_qna_list.do">Q&A게시판</a> 
+			<a class="BJA" href="${initParam.root}interceptor_qna_board_register.do">Q&A 등록</a>
 		</div>
 	</div>
 </div>
