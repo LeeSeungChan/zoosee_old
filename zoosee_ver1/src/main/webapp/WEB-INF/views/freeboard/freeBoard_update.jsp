@@ -19,7 +19,7 @@
     });	
 </script>
 <!-- 자유게시판 업데이트 메인 -->
-<div class="BJMainDiv" style="border: 1px solid red;">
+<div class="BJMainDiv" >
 <div class="BJPanel" style="width:80%;	 margin-left:10%;">
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -33,7 +33,9 @@
   게시물 수정
 </div>
 </div>
-<div class="BJMain2Div" style="border: 1px solid red;">
+<div class="BJMain2Div" >
+	<div class="BJWriteTableLine">
+				<div class="SBHrAllLine">
 <form method="post" id="updateForm" action="${initParam.root}interceptor_freeBoard_updateFreeBoard.do?freeBoardNo=${requestScope.freeBoardVO.freeBoardNo }">
 <div class="form-group" >
 	<table  class="BJFreeBoardWriteTableDiv">
@@ -67,5 +69,7 @@
 </table>
 </div>
 </form> 
+</div>	
+</div>
 </div>	
 </div>

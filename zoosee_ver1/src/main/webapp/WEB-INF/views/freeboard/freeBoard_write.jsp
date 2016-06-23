@@ -39,6 +39,7 @@
 </div>
 <div class="form-group">
 <div class="BJWriteTableLine">
+	<div class="SBHrAllLine">
 	<table  class="BJFreeBoardWriteTableDiv" >
 	<tr>
 		<td>제목</td>
@@ -68,6 +69,7 @@
 		
 	</tr>
 </table>
+</div>
 </div>
 </div>
 </div>

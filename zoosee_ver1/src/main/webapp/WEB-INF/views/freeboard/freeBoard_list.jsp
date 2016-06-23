@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
 <!-- 메인레이아웃 -->
 <div class="BJMainDiv" >
@@ -16,7 +16,8 @@
 </div>
 <!-- 자유게시판레이아웃 -->
 <div class="BJMain2Div" >
-
+	<div class="BJWriteTableLine">
+				<div class="SBHrAllLine">
 
 	<table class="table table-striped table-hover ">
   <thead>
@@ -98,7 +99,9 @@
 </div>
 
 </div>
+</div>
 
+</div>
 </div>
 
 
