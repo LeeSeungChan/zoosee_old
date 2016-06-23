@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- 펫시터  리스트 보여주는 화면
 	   
  -->
@@ -71,10 +71,10 @@
 					<table class="table table-striped table-hover"
 						id="petsitterlistTable">
 						<tr>
-							<td style="width: 10%">Pet Sitter No</td>
-							<td style="width: 10%">Id</td>
-							<td style="width: 10%">Name</td>
-							<td style="width: 10%">관리</td>
+							<th style="width: 10%">Pet Sitter No</th>
+							<th style="width: 10%">Id</th>
+							<th style="width: 10%">Name</th>
+							<th style="width: 10%">관리</th>
 						</tr>
 						<c:forEach items="${requestScope.listVO.list }" var="l">
 							<tr>

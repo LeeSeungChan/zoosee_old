@@ -57,9 +57,9 @@
 				<form id="memberlistForm">
 					<table class="table table-striped table-hover" id="memberlistTable">
 						<tr>
-							<td style="width: 10%">Id</td>
-							<td style="width: 10%">Name</td>
-							<td style="width: 10%">관리</td>
+							<th style="width: 10%">Id</th>
+							<th style="width: 10%">Name</th>
+							<th style="width: 10%">관리</th>
 						</tr>
 						<c:forEach items="${requestScope.listVO.list }" var="l">
 							<tr>

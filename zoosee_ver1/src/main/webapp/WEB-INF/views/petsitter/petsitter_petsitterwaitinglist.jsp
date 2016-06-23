@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- 펫시터 승인 대기 리스트 보여주는 화면
 	   승인 버튼을 누르면 petsitter_recognitionPetsitter.do로 petsitterNo 넘김
 	   petsitterNo로 해당 펫시터 찾아서 recog -> "승인"으로 update
@@ -73,10 +73,10 @@
 				<form id="recogForm">
 					<table class="table table-striped table-hover" id="recogTable">
 						<tr>
-							<td style="width: 10%">Pet Sitter No</td>
-							<td style="width: 10%">Id</td>
-							<td style="width: 10%">Name</td>
-							<td style="width: 10%">관리</td>
+							<th style="width: 10%">Pet Sitter No</th>
+							<th style="width: 10%">Id</th>
+							<th style="width: 10%">Name</th>
+							<th style="width: 10%">관리</th>
 						</tr>
 						<c:forEach items="${requestScope.listVO.list }" var="l">
 							<tr>
