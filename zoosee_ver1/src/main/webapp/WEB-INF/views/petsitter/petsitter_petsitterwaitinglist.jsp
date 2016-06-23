@@ -41,20 +41,23 @@
 </script>
 <link rel="stylesheet" type="text/css"
 	href="${initParam.root}resources/css/sb.css">
-		<!-- 더블헤더 -->
+<!-- 더블헤더 -->
 <div class="BJHeaderLayout0">
-<div class="BJHeaderLayout" >
-<div class="BJHeader2" >
-	<a class="BJA"  href="${initParam.root}interceptor_member_memberlist.do?rank=normal">일반회원</a>
-	<a class="BJA" href="${initParam.root}interceptor_petsitter_petsitterList.do?value=recog">펫시터</a>
-	<a class="BJA" href="${initParam.root}interceptor_petsitter_petsitterList.do?value=nonrecog">펫시터 신청자</a>
+	<div class="BJHeaderLayout">
+		<div class="BJHeader2">
+			<a class="BJA"
+				href="${initParam.root}interceptor_member_memberlist.do?rank=normal">일반회원</a>
+			<a class="BJA"
+				href="${initParam.root}interceptor_petsitter_petsitterList.do?value=recog">펫시터</a>
+			<a class="BJA"
+				href="${initParam.root}interceptor_petsitter_petsitterList.do?value=nonrecog">펫시터
+				신청자</a>
 
 
+		</div>
 	</div>
 </div>
-</div>
-<div class="BJMainDiv"
-	style=" margin-bottom: 10%;">
+<div class="BJMainDiv" style="margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -65,34 +68,41 @@
 		<div class="well well-sm">Pre Pet Sitter List</div>
 	</div>
 	<div class="BJMain2Div" align="center">
-		
-		<form id="recogForm">
-			<table class="table table-striped table-hover" id="recogTable">
-				<tr>
-					<td style="width: 10%">Pet Sitter No</td>
-					<td style="width: 10%">Id</td>
-					<td style="width: 10%">Name</td>
-					<td style="width: 10%">관리</td>
-				</tr>
-				<c:forEach items="${requestScope.listVO.list }" var="l">
-					<tr>
-						<td>${l.petsitterNo}</td>
-						<td>${l.memberVO.id}</td>
-						<td><a
-							href="interceptor_petsitter_getPetsitterVO.do?petsitterNo=${l.petsitterNo}&value=nonrecog">${l.memberVO.name}</a></td>
-						<td><input type="button" name="recogBtn" value="승인"></td>
-					</tr>
-				</c:forEach>
-			</table>
-		</form>
-		<br> <br>
-		<c:if test="${listVO.list != null}">
+		<div class="BJWriteTableLine">
+			<div class="SBHrAllLine_1">
+				<form id="recogForm">
+					<table class="table table-striped table-hover" id="recogTable">
+						<tr>
+							<td style="width: 10%">Pet Sitter No</td>
+							<td style="width: 10%">Id</td>
+							<td style="width: 10%">Name</td>
+							<td style="width: 10%">관리</td>
+						</tr>
+						<c:forEach items="${requestScope.listVO.list }" var="l">
+							<tr>
+								<td>${l.petsitterNo}</td>
+								<td>${l.memberVO.id}</td>
+								<td><a
+									href="interceptor_petsitter_getPetsitterVO.do?petsitterNo=${l.petsitterNo}&value=nonrecog">${l.memberVO.name}</a></td>
+								<td><input type="button" name="recogBtn" value="승인"></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</form>
+			</div>
+		</div>
+		<c:if test="${! empty listVO.list}">
 			<ul class="pagination pagination-sm">
 				<c:set var="pb" value="${listVO.pagingBean}"></c:set>
-				<c:if test="${pb.previousPageGroup}">
-					<li><a
-						href="interceptor_petsitter_petsitterList.do?value=nonrecog&pageNo=${pb.startPageOfPageGroup-1}">&laquo;</a></li>
-				</c:if>
+				<c:choose>
+					<c:when test="${pb.previousPageGroup}">
+						<li><a
+							href="interceptor_petsitter_petsitterList.do?value=nonrecog&pageNo=${pb.startPageOfPageGroup-1}">&laquo;</a></li>
+					</c:when>
+					<c:otherwise>
+						<li class="disabled"><a>&laquo;</a></li>
+					</c:otherwise>
+				</c:choose>
 				<c:forEach var="i" begin="${pb.startPageOfPageGroup}"
 					end="${pb.endPageOfPageGroup}">
 					<c:choose>
@@ -106,10 +116,15 @@
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
-				<c:if test="${pb.nextPageGroup}">
-					<li><a
-						href="interceptor_petsitter_petsitterList.do?value=nonrecog&pageNo=${pb.endPageOfPageGroup+1}">&laquo;</a></li>
-				</c:if>
+				<c:choose>
+					<c:when test="${pb.nextPageGroup}">
+						<li><a
+							href="interceptor_petsitter_petsitterList.do?value=nonrecog&pageNo=${pb.endPageOfPageGroup+1}">&raquo;</a></li>
+					</c:when>
+					<c:otherwise>
+						<li class="disabled"><a>&raquo;</a></li>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 		</c:if>
 	</div>

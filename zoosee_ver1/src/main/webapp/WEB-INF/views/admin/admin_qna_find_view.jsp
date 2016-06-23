@@ -20,8 +20,7 @@
 		</div>
 	</div>
 </div>
-<div class="BJMainDiv"
-	style=" margin-bottom: 10%;">
+<div class="BJMainDiv" style="margin-bottom: 10%;">
 	<div class="BJPanel" style="width: 80%; margin-left: 10%;">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -37,8 +36,10 @@
 			<div class="SBHrAllLine_1">
 				<c:choose>
 					<c:when test="${empty listVO.list}">
-						<br>검색하신 이용자의 질문 내역이 없습니다.
-	</c:when>
+						<div style="margin-bottom: 5%;">
+							<br>검색하신 이용자의 질문 내역이 없습니다.
+						</div>
+					</c:when>
 					<c:otherwise>
 						<table class="table table-striped table-hover "
 							style="width: 100%">
@@ -68,14 +69,19 @@
 				</c:choose>
 			</div>
 		</div>
-		<c:if test="${listVO.list!=null }">
+		<c:if test="${! empty listVO.list }">
 			<c:set var="pb" value="${listVO.pagingBean}"></c:set>
 			<ul class="pagination pagination-sm">
-				<c:if test="${pb.previousPageGroup}">
-					<li><a
-						href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${pb.startPageOfPageGroup-1}">
-							&laquo;</a></li>
-				</c:if>
+				<c:choose>
+					<c:when test="${pb.previousPageGroup}">
+						<li><a
+							href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${pb.startPageOfPageGroup-1}">
+								&laquo;</a></li>
+					</c:when>
+					<c:otherwise>
+						<li class="disabled"><a>&laquo;</a></li>
+					</c:otherwise>
+				</c:choose>
 				<c:forEach var="i" begin="${pb.startPageOfPageGroup}"
 					end="${pb.endPageOfPageGroup}">
 					<c:choose>
@@ -88,11 +94,16 @@
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
-				<c:if test="${pb.nextPageGroup}">
-					<li><a
-						href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${pb.endPageOfPageGroup+1}">
-							&laquo;</a></li>
-				</c:if>
+				<c:choose>
+					<c:when test="${pb.nextPageGroup}">
+						<li><a
+							href="${initParam.root}interceptor_admin_qna_find_view.do?id=${param.id}&pageNo=${pb.endPageOfPageGroup+1}">
+								&raquo;</a></li>
+					</c:when>
+					<c:otherwise>
+						<li class="disabled"><a>&raquo;</a></li>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 		</c:if>
 	</div>
