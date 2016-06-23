@@ -23,7 +23,9 @@
 <div class="BJHeader2" >
 	<a class="BJA" href="${initParam.root}interceptor_member_detail.do">마이페이지</a>
 	<a class="BJA" href="${initParam.root}interceptor_member_update.do">회원정보수정</a>
-
+   	<c:if test="${sessionScope.mvo.rank == 'petsitter' || sessionScope.mvo.rank == 'petmaster'}">
+       <a class="BJA" href="${initParam.root}interceptor_petsitterboard_registerform.do?id=${sessionScope.mvo.id}"> 돌보미게시글등록</a>
+      </c:if>
 	</div>
 </div>
 </div>

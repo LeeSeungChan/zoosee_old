@@ -123,7 +123,7 @@
 						<tr>
 							<th>Title</th>
 							<td colspan="3"><input class="SBform-text" type="text"
-								name="petsitterboard_title" /></td>
+								name="petsitterboard_title" placeholder="제목을 입력하세요." /></td>
 						</tr>
 						<tr>
 							<th style="vertical-align: middle; width: 10%">StartDay</th>
@@ -185,16 +185,16 @@
 						<tr>
 							<th style="vertical-align: middle;">Price</th>
 							<td><input type="text" class="SBform-text"
-								style="width: 60%;">원</td>
+								style="width: 80%;" placeholder="1박 한마리 기준으로 입력해주세요."></td>
 							<td colspan="2" style="vertical-align: middle;">
-								<div style="float: left;">가격은 1박 한마리 기준으로 입력해주세요.</div>
+								<!-- <div style="float: left;">가격은 1박 한마리 기준으로 입력해주세요.</div> -->
 							</td>
 						</tr>
 						<tr>
 							<th>Content</th>
 							<td colspan="3"><textarea id="ta"
 									name="petsitterboard_contents" class="SBform-textarea"
-									style="height: 400px; resize: none;"></textarea></td>
+									style="height: 400px; resize: none;" placeholder="자신의 펫 시터 활동을 홍보할 수 있는 내용을 입력하세요."></textarea></td>
 					</table>
 				</div>
 			</div>
