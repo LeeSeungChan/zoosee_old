@@ -22,4 +22,6 @@ public interface PetsitterDAO {
 	public abstract int update(PetsitterVO petsitterVO);
 
 	public abstract int petsitterListCount(String value);
+
+	public abstract void updateRank(String id);
 }

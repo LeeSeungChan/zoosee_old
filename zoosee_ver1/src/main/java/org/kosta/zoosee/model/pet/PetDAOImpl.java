@@ -41,4 +41,14 @@ public class PetDAOImpl implements PetDAO {
 	public void deletePet(int petNo) {
 		template.delete("pet.delete", petNo);
 	}
+
+	@Override
+	public PetVO getPetVO(String id) {
+ 		return template.selectOne("pet.getPetVO", id);
+	}
+
+	@Override
+	public PetVO detailPetAndMemberInfo(String id) {
+		return template.selectOne("pet.detailPetAndMemberInfo",id);
+	}
 }

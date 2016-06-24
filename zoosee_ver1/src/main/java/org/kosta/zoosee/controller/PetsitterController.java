@@ -30,6 +30,11 @@ public class PetsitterController {
 	@Resource(name="petsitterUploadPath")
 	private String uploadPath;
 	
+	@RequestMapping("interceptor_petsitter_register.do")
+	public ModelAndView petsitterRegisterForm(){
+		return new ModelAndView("petsitter_register");
+	}
+	
 	@RequestMapping("interceptor_petsitter_registerPetsitter.do")
 	   public ModelAndView registerPetsitter(HttpServletRequest request,
 	         PetsitterVO petsitterVO,FileVO fileVO){
@@ -112,7 +117,6 @@ public class PetsitterController {
 			ModelAndView mv=new ModelAndView("petsitter_petsitterInfo");
 			mv.addObject("pvo", pvo);
 			mv.addObject("value", value);
-			System.out.println(pvo);
 			return mv;
 		}
 		
@@ -159,7 +163,4 @@ public class PetsitterController {
 		    petsitterService.update(petsitterVO);
 			return new ModelAndView("redirect:home.do");
 		}
-		
-	
-
 }

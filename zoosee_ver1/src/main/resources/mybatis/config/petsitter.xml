@@ -18,8 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<insert id="registerPetsitter"  parameterType="petsitterVO" >
- 		insert into petsitter
- 		(petsitterNo,petNumber,service,price,petSize,petType,houseImg,petsitterImg,adminrecog,id)
+ 		insert into petsitter(petsitterNo,petNumber,service,price,petSize,petType,houseImg,petsitterImg,adminrecog,id)
 		values
 		(petsitterNo_seq.nextval,#{petNumber},#{service},#{price},#{petSize},#{petType},#{houseImg},#{petsitterImg},'nonrecog',#{memberVO.id})
  	</insert>
@@ -54,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="findPetsitterById" resultType="petsitterVO" resultMap="petsitterRM">
 		select p.petsitterNo,p.petNumber,p.service,p.price,p.petSize,p.petType,p.houseImg,p.petsitterImg,p.adminRecog,
-		         pm.id,pm.name ,pm.address, pm.gender, pm.email, pm.tel, pm.job,pm.existence
+		         pm.id,pm.name,pm.address,pm.gender,pm.email,pm.tel,pm.job,pm.rank,pm.existence
 			from petsitter p ,pet_member pm
 		where p.id=pm.id and pm.id=#{value}
 	</select>
@@ -64,7 +63,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
  	
  	<update id="update" parameterType="petsitterVO">
-       update petsitter set price=#{price},petType=#{petType},petSize=#{petSize},petNumber=#{petNumber},service=#{service},houseImg=#{houseImg},petsitterImg=#{petsitterImg},adminRecog=#{adminRecog} where petsitterNo=#{petsitterNo}
+       update petsitter set price=#{price},petType=#{petType},petSize=#{petSize},petNumber=#{petNumber},service=#{service},houseImg=#{houseImg},petsitterImg=#{petsitterImg},adminRecog=#{adminRecog}
+       where petsitterNo=#{petsitterNo}
     </update>
     
 </mapper>

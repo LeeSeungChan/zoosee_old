@@ -21,7 +21,6 @@
       <input type="text" class="WJform-control3" name="address" placeholder="서울/경기/인천" />
    </div>
    
-   
    <div style="float: right; width: 29%;">   
       <button type="submit" class="active WJbtn2 btn-block btn-default">펫시터찾기</button>
    </div>

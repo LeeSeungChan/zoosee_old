@@ -1,35 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
-<script src="${initParam.root}resources/js/jquery-1.12.4.min.js"></script>
-<script>
-$.ajax({
-   type:"POST",
-   url:"countMessage.do",
-   data:id="id=${sessionScope.mvo.id}",
-   dataType:"json", 
-   success:function(result){
-      if(result.count=="0"){
-      $("#message").html("메세지");
-      }else{
-    	$("#message").html("<img src='${initParam.root}resources/image/new.png''>메세지("+result.count+")");
-      }
-   }
-})
-
-
-   $(document).ready(function(){
-      
-      $(".dropdown-toggle").click(function(){
-         if($(this).parent().attr("class")=="dropdown"){
-            $(this).parent().attr("class","dropdown open");
-         }else{
-            $(this).parent().attr("class","dropdown");
-         }   
-      });
-   });
-   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+  
+<script type="text/javascript">
+  	$(document).ready(function(){
+  		$.ajax({
+ 		   type:"POST",
+ 		   url:"countMessage.do",
+ 		   data:id="id=${sessionScope.mvo.id}",
+ 		   dataType:"json", 
+ 		   success:function(result){
+ 		      if(result.count=="0"){
+ 		      $("#message").html("메세지");
+ 		      }else{
+ 		    	$("#message").html("<img src='${initParam.root}resources/image/new.png''>메세지("+result.count+")");
+ 		      }
+ 		   }
+ 		});
+  		
+  		 $(".dropdown-toggle").click(function(){
+  	         if($(this).parent().attr("class")=="dropdown"){
+  	            $(this).parent().attr("class","dropdown open");
+  	         }else{
+  	            $(this).parent().attr("class","dropdown");
+  	         }   
+  	      });
+  	})
 </script> <!-- navbar-fixed-top -->
+
 <nav class="navbar navbar-default  " >
   <div class="container-fluid" >
     <div class="navbar-header">
@@ -53,7 +51,14 @@ $.ajax({
          </c:when>
          <c:otherwise>
                <ul class="nav navbar-nav navbar-right">
-               <li><a href="${initParam.root}petsitter_register.do">돌보미신청</a></li>
+               
+               <c:if test="${mvo.rank == 'petsitter' || mvo.rank== 'petmaster' || mvo.rank == 'prepetmatster'}">
+               		<li><a href="${initParam.root}interceptor_petsitterboard_registerform.do?id=${sessionScope.mvo.id}">글 등록</a></li>
+               </c:if>
+               <c:if test="${mvo.rank == 'normal' || mvo.rank== 'petmom'}">
+               		<li><a href="${initParam.root}interceptor_petsitter_register.do">돌보미신청</a></li>
+               </c:if>
+               
                <li><a href="${initParam.root}interceptor_petsitter_updateform.do">돌보미 정보 수정</a></li>
                <li><a href="${initParam.root}interceptor_freeBoard_list.do?">자유게시판</a></li>
                <li><a href="${initParam.root}interceptor_petsitter_petsitterList.do?value=recog">회원리스트 및 승인(관리자)</a></li>

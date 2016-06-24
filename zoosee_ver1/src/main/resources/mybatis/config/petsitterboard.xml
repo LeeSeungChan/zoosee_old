@@ -32,8 +32,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<selectKey keyProperty="petsitterboard_no" resultType="int" order="BEFORE">
 			select petsitterboard_no_seq.nextval from dual
 		</selectKey>
-		insert into PETSITTERBOARD
-		values(#{petsitterboard_no},#{petsitterboard_title},#{petsitterboard_contents},#{petsitterVO.petsitterNo})
+		insert into PETSITTERBOARD(petsitterboard_no,petsitterboard_title,petsitterboard_contents,startDay,endDay,petsitterNo)
+		values(#{petsitterboard_no},#{petsitterboard_title},#{petsitterboard_contents},#{startDay},#{endDay},#{petsitterVO.petsitterNo})
 	</insert>
 	
 	<update id="updatePetsitterVO" parameterType="petsitterVO">
@@ -86,17 +86,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="petsitterImg" property="petsitterVO.petsitterImg"/>
 		<result column="houseImg" property="petsitterVO.houseImg"/>
 		<result column="adminRecog" property="petsitterVO.adminRecog"/>
+		<result column="id" property="petsitterVO.memberVO.id" />
 		<result column="address" property="petsitterVO.memberVO.address"/>
 		<result column="name" property="petsitterVO.memberVO.name" />
 	</resultMap>
 	<select id="getboardDetail" parameterType="int" resultMap="petsitterboardRM">
-		select pb.petsitterboard_no,pb.petsitterboard_title,pb.petsitterboard_contents,pb.petsitterNo,
+		select pb.petsitterboard_no,pb.petsitterboard_title,pb.petsitterboard_contents,pb.startDay,pb.endDay,pb.petsitterNo,
 	   		   ps.petNumber,ps.service,ps.price,ps.petSize,ps.petType,ps.petsitterImg,ps.houseImg,
 	   		   m.name,m.address,m.id
-		from (SELECT petsitterboard_no,petsitterboard_title,petsitterboard_contents,petsitterNo
+		from (SELECT petsitterboard_no,petsitterboard_title,petsitterboard_contents,startDay,endDay,petsitterNo
 			  FROM petsitterboard
 			  where petsitterboard_no=#{value}) pb, petsitter ps, pet_member m
 		where ps.id=m.id and ps.petsitterNo=pb.petsitterNo 
+	</select>	
+	
+	<select id="getBoardVOByPetsitterId" parameterType="string" resultMap="petsitterboardRM">
+		SELECT pb.petsitterboard_no,pb.petsitterboard_title,pb.petsitterboard_contents,pb.startDay,pb.endDay,pb.petsitterNo,
+	   		   A.petNumber,A.service,A.price,A.petSize,A.petType,A.houseImg,A.petsitterImg,A.adminRecog,A.name
+		FROM(SELECT ps.petsitterNo,ps.petNumber,ps.service,ps.price,ps.petSize,ps.petType,ps.houseImg,ps.petsitterImg,
+					ps.adminRecog,ps.id,m.name
+	 		 FROM PETSITTER ps, PET_MEMBER m
+			 WHERE ps.id=m.id and ps.id=#{value}) A, PETSITTERBOARD pb
+		WHERE a.petsitterNo=pb.petsitterNo
 	</select>
 	
 </mapper>

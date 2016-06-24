@@ -46,6 +46,11 @@ public class PetsitterDAOImpl implements PetsitterDAO {
 	}
 
 	@Override
+	public void updateRank(String id) {
+		template.update("petsitter.updateRank", id);
+	}
+
+	@Override
 	public PetsitterVO findPetsitterById(String id) {
 		return template.selectOne("petsitter.findPetsitterById",id);
 	}
@@ -54,5 +59,4 @@ public class PetsitterDAOImpl implements PetsitterDAO {
 	public int update(PetsitterVO petsitterVO) {
 		return template.update("petsitter.update",petsitterVO);
 	}
-
 }

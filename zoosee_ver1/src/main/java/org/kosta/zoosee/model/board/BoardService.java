@@ -8,8 +8,6 @@ import org.kosta.zoosee.model.vo.PetsitterboardVO;
 
 public interface BoardService {
 
-	PetsitterVO findPetsitterById(String id);
-
 	void registerPetsitterboard(PetsitterboardVO petsitterboardVO, PetsitterVO petsitterVO);
 
 	List<PetsitterboardVO> getConditionList(HashMap<String, String> map);
@@ -17,5 +15,7 @@ public interface BoardService {
 	int totalCount(String service, String petSize, String petType);
 
 	PetsitterboardVO getboardDetail(int petsitterboard_no);
+
+	List<String> getPetCalendarDate(int petsitterboard_no);
 
 }
