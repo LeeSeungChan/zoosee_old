@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.kosta.zoosee.model.member.ListVO;
-import org.kosta.zoosee.model.member.MemberSerivce;
+import org.kosta.zoosee.model.member.MemberService;
 import org.kosta.zoosee.model.vo.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MemberController {
 	@Resource
-	private MemberSerivce memberService;
+	private MemberService memberService;
 	
 	/* Member 회원가입하는 메서드 */
 	@RequestMapping(value="registerMember.do", method=RequestMethod.POST)

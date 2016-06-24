@@ -63,7 +63,6 @@ public class PetServiceImpl implements PetService {
 
 	@Override
 	public void petUpdateResult(PetVO vo) {
-		//System.out.println("서비스임플");
 		petDAO.petUpdateResult(vo);
 	}
 
@@ -75,5 +74,10 @@ public class PetServiceImpl implements PetService {
 	@Override
 	public void deletePet(int petNo) {
 		petDAO.deletePet(petNo);
+	}
+	
+	@Override
+	public PetVO detailPetAndMemberInfo(String id) {
+		return petDAO.detailPetAndMemberInfo(id);
 	}
 }

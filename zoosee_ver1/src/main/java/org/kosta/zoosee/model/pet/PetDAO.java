@@ -17,4 +17,8 @@ public interface PetDAO {
 	public abstract void updatePetNoImg(PetVO pvo);
 
 	public abstract void deletePet(int petNo);
+
+	public abstract PetVO getPetVO(String id);
+	
+	public abstract PetVO detailPetAndMemberInfo(String id);
 }

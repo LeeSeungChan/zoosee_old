@@ -18,4 +18,6 @@ public interface PetsitterService {
 
 		public abstract void update(PetsitterVO petsitterVO);
 
+		public abstract void updateRank(String id);
+
 }

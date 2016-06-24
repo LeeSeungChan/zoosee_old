@@ -11,7 +11,7 @@ import org.kosta.zoosee.model.vo.MessageVO;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MemberServiceImpl implements MemberSerivce {
+public class MemberServiceImpl implements MemberService {
 	@Resource
 	private MemberDAO memberDAO;
 	@Resource

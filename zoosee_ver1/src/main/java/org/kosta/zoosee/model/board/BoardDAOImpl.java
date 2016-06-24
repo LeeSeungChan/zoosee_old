@@ -21,12 +21,6 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	// id에 해당하는 PETSITTER 찾기
-	public PetsitterVO findPetsitterById(String id) {
- 		return template.selectOne("petsitter.findPetsitterById", id);
-	}
-
-	@Override
 	// PETSITTERBOARD DB에 insert
 	public void registerPetsitterboard(PetsitterboardVO petsitterboardVO) {
 		template.insert("petsitterboard.registerPetsitterboard", petsitterboardVO);
@@ -39,14 +33,12 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	public List<PetsitterboardVO> getConditionList(HashMap<String, String> map) 
-	{
+	public List<PetsitterboardVO> getConditionList(HashMap<String, String> map) {
 		return template.selectList("petsitterboard.getConditionList", map);
 	}
 
 	@Override
-	public int totalCount(HashMap<String, String> map) 
-	{
+	public int totalCount(HashMap<String, String> map) {
 		List<Integer> list = template.selectList("petsitterboard.gettotalCount",map);
 		int count = list.get(0);
 		return count;
@@ -55,5 +47,11 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public PetsitterboardVO getboardDetail(int petsitterNo) {
  		return template.selectOne("petsitterboard.getboardDetail", petsitterNo);
+	}
+	
+	// Error 뜬다!! 펫시터가 여러 글을 등록해두면	 
+	@Override	 
+	public PetsitterboardVO getBoardVOByPetsitterId(String id) {	 
+		return template.selectOne("petsitterboard.getBoardVOByPetsitterId", id);	 
 	}
 }

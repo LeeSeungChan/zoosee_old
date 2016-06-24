@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 	
-		<insert id="registerMember" parameterType="memberVO">
+	<insert id="registerMember" parameterType="memberVO">
 		insert into Pet_MEMBER(id,name,addresscode,address,detailaddress,gender,email,password,tel,job,rank,existence)
 		values(#{id},#{name},#{addressCode},#{address},#{detailAddress},#{gender},#{email},#{password},#{tel},#{job},#{rank},#{existence})
 	</insert>
@@ -50,5 +50,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="upgradeRank">
 		update pet_member set rank=#{rank} where id=#{id}
 	</update>
+	
+	<!-- 이승찬 추가 - 혹시 몰라서 백업용 -->
+	<!-- <update id="registerPet">
+		update pet_member set rank='petmom' where id=#{id}
+	</update>
+	<update id="registerPetMaster">
+		update pet_member set rank='petmaster' where id=#{id}
+	</update> -->
 	
 </mapper>

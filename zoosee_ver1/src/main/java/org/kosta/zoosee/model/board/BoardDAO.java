@@ -10,8 +10,6 @@ public interface BoardDAO {
 
 	List<PetsitterboardVO> getBoardList(String search);
 
-	PetsitterVO findPetsitterById(String id);
-
 	void registerPetsitterboard(PetsitterboardVO petsitterboardVO);
 
 	void updatePetsitterVO(PetsitterVO petsitterVO);
@@ -20,6 +18,8 @@ public interface BoardDAO {
 
 	int totalCount(HashMap<String, String> map);
 
-	PetsitterboardVO getboardDetail(int petsitterNo);
+	PetsitterboardVO getboardDetail(int petsitterboard_no);
+
+	PetsitterboardVO getBoardVOByPetsitterId(String id);
 
 }
